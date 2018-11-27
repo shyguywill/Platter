@@ -88,6 +88,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		751910F021ADF8D800CB9BE5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				751947E721ADE43A0059F59A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		751910F121ADF92C00CB9BE5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				751947EE21ADE43B0059F59A /* LaunchScreen.storyboard */,
+				751947E921ADE43A0059F59A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		751910F221ADF96100CB9BE5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		751947D921ADE4390059F59A = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +137,10 @@
 			children = (
 				7519480521ADE4F00059F59A /* Secrets.swift */,
 				751947E521ADE43A0059F59A /* AppDelegate.swift */,
-				751947E721ADE43A0059F59A /* ViewController.swift */,
-				751947E921ADE43A0059F59A /* Main.storyboard */,
+				751910F121ADF92C00CB9BE5 /* View */,
+				751910F021ADF8D800CB9BE5 /* Controller */,
+				751910F221ADF96100CB9BE5 /* Model */,
 				751947EC21ADE43B0059F59A /* Assets.xcassets */,
-				751947EE21ADE43B0059F59A /* LaunchScreen.storyboard */,
 				751947F121ADE43B0059F59A /* Info.plist */,
 			);
 			path = Platter;
