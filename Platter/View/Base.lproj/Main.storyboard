@@ -1,24 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Screen Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeScreenController" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tabBar contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="p4D-VD-L0c">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem tag="1" title="Home" image="Home" id="D9v-7m-VjN">
+                                        <color key="badgeColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="2" title="Saved Meals" image="Meals" id="wz2-xB-McT">
+                                        <color key="badgeColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tabBarItem>
+                                </items>
+                                <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedImageTintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tabBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGV-h1-48X" userLabel="LabelView">
+                                <rect key="frame" x="67" y="110" width="241" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lets cook!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUR-Rd-4YE">
+                                        <rect key="frame" x="21" y="44" width="199" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="8ZC-ge-flR"/>
+                                            <constraint firstAttribute="height" constant="40" id="ebN-rl-b50"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="yUR-Rd-4YE" firstAttribute="centerY" secondItem="XGV-h1-48X" secondAttribute="centerY" id="7kn-HJ-EuS"/>
+                                    <constraint firstItem="yUR-Rd-4YE" firstAttribute="top" secondItem="XGV-h1-48X" secondAttribute="top" constant="44" id="hua-Pe-j59"/>
+                                    <constraint firstItem="yUR-Rd-4YE" firstAttribute="centerX" secondItem="XGV-h1-48X" secondAttribute="centerX" id="mKH-cX-nyt"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDr-Wt-x5e" userLabel="buttonView">
+                                <rect key="frame" x="16" y="246" width="343" height="291"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-Lg-qhx">
+                                        <rect key="frame" x="34" y="8" width="275" height="275"/>
+                                        <color key="tintColor" red="0.38301386160000001" green="0.72253614659999998" blue="0.048727979579999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="newMealButton" image="plusbutton2-1"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Fan-Lg-qhx" firstAttribute="leading" secondItem="kDr-Wt-x5e" secondAttribute="leading" constant="34" id="5aT-10-JFa"/>
+                                    <constraint firstItem="Fan-Lg-qhx" firstAttribute="top" secondItem="kDr-Wt-x5e" secondAttribute="topMargin" id="8uw-zu-53A"/>
+                                    <constraint firstItem="Fan-Lg-qhx" firstAttribute="bottom" secondItem="kDr-Wt-x5e" secondAttribute="bottomMargin" id="92f-9D-AXc"/>
+                                    <constraint firstItem="Fan-Lg-qhx" firstAttribute="centerX" secondItem="kDr-Wt-x5e" secondAttribute="centerX" id="E4s-Ac-ExF"/>
+                                    <constraint firstAttribute="width" secondItem="kDr-Wt-x5e" secondAttribute="height" multiplier="343:291" id="tt7-gg-V7z"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p4D-VD-L0c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Opi-JK-1Z5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kDr-Wt-x5e" secondAttribute="trailing" constant="16" id="Sgr-Hn-X9f"/>
+                            <constraint firstItem="p4D-VD-L0c" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="UGx-yd-reA"/>
+                            <constraint firstItem="p4D-VD-L0c" firstAttribute="centerX" secondItem="XGV-h1-48X" secondAttribute="centerX" id="UZA-u8-sGC"/>
+                            <constraint firstItem="XGV-h1-48X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="c1B-O8-ur3"/>
+                            <constraint firstItem="kDr-Wt-x5e" firstAttribute="top" secondItem="XGV-h1-48X" secondAttribute="bottom" constant="8" id="d3y-P3-oyZ"/>
+                            <constraint firstItem="XGV-h1-48X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="sWo-6z-7Vo"/>
+                            <constraint firstItem="kDr-Wt-x5e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="saI-o2-MKt"/>
+                            <constraint firstItem="p4D-VD-L0c" firstAttribute="centerX" secondItem="kDr-Wt-x5e" secondAttribute="centerX" id="wub-x8-Nj6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="56.799999999999997" y="26.53673163418291"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Home" width="30" height="30"/>
+        <image name="Meals" width="29" height="23"/>
+        <image name="plusbutton2-1" width="499.67999267578125" height="499.67999267578125"/>
+    </resources>
 </document>
