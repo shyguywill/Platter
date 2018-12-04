@@ -9,7 +9,12 @@
 import UIKit
 
 class HomeScreenController: UIViewController {
-
+    
+    
+    @IBOutlet weak var newMeal: UIButton!
+    
+    @IBOutlet weak var tabBar: UITabBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
