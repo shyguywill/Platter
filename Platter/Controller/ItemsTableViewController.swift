@@ -8,17 +8,28 @@
 
 import UIKit
 import RealmSwift
+import SwiftyJSON
+import Alamofire
 
-class ItemsTableViewController: UITableViewController {
+class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     var recipeItems : Results<FridgeStore>?
     let realm = try! Realm()
+    let api = F2F_API()
+    var searchParameters : String?
+    var finalURL : String?
+    
+    
+    @IBOutlet weak var fridgeTableView: UITableView!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.register(UINib(nibName: "CustomItems", bundle: nil), forCellReuseIdentifier: "CustomIngredientCell")
+        fridgeTableView.dataSource = self
+        fridgeTableView.delegate = self
+        
+        fridgeTableView.register(UINib(nibName: "CustomItems", bundle: nil), forCellReuseIdentifier: "CustomIngredientCell")
         
         loadIngredients()
 
@@ -26,13 +37,13 @@ class ItemsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return recipeItems?.count ?? 1
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomIngredientCell", for: indexPath) as? CustomItemsViewCell
         else { fatalError("Uninteded Index Path")}
@@ -43,14 +54,14 @@ class ItemsTableViewController: UITableViewController {
             cell.checkImage?.image = fridge.included ? UIImage(named: "greencheck"):UIImage(named: "nocheck")
             
         }
-
+    
         return cell
-        
-        
-        
+
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         do{
             
@@ -64,9 +75,7 @@ class ItemsTableViewController: UITableViewController {
             print ("Error encountered")
         }
         
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        tableView.reloadData()
+        loadIngredients()
         
     }
     
@@ -93,7 +102,11 @@ class ItemsTableViewController: UITableViewController {
         
         recipeItems = realm.objects(FridgeStore.self)
         
-        tableView.reloadData()
+        createParameterArray()
+        
+        createParameters()
+        
+        fridgeTableView.reloadData()
         
         
     }
@@ -126,12 +139,103 @@ class ItemsTableViewController: UITableViewController {
         }
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Create parameters
+    
+    func createParameterArray() {
+        
+        var recipeApiItems = [String]()
+        
+        if let fridge = recipeItems{
+            
+            for items in fridge{
+                
+                
+                if items.included{
+                    
+                    let newItem = items.name
+                    
+                    recipeApiItems.append(newItem)
+                    
+                }
+            
+            }
+            
+            print (recipeApiItems.joined(separator: ","))
+            searchParameters = recipeApiItems.joined(separator: ",")
+            
+        }else {
+            
+            print ("no search parameter present")
+        }
+        
+    }
+    
+    func createParameters() {
+        
+        if let ingredientsToSend = searchParameters{
+            
+            finalURL = api.baseURL + api.appKey + "&q=" + ingredientsToSend
+            
+            print (finalURL ?? "Nothing to see")
+            
+        }
+        
+    }
+    
+    
+    
+    //MARK: - Networking
+    
+    
+    func getRecipeData(url : String){
+        
+        Alamofire.request(url, method: .get).responseJSON { (response) in
+            
+            if response.result.isSuccess {
+                
+                print ("Success got the recipes!")
+                let recipeJSON : JSON = JSON(response.result.value!)
+                
+                self.updaterecipedata(json: recipeJSON)
+                
+                
+                
+            }else {
+                
+                print ("ERROR: \(String(describing:response.result.error))")
+                
+            }
+            
+        }
         
         
         
     }
     
-
+    
+    //MARK: - JSONParsing
+    
+    
+    func updaterecipedata(json:JSON) {
+        
+        //Handle data returned
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Call get recipe and pass in URL
+        
+    }
   
 
   
