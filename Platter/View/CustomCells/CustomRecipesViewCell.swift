@@ -9,7 +9,15 @@
 import UIKit
 
 class CustomRecipesViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var mealImage: UIImageView!
+    
+    @IBOutlet weak var mealName: UILabel!
+    
+    @IBOutlet weak var ingredientCompleteness: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

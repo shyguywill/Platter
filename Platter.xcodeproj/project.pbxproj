@@ -21,10 +21,10 @@
 		7553BD7821B6B35E00DD9D85 /* CustomItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */; };
 		7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7553BD7721B6B35E00DD9D85 /* CustomItems.xib */; };
 		7553BD7B21B6EA8700DD9D85 /* UITextLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD7A21B6EA8700DD9D85 /* UITextLabels.swift */; };
+		75599CE821B951BE00696D87 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75599CE721B951BE00696D87 /* RecipeData.swift */; };
 		75E09F0521B816EE00248DC3 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0421B816EE00248DC3 /* SearchResultsController.swift */; };
 		75E09F0821B81D0900248DC3 /* CustomRecipesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */; };
-		75E09F0921B81D0900248DC3 /* CustomRecipesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E09F0721B81D0900248DC3 /* CustomRecipesViewCell.xib */; };
-		75E09F0B21B8404300248DC3 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0A21B8404300248DC3 /* Global.swift */; };
+		75E09F0921B81D0900248DC3 /* CustomRecipes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E09F0721B81D0900248DC3 /* CustomRecipes.xib */; };
 		9124AB11CB37698E8BBD2817 /* Pods_Platter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 308EB3EA6A64B931FE14A2C7 /* Pods_Platter.framework */; };
 		F9EE8EEB4A9E0F946977D006 /* Pods_PlatterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8FE8594AF6063E1923307E /* Pods_PlatterTests.framework */; };
 /* End PBXBuildFile section */
@@ -62,10 +62,10 @@
 		7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomItemsViewCell.swift; sourceTree = "<group>"; };
 		7553BD7721B6B35E00DD9D85 /* CustomItems.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomItems.xib; sourceTree = "<group>"; };
 		7553BD7A21B6EA8700DD9D85 /* UITextLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextLabels.swift; sourceTree = "<group>"; };
+		75599CE721B951BE00696D87 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		75E09F0421B816EE00248DC3 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRecipesViewCell.swift; sourceTree = "<group>"; };
-		75E09F0721B81D0900248DC3 /* CustomRecipesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRecipesViewCell.xib; sourceTree = "<group>"; };
-		75E09F0A21B8404300248DC3 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		75E09F0721B81D0900248DC3 /* CustomRecipes.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRecipes.xib; sourceTree = "<group>"; };
 		C77C3417C6CBD5196F625241 /* Pods-PlatterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlatterTests/Pods-PlatterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEE882287762C62BAD851BC2 /* Pods-Platter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Platter/Pods-Platter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +116,6 @@
 				751947E721ADE43A0059F59A /* HomeScreenController.swift */,
 				7553BD6D21B69C1F00DD9D85 /* ItemsTableViewController.swift */,
 				75E09F0421B816EE00248DC3 /* SearchResultsController.swift */,
-				75E09F0A21B8404300248DC3 /* Global.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,6 +137,7 @@
 				7553BD7321B6A7D100DD9D85 /* FridgeStore.swift */,
 				7553BD7121B6A61800DD9D85 /* PantryStore.swift */,
 				7553BD7A21B6EA8700DD9D85 /* UITextLabels.swift */,
+				75599CE721B951BE00696D87 /* RecipeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 				7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */,
 				7553BD7721B6B35E00DD9D85 /* CustomItems.xib */,
 				75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */,
-				75E09F0721B81D0900248DC3 /* CustomRecipesViewCell.xib */,
+				75E09F0721B81D0900248DC3 /* CustomRecipes.xib */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75E09F0921B81D0900248DC3 /* CustomRecipesViewCell.xib in Resources */,
+				75E09F0921B81D0900248DC3 /* CustomRecipes.xib in Resources */,
 				7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */,
 				751947F021ADE43B0059F59A /* LaunchScreen.storyboard in Resources */,
 				751947ED21ADE43B0059F59A /* Assets.xcassets in Resources */,
@@ -337,6 +337,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -346,6 +347,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,10 +387,10 @@
 				7553BD7B21B6EA8700DD9D85 /* UITextLabels.swift in Sources */,
 				7553BD7021B6A60C00DD9D85 /* Store.swift in Sources */,
 				751947E821ADE43A0059F59A /* HomeScreenController.swift in Sources */,
+				75599CE821B951BE00696D87 /* RecipeData.swift in Sources */,
 				7519480621ADE4F00059F59A /* Secrets.swift in Sources */,
 				7553BD7221B6A61800DD9D85 /* PantryStore.swift in Sources */,
 				75E09F0821B81D0900248DC3 /* CustomRecipesViewCell.swift in Sources */,
-				75E09F0B21B8404300248DC3 /* Global.swift in Sources */,
 				7553BD7821B6B35E00DD9D85 /* CustomItemsViewCell.swift in Sources */,
 				7553BD7421B6A7D100DD9D85 /* FridgeStore.swift in Sources */,
 				7553BD6E21B69C1F00DD9D85 /* ItemsTableViewController.swift in Sources */,

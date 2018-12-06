@@ -104,7 +104,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         createParameterArray()
         
-        createParameters()
+        createURL()
         
         fridgeTableView.reloadData()
         
@@ -172,7 +172,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
     }
     
-    func createParameters() {
+    func createURL() {
         
         if let ingredientsToSend = searchParameters{
             
@@ -185,55 +185,17 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     }
     
     
-    
-    //MARK: - Networking
-    
-    
-    func getRecipeData(url : String){
-        
-        Alamofire.request(url, method: .get).responseJSON { (response) in
-            
-            if response.result.isSuccess {
-                
-                print ("Success got the recipes!")
-                let recipeJSON : JSON = JSON(response.result.value!)
-                
-                self.updaterecipedata(json: recipeJSON)
-                
-                
-                
-            }else {
-                
-                print ("ERROR: \(String(describing:response.result.error))")
-                
-            }
-            
-        }
-        
-        
-        
-    }
-    
-    
-    //MARK: - JSONParsing
-    
-    
-    func updaterecipedata(json:JSON) {
-        
-        //Handle data returned
-        
-        
-    }
-    
-    
-    
-    
-    
-    
+    //MARK: - Prepare for Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // Call get recipe and pass in URL
+        
+        if let destinationVC = segue.destination as? SearchResultsController {
+            
+            destinationVC.delegateURL = finalURL
+            
+        }
         
     }
   
