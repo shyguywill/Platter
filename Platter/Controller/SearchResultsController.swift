@@ -22,6 +22,8 @@ class SearchResultsController: UITableViewController {
                 
                 getRecipeData(url: url)
                 
+                print ("got the url")
+                
             }
             
         }
@@ -29,11 +31,11 @@ class SearchResultsController: UITableViewController {
     }
     
     var recipeBook = Recipes()
-    
-    var foodArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = 80
         
         self.tableView.register(UINib(nibName: "CustomRecipes", bundle: nil), forCellReuseIdentifier: "CustomRecipesViewCell")
 
@@ -42,20 +44,33 @@ class SearchResultsController: UITableViewController {
 
     // MARK: - Table view data source
     
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
-//
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
-    
-    
-    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return recipeBook.title.count
+
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomRecipesViewCell", for: indexPath) as? CustomRecipesViewCell else{ fatalError("Unexpected cell type")}
+        
+        let imageURL = recipeBook.image_url[indexPath.row]
+        
+        cell.mealName.text = recipeBook.title[indexPath.row]
+        
+        cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "AppIcon"))
+        
+        return cell
+        
+        
+
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //next page
+
+    }
     
     
     
@@ -96,21 +111,49 @@ class SearchResultsController: UITableViewController {
         //Handle data returned
         if let recipeData = json ["recipes"].array{
             
-            for meal in 0 ... (recipeData.count - 1){
+            if recipeData.count != 0 {
                 
-                let food = recipeData[meal]
+                var publisher = [String]()
+                var title = [String]()
+                var source_url = [String]()
+                var image_url = [String]()
+                var recipe_id = [String]()
+                var publisher_url = [String]()
+                var social_rank = [Int]()
                 
-                foodArray.append(food["title"].stringValue)
-                recipeBook.recipeList.append(food["title"].stringValue)
+            
+                for meal in 0 ... (recipeData.count - 1){
+                    
+                    let food = recipeData[meal]
+                    
+                    title.append(food["title"].stringValue)
+                    publisher.append(food["publisher"].stringValue)
+                    source_url.append(food["source_url"].stringValue)
+                    image_url.append(food["image_url"].stringValue)
+                    recipe_id.append(food["recipe_id"].stringValue)
+                    publisher_url.append(food["publisher_url"].stringValue)
+                    social_rank.append(food["social_rank"].intValue)
+                    
+                }
+                
+                //print (title)
+                
+                recipeBook.title = title
+                recipeBook.image_url = image_url
+                
+                //fill in the rest later
+                // recipeBook initialised because only 2 parameters are being used at the moment
+                
+                
                 
             }
             
-            print (recipeBook.recipeList)
+            tableView.reloadData()
+                
+                
+            }
             
-            
-            
-            
-        }
+
         
     }
     

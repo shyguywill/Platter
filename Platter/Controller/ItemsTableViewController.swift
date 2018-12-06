@@ -176,7 +176,9 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         if let ingredientsToSend = searchParameters{
             
-            finalURL = api.baseURL + api.appKey + "&q=" + ingredientsToSend
+            let newURL = api.baseURL + api.appKey + "&q=" + ingredientsToSend + "&sort=r"
+            
+            finalURL = newURL.replacingOccurrences(of: " ", with: "%20")
             
             print (finalURL ?? "Nothing to see")
             

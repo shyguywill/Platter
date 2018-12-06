@@ -12,12 +12,12 @@ import Foundation
 
 struct Recipes {
     
-    var recipeList = [String]()
-    
-    var recipeName = String()
-    var recipePics = String()
-    
-    
-    
+    var publisher = [String]()
+    var title = [String]()
+    var source_url = [String]()
+    var image_url = [String]()
+    var recipe_id = [String]()
+    var publisher_url = [String]()
+    var social_rank = [Int]()
     
 }
