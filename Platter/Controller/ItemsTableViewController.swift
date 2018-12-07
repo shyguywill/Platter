@@ -26,6 +26,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fridgeTableView.rowHeight = 50
+        
         fridgeTableView.dataSource = self
         fridgeTableView.delegate = self
         
@@ -129,6 +131,14 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
             self.loadIngredients()
             
         }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+            
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        alert.addAction(cancel)
         
         alert.addAction(action)
         
