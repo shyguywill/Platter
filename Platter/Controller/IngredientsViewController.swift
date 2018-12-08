@@ -18,7 +18,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var ingredientList: UITableView!
     
     var ingredientsArray = [String]()
-    
     var delegateRecipe : Ingredients? {
         
         didSet{
@@ -97,13 +96,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
-        
-        
     }
-    
-    
-    
-    
+
     
     //MARK: - JSONParsing
     
@@ -120,6 +114,17 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             ingredientList.reloadData()
             
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destinationVC = segue.destination as? RecipePageController{
+            
+            destinationVC.pageURL = delegateRecipe?.source_url
+            
+            print (destinationVC.pageURL ?? "No sourceURL here")
         }
         
     }

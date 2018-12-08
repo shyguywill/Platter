@@ -63,19 +63,16 @@ class SearchResultsController: UITableViewController {
         
         cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
         
-        
-        
-        
-        
+
         return cell
-        
-        
 
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         ingredientBook.recipe_id = recipeBook.recipe_id[indexPath.row]
+        
+        ingredientBook.source_url = recipeBook.source_url[indexPath.row]
         
         print (ingredientBook.recipe_id)
         
@@ -156,6 +153,7 @@ class SearchResultsController: UITableViewController {
                 recipeBook.image_url = image_url
                 recipeBook.publisher_url = publisher_url
                 recipeBook.recipe_id = recipe_id
+                recipeBook.source_url = source_url
                 
                 //fill in the rest later
                 // recipeBook initialised because only 2 parameters are being used at the moment
@@ -173,6 +171,8 @@ class SearchResultsController: UITableViewController {
         
     }
     
+    
+//MARK: - Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

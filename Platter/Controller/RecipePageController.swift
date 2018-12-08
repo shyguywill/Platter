@@ -11,26 +11,34 @@ import WebKit
 
 class RecipePageController: UIViewController {
     
-    
-   
+
     @IBOutlet weak var recipeWebPage: WKWebView!
+    
+    var pageURL : String?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let loadURL = pageURL{
+            
+            let url = URL(string: loadURL)
+            
+            let request = URLRequest(url: url!)
+            
+            recipeWebPage.load(request)
+            
+        }
+    
+        
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

@@ -13,6 +13,7 @@ struct Ingredients {
     
     
     var source_url = String()
+    
     var image_url = String()
     var recipe_id = String()
 
