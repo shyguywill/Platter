@@ -10,9 +10,11 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
-import RealmSwift
+
 
 class SearchResultsController: UITableViewController {
+    
+    let api = F2F_API()
 
     var delegateURL : String? {
         
@@ -31,6 +33,7 @@ class SearchResultsController: UITableViewController {
     }
     
     var recipeBook = Recipes()
+    var ingredientBook = Ingredients()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +61,11 @@ class SearchResultsController: UITableViewController {
         
         cell.mealName.text = recipeBook.title[indexPath.row]
         
-        cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "AppIcon"))
+        cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
+        
+        
+        
+        
         
         return cell
         
@@ -68,7 +75,14 @@ class SearchResultsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //next page
+        ingredientBook.recipe_id = recipeBook.recipe_id[indexPath.row]
+        
+        print (ingredientBook.recipe_id)
+        
+        ingredientBook.image_url = recipeBook.image_url[indexPath.row]
+        
+        
+        performSegue(withIdentifier: "goToIngredientsPage", sender: self)
 
     }
     
@@ -86,7 +100,7 @@ class SearchResultsController: UITableViewController {
                 print ("Success got the recipes!")
                 let recipeJSON : JSON = JSON(response.result.value!)
                 
-                self.updaterecipedata(json: recipeJSON)
+                self.updateRecipeData(json: recipeJSON)
                 
                 
                 
@@ -106,7 +120,7 @@ class SearchResultsController: UITableViewController {
     //MARK: - JSONParsing
     
     
-    func updaterecipedata(json:JSON) {
+    func updateRecipeData(json:JSON) {
         
         //Handle data returned
         if let recipeData = json ["recipes"].array{
@@ -140,6 +154,8 @@ class SearchResultsController: UITableViewController {
                 
                 recipeBook.title = title
                 recipeBook.image_url = image_url
+                recipeBook.publisher_url = publisher_url
+                recipeBook.recipe_id = recipe_id
                 
                 //fill in the rest later
                 // recipeBook initialised because only 2 parameters are being used at the moment
@@ -154,6 +170,19 @@ class SearchResultsController: UITableViewController {
             }
             
 
+        
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        ingredientBook.finalGetURL = api.getURL + ingredientBook.recipe_id
+        
+        if let destinationVC = segue.destination as? IngredientsViewController{
+            
+            destinationVC.delegateRecipe = ingredientBook
+            
+        }
         
     }
     

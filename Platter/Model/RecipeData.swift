@@ -20,4 +20,6 @@ struct Recipes {
     var publisher_url = [String]()
     var social_rank = [Int]()
     
+    
+    //possible restructure for dependency injection
 }

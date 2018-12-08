@@ -22,6 +22,9 @@
 		7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7553BD7721B6B35E00DD9D85 /* CustomItems.xib */; };
 		7553BD7B21B6EA8700DD9D85 /* UITextLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD7A21B6EA8700DD9D85 /* UITextLabels.swift */; };
 		75599CE821B951BE00696D87 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75599CE721B951BE00696D87 /* RecipeData.swift */; };
+		75AAD37A21BC0D5C0006CA7C /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */; };
+		75AAD37E21BC18840006CA7C /* IngredientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAD37D21BC18830006CA7C /* IngredientData.swift */; };
+		75AAD38021BC220E0006CA7C /* RecipePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAD37F21BC220E0006CA7C /* RecipePageController.swift */; };
 		75E09F0521B816EE00248DC3 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0421B816EE00248DC3 /* SearchResultsController.swift */; };
 		75E09F0821B81D0900248DC3 /* CustomRecipesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */; };
 		75E09F0921B81D0900248DC3 /* CustomRecipes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E09F0721B81D0900248DC3 /* CustomRecipes.xib */; };
@@ -63,6 +66,9 @@
 		7553BD7721B6B35E00DD9D85 /* CustomItems.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomItems.xib; sourceTree = "<group>"; };
 		7553BD7A21B6EA8700DD9D85 /* UITextLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextLabels.swift; sourceTree = "<group>"; };
 		75599CE721B951BE00696D87 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
+		75AAD37D21BC18830006CA7C /* IngredientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientData.swift; sourceTree = "<group>"; };
+		75AAD37F21BC220E0006CA7C /* RecipePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePageController.swift; sourceTree = "<group>"; };
 		75E09F0421B816EE00248DC3 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRecipesViewCell.swift; sourceTree = "<group>"; };
 		75E09F0721B81D0900248DC3 /* CustomRecipes.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRecipes.xib; sourceTree = "<group>"; };
@@ -116,6 +122,8 @@
 				751947E721ADE43A0059F59A /* HomeScreenController.swift */,
 				7553BD6D21B69C1F00DD9D85 /* ItemsTableViewController.swift */,
 				75E09F0421B816EE00248DC3 /* SearchResultsController.swift */,
+				75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */,
+				75AAD37F21BC220E0006CA7C /* RecipePageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 				7553BD7121B6A61800DD9D85 /* PantryStore.swift */,
 				7553BD7A21B6EA8700DD9D85 /* UITextLabels.swift */,
 				75599CE721B951BE00696D87 /* RecipeData.swift */,
+				75AAD37D21BC18830006CA7C /* IngredientData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,9 +393,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75AAD37A21BC0D5C0006CA7C /* IngredientsViewController.swift in Sources */,
+				75AAD38021BC220E0006CA7C /* RecipePageController.swift in Sources */,
 				7553BD7B21B6EA8700DD9D85 /* UITextLabels.swift in Sources */,
 				7553BD7021B6A60C00DD9D85 /* Store.swift in Sources */,
 				751947E821ADE43A0059F59A /* HomeScreenController.swift in Sources */,
+				75AAD37E21BC18840006CA7C /* IngredientData.swift in Sources */,
 				75599CE821B951BE00696D87 /* RecipeData.swift in Sources */,
 				7519480621ADE4F00059F59A /* Secrets.swift in Sources */,
 				7553BD7221B6A61800DD9D85 /* PantryStore.swift in Sources */,

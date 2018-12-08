@@ -8,8 +8,7 @@
 
 import UIKit
 import RealmSwift
-import SwiftyJSON
-import Alamofire
+
 
 class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
