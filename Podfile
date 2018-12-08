@@ -11,6 +11,7 @@ target 'Platter' do
     pod 'SwiftyJSON', '~> 4.0'
     pod 'RealmSwift'
     pod 'SDWebImage', '~> 4.0'
+    pod 'Kingfisher'
 
 
   target 'PlatterTests' do

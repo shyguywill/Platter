@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 import Alamofire
-import SDWebImage
+import Kingfisher
 
 class IngredientsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -25,15 +25,9 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             if let recipe = delegateRecipe{
                 
-                //mealDisplay.sd_setImage(with: URL(string: recipe.image_url), placeholderImage: UIImage(named: "logo"))
-                
                 getIngredientData(url: recipe.finalGetURL)
                 
-                
-            
             }
-            
-            
             
         }
         
@@ -44,6 +38,13 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         ingredientList.delegate = self
         ingredientList.dataSource = self
+        
+        
+        if let recipe = delegateRecipe{   //Load background image
+            
+            let url = URL(string: recipe.image_url)
+            mealDisplay.kf.setImage(with: url)
+        }
         
     }
     
@@ -64,10 +65,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
     
         return cell
-        
-        
-        
-        
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -124,9 +121,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             ingredientList.reloadData()
             
         }
-        
-        
-        
         
     }
     
