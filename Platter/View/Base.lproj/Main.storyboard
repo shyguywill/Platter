@@ -312,7 +312,7 @@
                         <viewLayoutGuide key="safeArea" id="77g-uA-aMx"/>
                     </view>
                     <connections>
-                        <outlet property="recipeWebPage" destination="oJe-0G-Dxo" id="2Wy-wn-dcl"/>
+                        <outlet property="webView" destination="oJe-0G-Dxo" id="aXg-k7-Xtm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8b-B7-MEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
