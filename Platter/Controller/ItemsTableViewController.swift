@@ -25,6 +25,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         fridgeTableView.rowHeight = 50
         
         fridgeTableView.dataSource = self

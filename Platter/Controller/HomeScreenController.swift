@@ -10,7 +10,6 @@ import UIKit
 
 class HomeScreenController: UIViewController {
     
-    
     @IBOutlet weak var newMeal: UIButton!
     
     @IBOutlet weak var tabBar: UITabBar!
@@ -18,6 +17,11 @@ class HomeScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //set up logo in navigation bar
+        let logo = UIImage(named: "logo")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
     }
 
 
