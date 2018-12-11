@@ -48,6 +48,9 @@ class RecipePageController: UIViewController {
     func floatySetUp() {
         
         //if saved = false
+      
+        
+        floaty.buttonColor = UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 1.0)
         
         floaty.addItem("Save Meal", icon: UIImage(named: "unliked")) { (likeButton) in
             
@@ -67,6 +70,7 @@ class RecipePageController: UIViewController {
             self.save(mealItem: meal)
             
             likeButton.icon = UIImage(named: "liked")
+            likeButton.title = "Saved"
             
         }
         
@@ -146,7 +150,7 @@ class RecipePageController: UIViewController {
                 
                 self.webView = WKWebView(frame: self.view.bounds,
                                          configuration: configuration)
-        }
+            }
         
         
         
@@ -154,8 +158,7 @@ class RecipePageController: UIViewController {
                 
         }
         
-        
-        
+    
         
         
     }
