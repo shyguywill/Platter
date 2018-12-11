@@ -8,24 +8,29 @@
 
 import UIKit
 import WebKit
+import Floaty
+import RealmSwift
 
 class RecipePageController: UIViewController {
     
-
-    
     @IBOutlet var webView: WKWebView!
     
-    var pageURL : String?
+    let floaty = Floaty()
     
-    var webview: WKWebView!
+    let realm = try! Realm()
+    
+    var mealDetails : Ingredients?
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        floatySetUp()
+    
         contentBlock()
         
-        if let loadURL = pageURL{
+        if let loadURL = mealDetails?.source_url{
             
             let url = URL(string: loadURL)
             
@@ -38,7 +43,67 @@ class RecipePageController: UIViewController {
     }
     
     
+    //MARK: - Set up floating save meals button
     
+    func floatySetUp() {
+        
+        //if saved = false
+        
+        floaty.addItem("Save Meal", icon: UIImage(named: "unliked")) { (likeButton) in
+            
+            let meal = Meal()
+            
+                
+            if let details = self.mealDetails{
+                    
+                    meal.source_URL = details.source_url
+                    meal.image_URL = details.image_url
+                    meal.title = details.title
+                    meal.saved = !meal.saved
+                    
+                    
+            }
+        
+            self.save(mealItem: meal)
+            
+            likeButton.icon = UIImage(named: "liked")
+            
+        }
+        
+        
+        
+        self.view.addSubview(floaty)
+        
+    }
+    
+    
+    //MARK: - Realm Save method
+    
+    
+    
+    func save(mealItem: Meal){
+        
+        do{
+            try realm.write {
+                
+                realm.add(mealItem)
+            }
+            
+            
+            
+        }catch{
+            
+            print ("There was an error \(Error.self)")
+            
+        }
+        
+        
+        
+    }
+    
+    
+    
+    //MARK: - Set up content blocking 
     
     let json = """
 [

@@ -122,9 +122,9 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         if let destinationVC = segue.destination as? RecipePageController{
             
-            destinationVC.pageURL = delegateRecipe?.source_url
+            destinationVC.mealDetails = delegateRecipe
             
-            print (destinationVC.pageURL ?? "No sourceURL here")
+            print (destinationVC.mealDetails?.source_url ?? "No sourceURL here")
         }
         
     }

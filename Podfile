@@ -12,6 +12,7 @@ target 'Platter' do
     pod 'RealmSwift'
     pod 'SDWebImage', '~> 4.0'
     pod 'Kingfisher'
+    pod 'Floaty'
 
 
   target 'PlatterTests' do

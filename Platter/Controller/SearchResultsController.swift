@@ -78,6 +78,8 @@ class SearchResultsController: UITableViewController {
         
         ingredientBook.image_url = recipeBook.image_url[indexPath.row]
         
+        ingredientBook.title = recipeBook.title[indexPath.row]
+        
         
         performSegue(withIdentifier: "goToIngredientsPage", sender: self)
 
