@@ -210,8 +210,5 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         }
         
     }
-  
-
-  
 
 }

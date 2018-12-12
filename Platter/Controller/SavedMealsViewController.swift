@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SDWebImage
 
+
 class SavedMealsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
    
@@ -32,6 +33,14 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         loadMeals()
         
         // Do any additional setup after loading the view.
+    }
+    
+    //Reload itemsin database
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        loadMeals()
+        
     }
     
     
@@ -63,13 +72,47 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         
     }
     
-    //MARK: - Realm Load method
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { (delete, indexpath) in
+            
+            if let meal = self.mealItem{
+                
+                let item = meal[indexPath.row]
+                
+                self.deleteMeal(mealItem: item)
+                
+            }
+            
+            self.loadMeals()
+            
+        }
+        
+    
+        return [delete]
+    }
+    
+    //MARK: - Realm methods
     
     func loadMeals() {
         
         mealItem = realm.objects(Meal.self)
         
         savedMealTable.reloadData()
+    }
+    
+    
+    func deleteMeal(mealItem: Meal){
+        
+        do{
+            try realm.write {
+                
+                realm.delete(mealItem)
+            }
+        }catch{
+            print ("Could not delete item, ERROR, \(error)")
+        }
+        
     }
 
 

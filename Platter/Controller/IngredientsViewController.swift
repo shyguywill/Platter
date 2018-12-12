@@ -128,16 +128,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
     }
-    
-    
-    
-    
-    
-
-    
-    
-    
-
 
 
 }
