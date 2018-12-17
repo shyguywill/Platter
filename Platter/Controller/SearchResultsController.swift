@@ -10,12 +10,12 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import SVProgressHUD
 
 
 class SearchResultsController: UITableViewController {
     
     let api = F2F_API()
-
     var delegateURL : String? {
         
         didSet{
@@ -41,8 +41,10 @@ class SearchResultsController: UITableViewController {
         tableView.rowHeight = 100
         
         self.tableView.register(UINib(nibName: "CustomRecipes", bundle: nil), forCellReuseIdentifier: "CustomRecipesViewCell")
+        
+        SVProgressHUD.setBackgroundColor(UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 0.5))
+        SVProgressHUD.show()
 
-     
     }
 
     // MARK: - Table view data source
@@ -72,7 +74,7 @@ class SearchResultsController: UITableViewController {
         
         ingredientBook.recipe_id = recipeBook.recipe_ID[indexPath.row]
         
-        ingredientBook.url = recipeBook.url[indexPath.row]
+        ingredientBook.meal_url = recipeBook.meal_url[indexPath.row]
         
         print (ingredientBook.recipe_id)
         
@@ -124,7 +126,7 @@ class SearchResultsController: UITableViewController {
         //Handle data returned
         print ("Attempting to update")
         
-        if let recipeData = json ["object"] ["hits"].array {
+        if let recipeData = json ["hits"].array {
             
             if recipeData.count != 0{
                 
@@ -140,30 +142,27 @@ class SearchResultsController: UITableViewController {
                     
                     let food = recipeData[meal] ["recipe"]
                     
-                    print ("Created food")
-                    
                     label.append(food ["label"].stringValue)
                     image.append(food ["image"].stringValue)
                     source.append(food ["source"].stringValue)
                     url.append(food ["url"].stringValue)
                     recipe_num.append(meal)
-                    
-            
                 
                 }
                 
-                print (label)
+                //print (label)
                 
                 recipeBook.label = label
                 recipeBook.image_url = image
                 recipeBook.source = source
-                recipeBook.url = url
+                recipeBook.meal_url = url
                 recipeBook.recipe_ID = recipe_num
             
             
         }
 
             tableView.reloadData()
+            SVProgressHUD.dismiss()
 
 
         }else{
@@ -181,10 +180,16 @@ class SearchResultsController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if let url = delegateURL{
+            
+            ingredientBook.finalGetURL = url
+        }
+        
         
         if let destinationVC = segue.destination as? IngredientsViewController{
             
             destinationVC.delegateRecipe = ingredientBook
+            
             
         }
         

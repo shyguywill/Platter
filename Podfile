@@ -13,6 +13,8 @@ target 'Platter' do
     pod 'SDWebImage', '~> 4.0'
     pod 'Kingfisher'
     pod 'Floaty'
+    pod 'SVProgressHUD'
+    
     
 
 

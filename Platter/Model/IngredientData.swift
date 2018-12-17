@@ -11,7 +11,7 @@ import Foundation
 struct Ingredients {
     
     var label = String()
-    var url = String()
+    var meal_url = String()
     var image_url = String()
     var recipe_id = Int()
     var finalGetURL = String()

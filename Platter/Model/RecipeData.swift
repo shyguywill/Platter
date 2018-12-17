@@ -15,7 +15,7 @@ struct Recipes {
     var source = [String]()
     var label = [String]()
     var image_url = [String]()
-    var url = [String]()
+    var meal_url = [String]()
     var recipe_ID = [Int]()
    
     

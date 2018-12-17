@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import Kingfisher
+import SVProgressHUD
 
 class IngredientsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,7 +25,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             if let recipe = delegateRecipe{
                 
-                getIngredientData(url: recipe.url)
+                getIngredientData(url: recipe.finalGetURL)
                 
             }
             
@@ -37,6 +38,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         ingredientList.delegate = self
         ingredientList.dataSource = self
+        
+        SVProgressHUD.show()
         
         
         if let recipe = delegateRecipe{   //Load background image
@@ -107,7 +110,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         if let selectedRecipe = delegateRecipe{
             
-            if let meal = json ["object"] ["recipes"] [selectedRecipe.recipe_id] ["recipe"] ["ingredientLines"].array{
+            if let meal = json ["hits"] [selectedRecipe.recipe_id] ["recipe"] ["ingredientLines"].array{
                 
                 for ingredient in meal{
                     
@@ -120,6 +123,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
         }
         
+        SVProgressHUD.dismiss()
+        
         ingredientList.reloadData()
         
     }
@@ -131,7 +136,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             destinationVC.mealDetails = delegateRecipe
             
-            print (destinationVC.mealDetails?.url ?? "No sourceURL here")
+            print (destinationVC.mealDetails?.meal_url ?? "No sourceURL here")
         }
         
     }
