@@ -163,11 +163,9 @@ class RecipePageController: UIViewController {
     
     
     
-    func contentBlock () {
+    func contentBlock() {
         
-        WKContentRuleListStore.default()
-            .compileContentRuleList(forIdentifier: "ContentBlockingRules",
-                                    encodedContentRuleList: json)
+        WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockingRules",encodedContentRuleList: json)
             { (contentRuleList, error) in
                 guard let contentRuleList = contentRuleList,
                     error == nil else {
