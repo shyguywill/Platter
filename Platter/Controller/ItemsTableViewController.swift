@@ -14,7 +14,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     
     var recipeItems : Results<FridgeStore>?
     let realm = try! Realm()
-    let api = F2F_API()
+    let api = Edm_API()
     var searchParameters : String?
     var finalURL : String?
     
@@ -186,7 +186,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         if let ingredientsToSend = searchParameters{
             
-            let newURL = api.baseURL + api.appKey + "&q=" + ingredientsToSend + "&sort=r"
+            let newURL = api.baseURL + ingredientsToSend + "&app_id=" + api.appID + "&app_key=" + api.appKey + "&from=0&to=100"
             
             finalURL = newURL.replacingOccurrences(of: " ", with: "%20")
             

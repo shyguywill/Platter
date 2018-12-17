@@ -10,11 +10,12 @@ import Foundation
 
 struct Ingredients {
     
-    var title = String()
-    var source_url = String()
+    var label = String()
+    var url = String()
     var image_url = String()
-    var recipe_id = String()
+    var recipe_id = Int()
     var finalGetURL = String()
+    
     
     //possible restructure for dependency injection
     

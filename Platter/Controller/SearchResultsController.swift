@@ -49,7 +49,7 @@ class SearchResultsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return recipeBook.title.count
+        return recipeBook.label.count
 
     }
 
@@ -59,7 +59,7 @@ class SearchResultsController: UITableViewController {
         
         let imageURL = recipeBook.image_url[indexPath.row]
         
-        cell.mealName.text = recipeBook.title[indexPath.row]
+        cell.mealName.text = recipeBook.label[indexPath.row]
         
         cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
         
@@ -70,15 +70,15 @@ class SearchResultsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        ingredientBook.recipe_id = recipeBook.recipe_id[indexPath.row]
+        ingredientBook.recipe_id = recipeBook.recipe_ID[indexPath.row]
         
-        ingredientBook.source_url = recipeBook.source_url[indexPath.row]
+        ingredientBook.url = recipeBook.url[indexPath.row]
         
         print (ingredientBook.recipe_id)
         
         ingredientBook.image_url = recipeBook.image_url[indexPath.row]
         
-        ingredientBook.title = recipeBook.title[indexPath.row]
+        ingredientBook.label = recipeBook.label[indexPath.row]
         
         
         performSegue(withIdentifier: "goToIngredientsPage", sender: self)
@@ -122,53 +122,56 @@ class SearchResultsController: UITableViewController {
     func updateRecipeData(json:JSON) {
         
         //Handle data returned
-        if let recipeData = json ["recipes"].array{
+        print ("Attempting to update")
+        
+        if let recipeData = json ["object"] ["hits"].array {
             
-            if recipeData.count != 0 {
+            if recipeData.count != 0{
                 
-                var publisher = [String]()
-                var title = [String]()
-                var source_url = [String]()
-                var image_url = [String]()
-                var recipe_id = [String]()
-                var publisher_url = [String]()
-                var social_rank = [Int]()
+                var label = [String]()
+                var image = [String]()
+                var source = [String]()
+                var url = [String]()
+                var recipe_num = [Int]()
                 
+                print ("got the recipe data")
+                
+                for meal in 0 ..< recipeData.count{
+                    
+                    let food = recipeData[meal] ["recipe"]
+                    
+                    print ("Created food")
+                    
+                    label.append(food ["label"].stringValue)
+                    image.append(food ["image"].stringValue)
+                    source.append(food ["source"].stringValue)
+                    url.append(food ["url"].stringValue)
+                    recipe_num.append(meal)
+                    
             
-                for meal in 0 ... (recipeData.count - 1){
-                    
-                    let food = recipeData[meal]
-                    
-                    title.append(food["title"].stringValue)
-                    publisher.append(food["publisher"].stringValue)
-                    source_url.append(food["source_url"].stringValue)
-                    image_url.append(food["image_url"].stringValue)
-                    recipe_id.append(food["recipe_id"].stringValue)
-                    publisher_url.append(food["publisher_url"].stringValue)
-                    social_rank.append(food["social_rank"].intValue)
-                    
+                
                 }
                 
-                //print (title)
+                print (label)
                 
-                recipeBook.title = title
-                recipeBook.image_url = image_url
-                recipeBook.publisher_url = publisher_url
-                recipeBook.recipe_id = recipe_id
-                recipeBook.source_url = source_url
-                
-                //fill in the rest later
-                // recipeBook initialised because only 2 parameters are being used at the moment
-                
-                
-                
-            }
+                recipeBook.label = label
+                recipeBook.image_url = image
+                recipeBook.source = source
+                recipeBook.url = url
+                recipeBook.recipe_ID = recipe_num
             
+            
+        }
+
             tableView.reloadData()
-                
-                
-            }
+
+
+        }else{
             
+            print ("Could not create JSON")
+            
+        }
+        
 
         
     }
@@ -178,7 +181,6 @@ class SearchResultsController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        ingredientBook.finalGetURL = api.getURL + ingredientBook.recipe_id
         
         if let destinationVC = segue.destination as? IngredientsViewController{
             

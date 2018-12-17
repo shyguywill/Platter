@@ -12,13 +12,13 @@ import Foundation
 
 struct Recipes {
     
-    var publisher = [String]()
-    var title = [String]()
-    var source_url = [String]()
+    var source = [String]()
+    var label = [String]()
     var image_url = [String]()
-    var recipe_id = [String]()
-    var publisher_url = [String]()
-    var social_rank = [Int]()
+    var url = [String]()
+    var recipe_ID = [Int]()
+   
+    
     
     
     //possible restructure for dependency injection

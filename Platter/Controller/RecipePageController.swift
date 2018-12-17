@@ -32,7 +32,7 @@ class RecipePageController: UIViewController {
     
         contentBlock()
         
-        if let loadURL = mealDetails?.source_url{
+        if let loadURL = mealDetails?.url{
             
             let url = URL(string: loadURL)
             
@@ -61,9 +61,9 @@ class RecipePageController: UIViewController {
                     
                     let meal = Meal()
                     
-                    meal.source_URL = details.source_url
+                    meal.source_URL = details.url
                     meal.image_URL = details.image_url
-                    meal.title = details.title
+                    meal.title = details.label
                     meal.saved = !meal.saved
                     self.meal.saved = !self.meal.saved
                     

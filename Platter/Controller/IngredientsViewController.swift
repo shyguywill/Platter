@@ -24,7 +24,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             if let recipe = delegateRecipe{
                 
-                getIngredientData(url: recipe.finalGetURL)
+                getIngredientData(url: recipe.url)
                 
             }
             
@@ -104,19 +104,26 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func updateIngredientData(json : JSON){
         
-        if let ingredients = json ["recipe"] ["ingredients"].array{
+        
+        if let selectedRecipe = delegateRecipe{
             
-            for item in 0 ... (ingredients.count - 1) {
+            if let meal = json ["object"] ["recipes"] [selectedRecipe.recipe_id] ["recipe"] ["ingredientLines"].array{
                 
-                ingredientsArray.append(ingredients[item].stringValue)
+                for ingredient in meal{
+                    
+                    ingredientsArray.append(ingredient.stringValue)
+                }
+
                 
             }
             
-            ingredientList.reloadData()
             
         }
         
+        ingredientList.reloadData()
+        
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -124,7 +131,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             destinationVC.mealDetails = delegateRecipe
             
-            print (destinationVC.mealDetails?.source_url ?? "No sourceURL here")
+            print (destinationVC.mealDetails?.url ?? "No sourceURL here")
         }
         
     }
