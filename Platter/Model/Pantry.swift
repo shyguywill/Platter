@@ -10,6 +10,6 @@ import Foundation
 import RealmSwift
 
 
-class FridgeStore : Store {
+class Pantry : Store {
     
 }

@@ -20,28 +20,45 @@ class RecipePageController: UIViewController {
     let realm = try! Realm()
     
     var mealDetails : Ingredients?
+    var savedMealDetails : String?
     
     let meal = Meal()
+    
+    var identifier : Int?
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        floatySetUp()
-    
         contentBlock()
         
-        if let loadURL = mealDetails?.meal_url{
+        if identifier == 0{
             
-            let url = URL(string: loadURL)
+            floatySetUp()
             
-            let request = URLRequest(url: url!)
+            if let loadURL = mealDetails?.meal_url{
+                
+                let url = URL(string: loadURL)
+                
+                let request = URLRequest(url: url!)
+                
+                webView.load(request)
+                
+            }
             
-            webView.load(request)
+        }else{
             
+            if let loadURL = savedMealDetails{
+                
+                let url = URL(string: loadURL)
+                
+                let request = URLRequest(url: url!)
+                
+                webView.load(request)
+                
+            }
         }
-        // Do any additional setup after loading the view.
     }
     
     
@@ -61,14 +78,14 @@ class RecipePageController: UIViewController {
                     
                     let meal = Meal()
                     
-                    meal.source_URL = details.meal_url
+                    meal.meal_url = details.meal_url
                     meal.image_URL = details.image_url
                     meal.title = details.label
                     meal.saved = !meal.saved
                     self.meal.saved = !self.meal.saved
                     
                     
-                    self.save(mealItem: meal)
+                    Platter.save(saveItem: meal)
                     
                     likeButton.icon = UIImage(named: "liked")
                     likeButton.title = "Saved"
@@ -81,7 +98,7 @@ class RecipePageController: UIViewController {
                         
                     let meal = item[(item.count - 1)]
                         
-                    self.deleteMeal(mealItem: meal)
+                    Platter.delete(deleteItem: meal)
                     
                     
                     likeButton.icon = UIImage(named: "unliked")
@@ -99,41 +116,6 @@ class RecipePageController: UIViewController {
         self.view.addSubview(floaty)
         
     }
-    
-    
-    //MARK: - Realm methods
-    
-    
-    
-    func save(mealItem: Meal){
-        
-        do{
-            try realm.write {
-                
-                realm.add(mealItem)
-            }
-            
-        }catch{
-            
-            print ("There was an error \(Error.self)")
-            
-        }
-    }
-    
-    
-     func deleteMeal(mealItem: Meal){
-        
-        do{
-            try realm.write {
-                
-                realm.delete(mealItem)
-            }
-        }catch{
-            print ("Could not delete item, ERROR, \(error)")
-        }
-        
-    }
-    
     
     
     //MARK: - Set up content blocking 

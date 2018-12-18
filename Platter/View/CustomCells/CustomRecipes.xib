@@ -37,10 +37,10 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x Ingredients missing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLo-NM-1t0">
-                        <rect key="frame" x="187" y="76" width="117" height="17"/>
+                        <rect key="frame" x="199" y="76" width="105" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="IMc-bt-AfY"/>
-                            <constraint firstAttribute="width" constant="117" id="h9T-q2-Kuj"/>
+                            <constraint firstAttribute="width" constant="105" id="h9T-q2-Kuj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="10"/>
                         <nil key="highlightedColor"/>

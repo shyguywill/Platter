@@ -21,9 +21,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     var delegateRecipe : Ingredients?
         
-        
-        
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +71,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         if let destinationVC = segue.destination as? RecipePageController{
             
             destinationVC.mealDetails = delegateRecipe
+            destinationVC.identifier = 0
             
             print (destinationVC.mealDetails?.meal_url ?? "No sourceURL here")
         }

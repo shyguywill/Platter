@@ -69,7 +69,7 @@ class SearchResultsController: UITableViewController {
         
         let ingredientArray = recipeBook.ingredient_arrays[indexPath.row]
         
-        cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients missing"
+        cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients needed"
         
         
 
@@ -223,8 +223,6 @@ class SearchResultsController: UITableViewController {
             
             destinationVC.delegateRecipe = ingredientBook
             
-            
-            
         }
         
     }
@@ -240,11 +238,9 @@ extension Array where Element == String{
     
     func difference() -> Int {
         
-        let thisArray = self.joined()
+        let thisArray = self.joined(separator: " ")
         
-        let arrayCount = self.count
-        
-        var similarIngredients = 0
+        var arrayCount = self.count
         
         let parameters = Search.searchParamters
             
@@ -252,24 +248,15 @@ extension Array where Element == String{
                 
             if thisArray.contains(item){
                     
-                similarIngredients += 1
-                    
-                    
-                    
+                arrayCount -= 1
+                
             }
                 
         }
-            
         
-        
-        let missingIngredients = arrayCount - similarIngredients
-        
-        return missingIngredients
+        return arrayCount
         
     }
-    
-    
-    
     
     
 }

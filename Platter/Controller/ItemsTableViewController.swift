@@ -12,7 +12,7 @@ import RealmSwift
 
 class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
-    var recipeItems : Results<FridgeStore>?
+    var recipeItems : Results<Pantry>?
     let realm = try! Realm()
     let api = Edm_API()
     var searchParameters : String?
@@ -81,28 +81,32 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
     }
     
-    //MARK: - Realm methods
     
-    
-    func save(fridgeIngredient: FridgeStore){
-        
-        do{
-            
-            try realm.write {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let delete = UITableViewRowAction(style: .default, title: "Delete") { (delete, indexpath) in
+
+            if let pantry = self.recipeItems{
+
+                let item = pantry[indexPath.row]
                 
-                realm.add(fridgeIngredient)
+                Platter.delete(deleteItem: item)
+            
             }
             
-        }catch {
-            
-            print ("error, item could not be added")
+            self.loadIngredients()
+
         }
         
+        return [delete]
+
     }
+    
+    //MARK: - Realm methods
     
     func loadIngredients() {
         
-        recipeItems = realm.objects(FridgeStore.self)
+        recipeItems = realm.objects(Pantry.self)
         
         createParameterArray()
         
@@ -124,9 +128,11 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
             
-            let fridgeIngredient = FridgeStore()
+            let fridgeIngredient = Pantry()
+            
             fridgeIngredient.name = textFeild.text!
-            self.save(fridgeIngredient: fridgeIngredient)
+            
+            Platter.save(saveItem: fridgeIngredient)
             
             self.loadIngredients()
             

@@ -124,13 +124,14 @@
                     <tabBarItem key="tabBarItem" tag="2" title="Saved Meals" image="Meals" id="7ot-Xn-Trd"/>
                     <connections>
                         <outlet property="savedMealTable" destination="IK2-3a-ObC" id="WiM-D1-I5g"/>
+                        <segue destination="8ST-tg-xAg" kind="show" identifier="displaySavedMeal" id="5OX-sm-Qy3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ObS-GW-ahT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2132" y="844"/>
         </scene>
-        <!--Fridge items-->
+        <!--Pantry-->
         <scene sceneID="mKP-nw-l14">
             <objects>
                 <viewController id="4Vf-mQ-CxG" customClass="ItemsTableViewController" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,7 +188,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I21-g6-78p"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Fridge items" id="UVI-JA-gO3">
+                    <navigationItem key="navigationItem" title="Pantry" id="UVI-JA-gO3">
                         <barButtonItem key="backBarButtonItem" title=" " id="zaI-7p-klA"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JlZ-Gt-0ax">
                             <color key="tintColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -345,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8b-B7-MEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5532" y="26.53673163418291"/>
+            <point key="canvasLocation" x="4825" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gFT-XF-Jeg">
@@ -400,4 +401,7 @@
         <image name="Meals" width="29" height="23"/>
         <image name="plusbutton2-1" width="499.67999267578125" height="499.67999267578125"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5OX-sm-Qy3"/>
+    </inferredMetricsTieBreakers>
 </document>

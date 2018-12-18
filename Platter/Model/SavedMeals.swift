@@ -12,7 +12,7 @@ import RealmSwift
 
 class Meal: Object{
     
-    @objc dynamic var source_URL = ""
+    @objc dynamic var meal_url = ""
     
     @objc dynamic var image_URL = ""
     

@@ -18,6 +18,7 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
     
     var mealItem : Results<Meal>?
     let realm = try! Realm()
+    var mealURL = ""
 
     
     override func viewDidLoad() {
@@ -64,11 +65,25 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
             
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
             
+            cell.ingredientCompleteness.text = nil
+            
         }
         
         
         return cell
         
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let meal = mealItem{
+            
+            mealURL = meal[indexPath.row].meal_url
+            
+        }
+        
+        performSegue(withIdentifier: "displaySavedMeal", sender: self)
         
     }
     
@@ -80,7 +95,7 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
                 
                 let item = meal[indexPath.row]
                 
-                self.deleteMeal(mealItem: item)
+                Platter.delete(deleteItem: item)
                 
             }
             
@@ -102,15 +117,16 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
-    func deleteMeal(mealItem: Meal){
+    //MARK: - Prepare for Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        do{
-            try realm.write {
-                
-                realm.delete(mealItem)
-            }
-        }catch{
-            print ("Could not delete item, ERROR, \(error)")
+        if let destinationVC = segue.destination as? RecipePageController{
+            
+            destinationVC.savedMealDetails = mealURL
+            destinationVC.identifier = 1
+            
+            
         }
         
     }
