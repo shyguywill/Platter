@@ -18,28 +18,18 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var mealDisplay: UIImageView!
     @IBOutlet weak var ingredientList: UITableView!
     
-    var ingredientsArray = [String]()
-    var delegateRecipe : Ingredients? {
+    
+    var delegateRecipe : Ingredients?
         
-        didSet{
-            
-            if let recipe = delegateRecipe{
-                
-                getIngredientData(url: recipe.finalGetURL)
-                
-            }
-            
-        }
         
-    }
+        
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ingredientList.delegate = self
         ingredientList.dataSource = self
-        
-        SVProgressHUD.show()
         
         
         if let recipe = delegateRecipe{   //Load background image
@@ -55,7 +45,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         
-        return ingredientsArray.count
+        return delegateRecipe?.recipeList.count ?? 1
         
     }
     
@@ -63,7 +53,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
         
-        cell.textLabel?.text = ingredientsArray[indexPath.row]
+        cell.textLabel?.text = delegateRecipe?.recipeList[indexPath.row]
         
     
         return cell
@@ -74,60 +64,9 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    //MARK: - Networking
-    
-    func getIngredientData(url : String){
-        
-        Alamofire.request(url, method: .get).responseJSON { (response) in
-            
-            if response.result.isSuccess {
-                
-                print ("Success got the recipes!")
-                let ingredientJSON : JSON = JSON(response.result.value!)
-                
-                self.updateIngredientData(json: ingredientJSON)
-                
-               
-                
-                
-                
-            }else {
-                
-                print ("ERROR: \(String(describing:response.result.error))")
-                
-            }
-            
-        }
-        
-    }
 
     
-    //MARK: - JSONParsing
-    
-    
-    func updateIngredientData(json : JSON){
-        
-        
-        if let selectedRecipe = delegateRecipe{
-            
-            if let meal = json ["hits"] [selectedRecipe.recipe_id] ["recipe"] ["ingredientLines"].array{
-                
-                for ingredient in meal{
-                    
-                    ingredientsArray.append(ingredient.stringValue)
-                }
-
-                
-            }
-            
-            
-        }
-        
-        SVProgressHUD.dismiss()
-        
-        ingredientList.reloadData()
-        
-    }
+    //MARK: - Segue
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -140,6 +79,17 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
     }
+    
+    
+   
+    
+    
+    
+    
+    
 
 
 }
+
+
+

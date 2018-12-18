@@ -34,6 +34,7 @@ class SearchResultsController: UITableViewController {
     
     var recipeBook = Recipes()
     var ingredientBook = Ingredients()
+    var missingIngredients = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class SearchResultsController: UITableViewController {
         return recipeBook.label.count
 
     }
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -65,22 +67,27 @@ class SearchResultsController: UITableViewController {
         
         cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
         
+        let ingredientArray = recipeBook.ingredient_arrays[indexPath.row]
+        
+        cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients missing"
+        
+        
 
         return cell
 
     }
+    
+    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        ingredientBook.recipe_id = recipeBook.recipe_ID[indexPath.row]
-        
         ingredientBook.meal_url = recipeBook.meal_url[indexPath.row]
-        
-        print (ingredientBook.recipe_id)
         
         ingredientBook.image_url = recipeBook.image_url[indexPath.row]
         
         ingredientBook.label = recipeBook.label[indexPath.row]
+        
+        ingredientBook.recipeList = recipeBook.ingredient_arrays[indexPath.row]
         
         
         performSegue(withIdentifier: "goToIngredientsPage", sender: self)
@@ -89,10 +96,12 @@ class SearchResultsController: UITableViewController {
     
     
     
-    //MARK: - Networking
+    //MARK: - Networking + closure to obtain recipes
     
     
     func getRecipeData(url : String){
+        
+        var newArray = [[String]]()
         
         Alamofire.request(url, method: .get).responseJSON { (response) in
             
@@ -101,7 +110,27 @@ class SearchResultsController: UITableViewController {
                 print ("Success got the recipes!")
                 let recipeJSON : JSON = JSON(response.result.value!)
                 
-                self.updateRecipeData(json: recipeJSON)
+                self.updateRecipeData(json: recipeJSON) { recipe in
+                    
+                    var array = [String]()
+                    
+                    if let ingredients = recipe ["ingredientLines"].array{
+                        
+                        for item in ingredients{
+                            
+                            array.append(item.stringValue)
+                            
+                        }
+                        
+                        newArray.append(array)
+                        
+                        self.recipeBook.ingredient_arrays = newArray
+                        
+                    }
+
+                    
+                }
+                
                 
                 
                 
@@ -121,7 +150,7 @@ class SearchResultsController: UITableViewController {
     //MARK: - JSONParsing
     
     
-    func updateRecipeData(json:JSON) {
+    func updateRecipeData(json:JSON, closure:(JSON) -> ()) {
         
         //Handle data returned
         print ("Attempting to update")
@@ -134,7 +163,7 @@ class SearchResultsController: UITableViewController {
                 var image = [String]()
                 var source = [String]()
                 var url = [String]()
-                var recipe_num = [Int]()
+                
                 
                 print ("got the recipe data")
                 
@@ -146,9 +175,13 @@ class SearchResultsController: UITableViewController {
                     image.append(food ["image"].stringValue)
                     source.append(food ["source"].stringValue)
                     url.append(food ["url"].stringValue)
-                    recipe_num.append(meal)
+                    
+                    
+                    closure(food)
                 
                 }
+                
+                
                 
                 //print (label)
                 
@@ -156,7 +189,7 @@ class SearchResultsController: UITableViewController {
                 recipeBook.image_url = image
                 recipeBook.source = source
                 recipeBook.meal_url = url
-                recipeBook.recipe_ID = recipe_num
+                
             
             
         }
@@ -191,10 +224,52 @@ class SearchResultsController: UITableViewController {
             destinationVC.delegateRecipe = ingredientBook
             
             
+            
         }
         
     }
     
 
 
+}
+
+
+//MARK: - Create function to compare ingredients
+
+extension Array where Element == String{
+    
+    func difference() -> Int {
+        
+        let thisArray = self.joined()
+        
+        let arrayCount = self.count
+        
+        var similarIngredients = 0
+        
+        let parameters = Search.searchParamters
+            
+        for item in parameters{
+                
+            if thisArray.contains(item){
+                    
+                similarIngredients += 1
+                    
+                    
+                    
+            }
+                
+        }
+            
+        
+        
+        let missingIngredients = arrayCount - similarIngredients
+        
+        return missingIngredients
+        
+    }
+    
+    
+    
+    
+    
 }

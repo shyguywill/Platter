@@ -174,6 +174,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
             
             print (recipeApiItems.joined(separator: ","))
             searchParameters = recipeApiItems.joined(separator: ",")
+            Search.searchParamters = recipeApiItems
+            
             
         }else {
             

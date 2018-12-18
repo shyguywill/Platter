@@ -16,7 +16,9 @@ struct Recipes {
     var label = [String]()
     var image_url = [String]()
     var meal_url = [String]()
-    var recipe_ID = [Int]()
+    var ingredient_Count = [Int]()
+    
+    var ingredient_arrays = [[String]]()
    
     
     
