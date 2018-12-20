@@ -61,7 +61,7 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
             
             cell.mealName.text = meal[indexPath.row].title
             
-            let imageURL = meal[indexPath.row].image_URL
+            let imageURL = meal[indexPath.row].image_url
             
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
             

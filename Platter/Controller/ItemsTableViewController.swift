@@ -167,7 +167,6 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
             
             for items in fridge{
                 
-                
                 if items.included{
                     
                     let newItem = items.name

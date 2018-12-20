@@ -79,7 +79,7 @@ class RecipePageController: UIViewController {
                     let meal = Meal()
                     
                     meal.meal_url = details.meal_url
-                    meal.image_URL = details.image_url
+                    meal.image_url = details.image_url
                     meal.title = details.label
                     meal.saved = !meal.saved
                     self.meal.saved = !self.meal.saved
@@ -163,6 +163,36 @@ class RecipePageController: UIViewController {
     
                 
         }
+    
+    
+    @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        
+        let alert = UIAlertController(title: "❤️", message: "If you loved it, why not share it?", preferredStyle: .actionSheet)
+        
+        let firstOption = UIAlertAction(title: "Facebook", style: .default) { (done) in
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let secondOption = UIAlertAction(title: "Copy Link", style: .default) { (done) in
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        let done = UIAlertAction(title: "No thanks", style: .default) { (done) in
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        
+        alert.addAction(firstOption)
+        alert.addAction(secondOption)
+        alert.addAction(done)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
         
     }
 

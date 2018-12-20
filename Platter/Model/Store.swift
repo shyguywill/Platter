@@ -12,7 +12,7 @@ import RealmSwift
 
 class Store: Object{
     
-    @objc dynamic var name = ""
+    @objc dynamic var name = String()
     @objc dynamic var included : Bool = false
     
     

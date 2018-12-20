@@ -12,12 +12,12 @@ import RealmSwift
 
 class Meal: Object{
     
-    @objc dynamic var meal_url = ""
+    @objc dynamic var meal_url = String()
     
-    @objc dynamic var image_URL = ""
+    @objc dynamic var image_url = String()
     
-    @objc dynamic var title = ""
+    @objc dynamic var title = String()
     
-    @objc dynamic var saved = false
+    @objc dynamic var saved : Bool = false
     
 }
