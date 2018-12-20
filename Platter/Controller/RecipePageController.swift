@@ -172,16 +172,19 @@ class RecipePageController: UIViewController {
         let firstOption = UIAlertAction(title: "Facebook", style: .default) { (done) in
             
             self.navigationController?.popToRootViewController(animated: true)
+            self.clean()
         }
         
         let secondOption = UIAlertAction(title: "Copy Link", style: .default) { (done) in
             
             self.navigationController?.popToRootViewController(animated: true)
+            self.clean()
         }
         
         let done = UIAlertAction(title: "No thanks", style: .default) { (done) in
             
             self.navigationController?.popToRootViewController(animated: true)
+            self.clean()
         }
         
         
@@ -191,6 +194,20 @@ class RecipePageController: UIViewController {
         
         present(alert, animated: true, completion: nil)
         
+    }
+    
+    
+    
+    func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        print("[WebCacheCleaner] All cookies deleted")
+        
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                print("[WebCacheCleaner] Record \(record) deleted")
+            }
+        }
     }
     
         
