@@ -74,9 +74,6 @@
                     <tabBarItem key="tabBarItem" tag="1" title="Home" image="Home" id="hL1-rM-ErJ">
                         <color key="badgeColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="VVh-oS-v5S">
-                        <barButtonItem key="backBarButtonItem" title=" " id="6SR-1G-bwp"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="newMeal" destination="Fan-Lg-qhx" id="Ce9-EW-eRE"/>
                     </connections>
@@ -301,7 +298,7 @@
                         <viewLayoutGuide key="safeArea" id="6Bo-2L-NZb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ingredients" largeTitleDisplayMode="never" id="s85-nR-M6L">
-                        <barButtonItem key="backBarButtonItem" title=" " id="kKP-Lb-CYf"/>
+                        <barButtonItem key="backBarButtonItem" title="   " id="kKP-Lb-CYf"/>
                     </navigationItem>
                     <connections>
                         <outlet property="continueToRecipe" destination="WlR-lo-L0B" id="SWZ-tZ-8mi"/>
@@ -380,12 +377,14 @@
             </objects>
             <point key="canvasLocation" x="56.799999999999997" y="26.53673163418291"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar-->
         <scene sceneID="18i-J6-g0f">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BjC-Rp-Jvy" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BjC-Rp-Jvy" customClass="UITabBar" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="RVW-34-xkB"/>
+                    <navigationItem key="navigationItem" id="RVW-34-xkB">
+                        <barButtonItem key="backBarButtonItem" title="    " id="tIK-pr-2BU"/>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yi7-Vx-qaX">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -408,6 +407,6 @@
         <image name="plusbutton2-1" width="499.67999267578125" height="499.67999267578125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5OX-sm-Qy3"/>
+        <segue reference="PUx-Eb-fKa"/>
     </inferredMetricsTieBreakers>
 </document>
