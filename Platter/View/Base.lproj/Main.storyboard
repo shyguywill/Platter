@@ -155,10 +155,10 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TML-77-r4R">
-                                <rect key="frame" x="75" y="576" width="225" height="42"/>
+                                <rect key="frame" x="75" y="576" width="225" height="58"/>
                                 <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="lHJ-q5-lbR"/>
+                                    <constraint firstAttribute="height" constant="58" id="lHJ-q5-lbR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Platter me"/>
@@ -177,7 +177,7 @@
                         <constraints>
                             <constraint firstItem="bkN-uy-KS9" firstAttribute="leading" secondItem="WKv-p3-TKy" secondAttribute="leading" id="S6e-Xl-fxK"/>
                             <constraint firstItem="TML-77-r4R" firstAttribute="centerX" secondItem="bkN-uy-KS9" secondAttribute="centerX" id="XK8-Cl-AgP"/>
-                            <constraint firstAttribute="bottom" secondItem="TML-77-r4R" secondAttribute="bottom" constant="49" id="jls-B6-JSd"/>
+                            <constraint firstAttribute="bottom" secondItem="TML-77-r4R" secondAttribute="bottom" constant="33" id="jls-B6-JSd"/>
                             <constraint firstItem="TML-77-r4R" firstAttribute="centerX" secondItem="WKv-p3-TKy" secondAttribute="centerX" id="mz4-7V-c6Z"/>
                             <constraint firstItem="TML-77-r4R" firstAttribute="top" secondItem="bkN-uy-KS9" secondAttribute="bottom" constant="17" id="pCn-ww-Pl6"/>
                             <constraint firstItem="TML-77-r4R" firstAttribute="leading" secondItem="I21-g6-78p" secondAttribute="leading" constant="75" id="pTq-Rd-f6n"/>

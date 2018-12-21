@@ -124,7 +124,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         var textFeild = UITextField()
         
-        let alert = UIAlertController(title: "Add a new item", message: "Add a new ingredient to your fridge", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add a new item", message: "Add a new ingredient to your pantry", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
             
@@ -151,6 +151,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         alert.addTextField { (alertTextFeild) in
             
             alertTextFeild.placeholder = "New ingredient"
+            alertTextFeild.autocorrectionType = UITextAutocorrectionType.yes
+            alertTextFeild.autocapitalizationType = UITextAutocapitalizationType.sentences
             textFeild = alertTextFeild
         }
         
