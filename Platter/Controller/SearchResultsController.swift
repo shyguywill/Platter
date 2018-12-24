@@ -32,7 +32,7 @@ class SearchResultsController: UITableViewController {
         
     }
     
-    var recipeBook = Recipes()
+    var recipeBook = [Recipes]()
     var ingredientBook = Ingredients()
     
 
@@ -52,7 +52,7 @@ class SearchResultsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return recipeBook.label.count
+        return recipeBook.count
 
     }
     
@@ -61,19 +61,19 @@ class SearchResultsController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomRecipesViewCell", for: indexPath) as? CustomRecipesViewCell else{ fatalError("Unexpected cell type")}
         
-        if recipeBook.source[indexPath.row] != "Kitchen Daily"{
+        if recipeBook[indexPath.row].source != "Kitchen Daily"{
             
-            let imageURL = recipeBook.image_url[indexPath.row]
+            let imageURL = recipeBook[indexPath.row].image_url
             
-            cell.mealName.text = recipeBook.label[indexPath.row]
+            cell.mealName.text = recipeBook[indexPath.row].label
             
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
             
-            let ingredientArray = recipeBook.ingredient_arrays[indexPath.row]
+            let ingredientArray = recipeBook[indexPath.row].ingredient_arrays
             
             cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients needed"
             
-            cell.publisherName.text = "Publisher: \(recipeBook.source[indexPath.row])"
+            cell.publisherName.text = "Publisher: \(recipeBook[indexPath.row].source)"
             
         }
         
@@ -85,15 +85,15 @@ class SearchResultsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        ingredientBook.meal_url = recipeBook.meal_url[indexPath.row]
+        ingredientBook.meal_url = recipeBook[indexPath.row].meal_url
         
-        ingredientBook.image_url = recipeBook.image_url[indexPath.row]
+        ingredientBook.image_url = recipeBook[indexPath.row].image_url
         
-        ingredientBook.label = recipeBook.label[indexPath.row]
+        ingredientBook.label = recipeBook[indexPath.row].label
         
-        ingredientBook.recipeList = recipeBook.ingredient_arrays[indexPath.row]
+        ingredientBook.recipeList = recipeBook[indexPath.row].ingredient_arrays
         
-        ingredientBook.source = recipeBook.source[indexPath.row]
+        ingredientBook.source = recipeBook[indexPath.row].source
         
         
         performSegue(withIdentifier: "goToIngredientsPage", sender: self)
@@ -107,8 +107,6 @@ class SearchResultsController: UITableViewController {
     
     func getRecipeData(url : String){
         
-        var newArray = [[String]]()
-        
         Alamofire.request(url, method: .get).responseJSON { (response) in
             
             if response.result.isSuccess {
@@ -116,29 +114,7 @@ class SearchResultsController: UITableViewController {
                 print ("Success got the recipes!")
                 let recipeJSON : JSON = JSON(response.result.value!)
                 
-                self.updateRecipeData(json: recipeJSON) { recipe in
-                    
-                    var array = [String]()
-                    
-                    if let ingredients = recipe ["ingredientLines"].array{
-                        
-                        for item in ingredients{
-                            
-                            array.append(item.stringValue)
-                            
-                        }
-                        
-                        newArray.append(array)
-                        
-                        self.recipeBook.ingredient_arrays = newArray
-                        
-                    }
-
-                    
-                }
-                
-                
-                
+                self.updateRecipeData(json: recipeJSON)
                 
             }else {
                 
@@ -156,7 +132,7 @@ class SearchResultsController: UITableViewController {
     //MARK: - JSONParsing
     
     
-    func updateRecipeData(json:JSON, closure:(JSON) -> ()) {
+    func updateRecipeData(json:JSON) {
         
         //Handle data returned
         print ("Attempting to update")
@@ -187,37 +163,43 @@ class SearchResultsController: UITableViewController {
         }
         
         if let recipeData = json ["hits"].array {
-                
-            var label = [String]()
-            var image = [String]()
-            var source = [String]()
-            var url = [String]()
-                
-                
+            
+            var recipes = Recipes()
+            
+            var recipeHold = [Recipes]()
+            
             print ("got the recipe data")
                 
             for meal in 0 ..< recipeData.count{
+                
+                
                     
                 let food = recipeData[meal] ["recipe"]
+                
+                recipes.label = food ["label"].stringValue
+                recipes.image_url = food ["image"].stringValue
+                recipes.source = food ["source"].stringValue
+                recipes.meal_url = food ["url"].stringValue
+                
+                let recipeLists = food ["ingredientLines"].arrayValue
+                
+                for item in recipeLists{
                     
-                label.append(food ["label"].stringValue)
-                image.append(food ["image"].stringValue)
-                source.append(food ["source"].stringValue)
-                url.append(food ["url"].stringValue)
+                    recipes.ingredient_arrays.append(item.stringValue)
                     
-                    
-                closure(food)
+                }
+                
+                
+                
+                recipeHold.append(recipes)
                 
             }
                 
                 //print (label)
-                
-            recipeBook.label = label
-            recipeBook.image_url = image
-            recipeBook.source = source
-            recipeBook.meal_url = url
-                
-
+            
+            
+            
+            recipeBook = recipeHold
             tableView.reloadData()
             SVProgressHUD.dismiss()
 

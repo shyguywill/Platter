@@ -12,13 +12,13 @@ import Foundation
 
 struct Recipes {
     
-    var source = [String]()
-    var label = [String]()
-    var image_url = [String]()
-    var meal_url = [String]()
+    var source = String()
+    var label = String()
+    var image_url = String()
+    var meal_url = String()
     
     
-    var ingredient_arrays = [[String]]()
+    var ingredient_arrays = [String]()
    
     
     
