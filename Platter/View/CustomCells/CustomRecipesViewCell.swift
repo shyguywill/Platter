@@ -17,6 +17,8 @@ class CustomRecipesViewCell: UITableViewCell {
     
     @IBOutlet weak var ingredientCompleteness: UILabel!
     
+    @IBOutlet weak var publisherName: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

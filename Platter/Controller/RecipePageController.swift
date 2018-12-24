@@ -33,7 +33,7 @@ class RecipePageController: UIViewController {
         
         contentBlock()
         
-        if identifier == 0{
+        if identifier == 0{ //Load from ingredients page
             
             floatySetUp()
             
@@ -47,7 +47,7 @@ class RecipePageController: UIViewController {
                 
             }
             
-        }else{
+        }else{ //Load from saved meals page
             
             if let loadURL = savedMealDetails{
                 
@@ -164,6 +164,8 @@ class RecipePageController: UIViewController {
                 
         }
     
+    //MARK: - Done button
+    
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         
@@ -196,6 +198,7 @@ class RecipePageController: UIViewController {
         
     }
     
+    //MARK: - Clear cookies and web data
     
     
     func clean() {

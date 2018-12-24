@@ -29,11 +29,19 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         ingredientList.dataSource = self
         
         
-        if let recipe = delegateRecipe{   //Load background image
+        
+        
+        
+        if let recipe = delegateRecipe{  //Load background image + set up button + nav title
             
             let url = URL(string: recipe.image_url)
             mealDisplay.kf.setImage(with: url)
+            
+            self.navigationItem.title = "\(recipe.label)"
+            continueToRecipe.setTitle("Continue to recipe on \(recipe.source)", for: .normal)
+            
         }
+        
         
     }
     
@@ -77,15 +85,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
     }
-    
-    
-   
-    
-    
-    
-    
-    
-
 
 }
 

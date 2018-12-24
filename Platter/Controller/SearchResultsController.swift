@@ -34,12 +34,12 @@ class SearchResultsController: UITableViewController {
     
     var recipeBook = Recipes()
     var ingredientBook = Ingredients()
-    var missingIngredients = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 100
+        tableView.rowHeight = 130
         
         self.tableView.register(UINib(nibName: "CustomRecipes", bundle: nil), forCellReuseIdentifier: "CustomRecipesViewCell")
         
@@ -61,18 +61,22 @@ class SearchResultsController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomRecipesViewCell", for: indexPath) as? CustomRecipesViewCell else{ fatalError("Unexpected cell type")}
         
-        let imageURL = recipeBook.image_url[indexPath.row]
+        if recipeBook.source[indexPath.row] != "Kitchen Daily"{
+            
+            let imageURL = recipeBook.image_url[indexPath.row]
+            
+            cell.mealName.text = recipeBook.label[indexPath.row]
+            
+            cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
+            
+            let ingredientArray = recipeBook.ingredient_arrays[indexPath.row]
+            
+            cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients needed"
+            
+            cell.publisherName.text = "Publisher: \(recipeBook.source[indexPath.row])"
+            
+        }
         
-        cell.mealName.text = recipeBook.label[indexPath.row]
-        
-        cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
-        
-        let ingredientArray = recipeBook.ingredient_arrays[indexPath.row]
-        
-        cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients needed"
-        
-        
-
         return cell
 
     }
@@ -88,6 +92,8 @@ class SearchResultsController: UITableViewController {
         ingredientBook.label = recipeBook.label[indexPath.row]
         
         ingredientBook.recipeList = recipeBook.ingredient_arrays[indexPath.row]
+        
+        ingredientBook.source = recipeBook.source[indexPath.row]
         
         
         performSegue(withIdentifier: "goToIngredientsPage", sender: self)

@@ -13,6 +13,8 @@ struct Ingredients {
     var label = String()
     var meal_url = String()
     var image_url = String()
+    var source = String()
+    
     var recipeList = [String]()
     var finalGetURL = String()
     
