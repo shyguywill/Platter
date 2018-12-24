@@ -62,6 +62,7 @@ class SearchResultsController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomRecipesViewCell", for: indexPath) as? CustomRecipesViewCell else{ fatalError("Unexpected cell type")}
         
         let sortedRecipe = recipeBook.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
+        //create new array with sorted items
         
         if sortedRecipe[indexPath.row].source != "Kitchen Daily"{
             
@@ -88,6 +89,7 @@ class SearchResultsController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let sortedRecipe = recipeBook.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
+        //create new array with sorted items
         
         ingredientBook.meal_url = sortedRecipe[indexPath.row].meal_url
         
