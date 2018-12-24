@@ -61,19 +61,21 @@ class SearchResultsController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomRecipesViewCell", for: indexPath) as? CustomRecipesViewCell else{ fatalError("Unexpected cell type")}
         
-        if recipeBook[indexPath.row].source != "Kitchen Daily"{
+        let sortedRecipe = recipeBook.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
+        
+        if sortedRecipe[indexPath.row].source != "Kitchen Daily"{
             
-            let imageURL = recipeBook[indexPath.row].image_url
+            let imageURL = sortedRecipe[indexPath.row].image_url
             
-            cell.mealName.text = recipeBook[indexPath.row].label
+            cell.mealName.text = sortedRecipe[indexPath.row].label
             
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
             
-            let ingredientArray = recipeBook[indexPath.row].ingredient_arrays
+            let ingredientArray = sortedRecipe[indexPath.row].ingredient_arrays
             
             cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients needed"
             
-            cell.publisherName.text = "Publisher: \(recipeBook[indexPath.row].source)"
+            cell.publisherName.text = "Publisher: \(sortedRecipe[indexPath.row].source)"
             
         }
         
@@ -85,15 +87,17 @@ class SearchResultsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        ingredientBook.meal_url = recipeBook[indexPath.row].meal_url
+        let sortedRecipe = recipeBook.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
         
-        ingredientBook.image_url = recipeBook[indexPath.row].image_url
+        ingredientBook.meal_url = sortedRecipe[indexPath.row].meal_url
         
-        ingredientBook.label = recipeBook[indexPath.row].label
+        ingredientBook.image_url = sortedRecipe[indexPath.row].image_url
         
-        ingredientBook.recipeList = recipeBook[indexPath.row].ingredient_arrays
+        ingredientBook.label = sortedRecipe[indexPath.row].label
         
-        ingredientBook.source = recipeBook[indexPath.row].source
+        ingredientBook.recipeList = sortedRecipe[indexPath.row].ingredient_arrays
+        
+        ingredientBook.source = sortedRecipe[indexPath.row].source
         
         
         performSegue(withIdentifier: "goToIngredientsPage", sender: self)
@@ -164,7 +168,6 @@ class SearchResultsController: UITableViewController {
         
         if let recipeData = json ["hits"].array {
             
-            var recipes = Recipes()
             
             var recipeHold = [Recipes]()
             
@@ -172,8 +175,8 @@ class SearchResultsController: UITableViewController {
                 
             for meal in 0 ..< recipeData.count{
                 
+                var recipes = Recipes()
                 
-                    
                 let food = recipeData[meal] ["recipe"]
                 
                 recipes.label = food ["label"].stringValue
@@ -181,14 +184,15 @@ class SearchResultsController: UITableViewController {
                 recipes.source = food ["source"].stringValue
                 recipes.meal_url = food ["url"].stringValue
                 
-                let recipeLists = food ["ingredientLines"].arrayValue
-                
-                for item in recipeLists{
+                if let recipeLists = food ["ingredientLines"].array{
                     
-                    recipes.ingredient_arrays.append(item.stringValue)
+                    for item in recipeLists{
+                        
+                        recipes.ingredient_arrays.append(item.stringValue)
+                        
+                    }
                     
                 }
-                
                 
                 
                 recipeHold.append(recipes)
@@ -234,7 +238,6 @@ class SearchResultsController: UITableViewController {
     }
     
 
-
 }
 
 
@@ -244,21 +247,24 @@ extension Array where Element == String{
     
     func difference() -> Int {
         
-        let thisArray = self.joined(separator: " ")
         
         var arrayCount = self.count
+        
+        let stringedArray = self.joined(separator: " ")
         
         let parameters = Search.searchParamters
             
         for item in parameters{
-                
-            if thisArray.contains(item){
+            
+            if stringedArray.lowercased().contains(item.lowercased()){
                     
                 arrayCount -= 1
+                
                 
             }
                 
         }
+        
         
         return arrayCount
         

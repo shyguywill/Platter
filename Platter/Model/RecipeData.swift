@@ -19,6 +19,8 @@ struct Recipes {
     
     
     var ingredient_arrays = [String]()
+    
+    var itemsMissing = Int()
    
     
     
