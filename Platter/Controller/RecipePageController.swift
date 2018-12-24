@@ -10,8 +10,9 @@ import UIKit
 import WebKit
 import Floaty
 import RealmSwift
+import SVProgressHUD
 
-class RecipePageController: UIViewController {
+class RecipePageController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet var webView: WKWebView!
     
@@ -31,6 +32,10 @@ class RecipePageController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        webView.navigationDelegate = self
+        
+        SVProgressHUD.show()
+        
         contentBlock()
         
         if identifier == 0{ //Load from ingredients page
@@ -44,6 +49,8 @@ class RecipePageController: UIViewController {
                 let request = URLRequest(url: url!)
                 
                 webView.load(request)
+                
+               
                 
             }
             
@@ -61,6 +68,14 @@ class RecipePageController: UIViewController {
         }
     }
     
+    //MARK: - Dismiss progressHUD
+    
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        
+        SVProgressHUD.dismiss()
+        
+    }
     
     //MARK: - Set up floating save meals button
     
@@ -169,9 +184,9 @@ class RecipePageController: UIViewController {
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "❤️", message: "If you loved it, why not share it?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "❤️", message: "Did you love it? Why not share it?", preferredStyle: .actionSheet)
         
-        let firstOption = UIAlertAction(title: "Facebook", style: .default) { (done) in
+        let firstOption = UIAlertAction(title: "Share on Facebook", style: .default) { (done) in
             
             self.navigationController?.popToRootViewController(animated: true)
             self.clean()

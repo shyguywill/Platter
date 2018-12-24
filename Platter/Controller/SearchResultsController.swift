@@ -161,44 +161,62 @@ class SearchResultsController: UITableViewController {
         //Handle data returned
         print ("Attempting to update")
         
-        if let recipeData = json ["hits"].array {
+        let mealCount = json ["count"].intValue
+        
+        guard mealCount >= 3 else { //Make sure there are 3 or more recipes returned
             
-            if recipeData.count != 0{
+            SVProgressHUD.dismiss()
+            
+            let alert = UIAlertController(title: "Uh oh", message: "Please try a different combination of, or less ingredients", preferredStyle: .alert)
+            
+            let cancel = UIAlertAction(title: "Got it", style: .default) { (cancel) in
                 
-                var label = [String]()
-                var image = [String]()
-                var source = [String]()
-                var url = [String]()
+                print ("Entered cancel closure")
+                
+                _ = self.navigationController?.popViewController(animated: true)
+                
+            }
+            
+            alert.addAction(cancel)
+            
+            present(alert, animated: true, completion: nil)
+            
+            print ("No recipes found")
+            
+            return
+        }
+        
+        if let recipeData = json ["hits"].array {
+                
+            var label = [String]()
+            var image = [String]()
+            var source = [String]()
+            var url = [String]()
                 
                 
-                print ("got the recipe data")
+            print ("got the recipe data")
                 
-                for meal in 0 ..< recipeData.count{
+            for meal in 0 ..< recipeData.count{
                     
-                    let food = recipeData[meal] ["recipe"]
+                let food = recipeData[meal] ["recipe"]
                     
-                    label.append(food ["label"].stringValue)
-                    image.append(food ["image"].stringValue)
-                    source.append(food ["source"].stringValue)
-                    url.append(food ["url"].stringValue)
+                label.append(food ["label"].stringValue)
+                image.append(food ["image"].stringValue)
+                source.append(food ["source"].stringValue)
+                url.append(food ["url"].stringValue)
                     
                     
-                    closure(food)
+                closure(food)
                 
-                }
-                
-                
+            }
                 
                 //print (label)
                 
-                recipeBook.label = label
-                recipeBook.image_url = image
-                recipeBook.source = source
-                recipeBook.meal_url = url
+            recipeBook.label = label
+            recipeBook.image_url = image
+            recipeBook.source = source
+            recipeBook.meal_url = url
                 
-            
-            
-        }
 
             tableView.reloadData()
             SVProgressHUD.dismiss()
