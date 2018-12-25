@@ -29,16 +29,14 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         ingredientList.dataSource = self
         
         
-        
-        
-        
         if let recipe = delegateRecipe{  //Load background image + set up button + nav title
             
             let url = URL(string: recipe.image_url)
             mealDisplay.kf.setImage(with: url)
             
             self.navigationItem.title = "\(recipe.label)"
-            continueToRecipe.setTitle("Continue to recipe on \(recipe.source)", for: .normal)
+            continueToRecipe.setTitle("Go to recipe on \(recipe.source)", for: .normal)
+            continueToRecipe.titleLabel?.textAlignment = NSTextAlignment.center
             
         }
         
@@ -59,6 +57,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
         
         cell.textLabel?.text = delegateRecipe?.recipeList[indexPath.row]
+    
+        cell.textLabel?.numberOfLines = 2
         
     
         return cell
@@ -66,6 +66,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

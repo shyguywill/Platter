@@ -29,14 +29,14 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         
         savedMealTable.register(UINib(nibName: "CustomRecipes", bundle: nil), forCellReuseIdentifier: "CustomRecipesViewCell")
         
-        savedMealTable.rowHeight = 100
+        savedMealTable.rowHeight = 130
         
         loadMeals()
         
         // Do any additional setup after loading the view.
     }
     
-    //Reload itemsin database
+    //Reload items in database
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -66,6 +66,8 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
             
             cell.ingredientCompleteness.text = nil
+            
+            cell.publisherName.text = "Publisher: \(meal[indexPath.row].publisher)"
             
         }
         

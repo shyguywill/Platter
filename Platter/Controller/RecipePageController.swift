@@ -38,23 +38,26 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         contentBlock()
         
-        if identifier == 0{ //Load from ingredients page
+        switch identifier{
             
+        case 0:
+            
+            //Load from ingredients page
             floatySetUp()
-            
+        
             if let loadURL = mealDetails?.meal_url{
-                
+            
                 let url = URL(string: loadURL)
-                
+            
                 let request = URLRequest(url: url!)
-                
+            
                 webView.load(request)
-                
-               
-                
+            
             }
             
-        }else{ //Load from saved meals page
+        case 1:
+            
+            //Load from saved meals page
             
             if let loadURL = savedMealDetails{
                 
@@ -65,7 +68,12 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
                 webView.load(request)
                 
             }
+            
+        default:
+            
+            break
         }
+      
     }
     
     //MARK: - Dismiss progressHUD
@@ -97,6 +105,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
                     meal.image_url = details.image_url
                     meal.title = details.label
                     meal.saved = !meal.saved
+                    meal.publisher = details.source
                     self.meal.saved = !self.meal.saved
                     
                     
@@ -188,14 +197,30 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         let firstOption = UIAlertAction(title: "Share on Facebook", style: .default) { (done) in
             
-            self.navigationController?.popToRootViewController(animated: true)
-            self.clean()
+            let fbAlert = UIAlertController(title: nil, message: "This function will be built shortly", preferredStyle: .alert)
+            
+            let cancel = UIAlertAction(title: "Done", style: .default, handler: { (button) in
+                self.navigationController?.popToRootViewController(animated: true)
+                self.clean()
+            })
+            
+            fbAlert.addAction(cancel)
+            
+            self.present(fbAlert, animated: true, completion: nil)
         }
         
         let secondOption = UIAlertAction(title: "Copy Link", style: .default) { (done) in
             
-            self.navigationController?.popToRootViewController(animated: true)
-            self.clean()
+            let fbAlert = UIAlertController(title: nil, message: "This function will be built shortly", preferredStyle: .alert)
+            
+            let cancel = UIAlertAction(title: "Done", style: .default, handler: { (button) in
+                self.navigationController?.popToRootViewController(animated: true)
+                self.clean()
+            })
+            
+            fbAlert.addAction(cancel)
+            
+            self.present(fbAlert, animated: true, completion: nil)
         }
         
         let done = UIAlertAction(title: "No thanks", style: .default) { (done) in

@@ -32,7 +32,25 @@ class SearchResultsController: UITableViewController {
         
     }
     
-    var recipeBook = [Recipes]()
+    var recipeBook : [Recipes]? {
+        
+        didSet{
+            
+            if let refinedList = recipeBook{
+                
+                let sortedRecipe = refinedList.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
+                
+                let filteredRecipe = sortedRecipe.filter {$0.source != "Kitchen Daily" && $0.source != "Kraft Foods"}
+                
+                recipeBook = filteredRecipe
+                
+            }
+            
+        }
+        
+    }
+    
+    
     var ingredientBook = Ingredients()
     
 
@@ -52,8 +70,8 @@ class SearchResultsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return recipeBook.count
-
+        return recipeBook?.count ?? 0
+        
     }
     
 
@@ -61,22 +79,20 @@ class SearchResultsController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomRecipesViewCell", for: indexPath) as? CustomRecipesViewCell else{ fatalError("Unexpected cell type")}
         
-        let sortedRecipe = recipeBook.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
-        //create new array with sorted items
         
-        if sortedRecipe[indexPath.row].source != "Kitchen Daily"{
+        if let recipeArray = recipeBook{
             
-            let imageURL = sortedRecipe[indexPath.row].image_url
+            let imageURL = recipeArray[indexPath.row].image_url
             
-            cell.mealName.text = sortedRecipe[indexPath.row].label
+            cell.mealName.text = recipeArray[indexPath.row].label
             
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
             
-            let ingredientArray = sortedRecipe[indexPath.row].ingredient_arrays
+            let ingredientArray = recipeArray[indexPath.row].ingredient_arrays
             
             cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients needed"
             
-            cell.publisherName.text = "Publisher: \(sortedRecipe[indexPath.row].source)"
+            cell.publisherName.text = "Publisher: \(recipeArray[indexPath.row].source)"
             
         }
         
@@ -88,19 +104,19 @@ class SearchResultsController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let sortedRecipe = recipeBook.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
-        //create new array with sorted items
-        
-        ingredientBook.meal_url = sortedRecipe[indexPath.row].meal_url
-        
-        ingredientBook.image_url = sortedRecipe[indexPath.row].image_url
-        
-        ingredientBook.label = sortedRecipe[indexPath.row].label
-        
-        ingredientBook.recipeList = sortedRecipe[indexPath.row].ingredient_arrays
-        
-        ingredientBook.source = sortedRecipe[indexPath.row].source
-        
+        if let recipeArray = recipeBook{
+            
+            ingredientBook.meal_url = recipeArray[indexPath.row].meal_url
+            
+            ingredientBook.image_url = recipeArray[indexPath.row].image_url
+            
+            ingredientBook.label = recipeArray[indexPath.row].label
+            
+            ingredientBook.recipeList = recipeArray[indexPath.row].ingredient_arrays
+            
+            ingredientBook.source = recipeArray[indexPath.row].source
+            
+        }
         
         performSegue(withIdentifier: "goToIngredientsPage", sender: self)
 

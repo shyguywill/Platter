@@ -18,6 +18,8 @@ class Meal: Object{
     
     @objc dynamic var title = String()
     
+    @objc dynamic var publisher = String()
+    
     @objc dynamic var saved : Bool = false
     
 }
