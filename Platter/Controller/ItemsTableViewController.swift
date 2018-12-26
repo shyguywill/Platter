@@ -34,6 +34,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         fridgeTableView.register(UINib(nibName: "CustomItems", bundle: nil), forCellReuseIdentifier: "CustomIngredientCell")
         
         loadIngredients()
+        
+        firstLaunch()
 
     }
 
@@ -114,6 +116,30 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         fridgeTableView.reloadData()
         
+        
+    }
+    
+    //MARK: - First launch method
+    
+    func firstLaunch() {
+        
+        let firstTime = FirstLaunch(userDefaults: .standard, key: "com.FirstLaunch.WasLaunchedBefore")
+        
+        if firstTime.isFirstLaunch{
+            
+            let alert = UIAlertController(title: "Let's get started", message: "Add ingredients and condiments to your Pantry with the '+' button, then select which to include in your search", preferredStyle: .alert)
+            
+            let done = UIAlertAction(title: "Got it", style: .default) { (done) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+            
+            alert.addAction(done)
+            
+            present(alert, animated: true, completion: nil)
+        
+        }
         
     }
     

@@ -229,10 +229,16 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             self.clean()
         }
         
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+            
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
         
         alert.addAction(firstOption)
         alert.addAction(secondOption)
         alert.addAction(done)
+        alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
         

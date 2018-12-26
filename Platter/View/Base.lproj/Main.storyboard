@@ -245,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gji-Nu-hQQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="246"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="202"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2p0-hb-VvE">
                                 <rect key="frame" x="0.0" y="237" width="375" height="430"/>
@@ -284,7 +284,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gji-Nu-hQQ" secondAttribute="trailing" id="39i-sJ-zpK"/>
-                            <constraint firstItem="6Bo-2L-NZb" firstAttribute="bottom" secondItem="Gji-Nu-hQQ" secondAttribute="bottom" constant="357" id="4lx-yM-mQt"/>
+                            <constraint firstItem="6Bo-2L-NZb" firstAttribute="bottom" secondItem="Gji-Nu-hQQ" secondAttribute="bottom" constant="401" id="4lx-yM-mQt"/>
                             <constraint firstItem="Gji-Nu-hQQ" firstAttribute="top" secondItem="6Bo-2L-NZb" secondAttribute="top" id="5aD-q1-bvM"/>
                             <constraint firstItem="WlR-lo-L0B" firstAttribute="top" secondItem="6Bo-2L-NZb" secondAttribute="top" constant="50" id="A5b-A4-O25"/>
                             <constraint firstItem="Gji-Nu-hQQ" firstAttribute="trailing" secondItem="2p0-hb-VvE" secondAttribute="trailing" id="C3Q-id-U5I"/>
@@ -349,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N8b-B7-MEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4825" y="843"/>
+            <point key="canvasLocation" x="4793" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gFT-XF-Jeg">

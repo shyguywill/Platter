@@ -14,6 +14,8 @@
 		751947F021ADE43B0059F59A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751947EE21ADE43B0059F59A /* LaunchScreen.storyboard */; };
 		751947FB21ADE43B0059F59A /* PlatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751947FA21ADE43B0059F59A /* PlatterTests.swift */; };
 		7519480621ADE4F00059F59A /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7519480521ADE4F00059F59A /* Secrets.swift */; };
+		752023B321D39F5000312257 /* FirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752023B221D39F5000312257 /* FirstLaunch.swift */; };
+		752023B521D3D39A00312257 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 752023B421D3D39A00312257 /* StoreKit.framework */; };
 		7553BD6E21B69C1F00DD9D85 /* ItemsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD6D21B69C1F00DD9D85 /* ItemsTableViewController.swift */; };
 		7553BD7021B6A60C00DD9D85 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD6F21B6A60B00DD9D85 /* Store.swift */; };
 		7553BD7421B6A7D100DD9D85 /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD7321B6A7D100DD9D85 /* Pantry.swift */; };
@@ -61,6 +63,8 @@
 		751947FA21ADE43B0059F59A /* PlatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatterTests.swift; sourceTree = "<group>"; };
 		751947FC21ADE43B0059F59A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7519480521ADE4F00059F59A /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		752023B221D39F5000312257 /* FirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunch.swift; sourceTree = "<group>"; };
+		752023B421D3D39A00312257 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7553BD6D21B69C1F00DD9D85 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		7553BD6F21B6A60B00DD9D85 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		7553BD7321B6A7D100DD9D85 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9124AB11CB37698E8BBD2817 /* Pods_Platter.framework in Frameworks */,
+				752023B521D3D39A00312257 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +121,7 @@
 		55E5267E437DCD4F15D942AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				752023B421D3D39A00312257 /* StoreKit.framework */,
 				308EB3EA6A64B931FE14A2C7 /* Pods_Platter.framework */,
 				6D8FE8594AF6063E1923307E /* Pods_PlatterTests.framework */,
 			);
@@ -131,6 +137,7 @@
 				75E09F0421B816EE00248DC3 /* SearchResultsController.swift */,
 				75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */,
 				75AAD37F21BC220E0006CA7C /* RecipePageController.swift */,
+				752023B221D39F5000312257 /* FirstLaunch.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,7 +276,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -423,6 +430,7 @@
 				7553BD7421B6A7D100DD9D85 /* Pantry.swift in Sources */,
 				75F6200121CD1A37002C8EB6 /* UITabBarController.swift in Sources */,
 				7553BD6E21B69C1F00DD9D85 /* ItemsTableViewController.swift in Sources */,
+				752023B321D39F5000312257 /* FirstLaunch.swift in Sources */,
 				75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */,
 				75E09F0521B816EE00248DC3 /* SearchResultsController.swift in Sources */,
 				751947E621ADE43A0059F59A /* AppDelegate.swift in Sources */,

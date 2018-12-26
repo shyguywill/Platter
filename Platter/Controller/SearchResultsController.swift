@@ -283,6 +283,10 @@ extension Array where Element == String{
                 
         }
         
+        if arrayCount < 0 {
+            
+            arrayCount = 0
+        }
         
         return arrayCount
         
