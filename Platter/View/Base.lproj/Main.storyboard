@@ -338,11 +338,18 @@
                         <viewLayoutGuide key="safeArea" id="77g-uA-aMx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" largeTitleDisplayMode="never" id="eQp-BB-Jbf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="sFr-0Z-K2s">
-                            <connections>
-                                <action selector="doneButton:" destination="8ST-tg-xAg" id="8dP-GB-Ikh"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="done" id="sFr-0Z-K2s">
+                                <connections>
+                                    <action selector="doneButton:" destination="8ST-tg-xAg" id="8dP-GB-Ikh"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="bCe-1g-vaI">
+                                <connections>
+                                    <action selector="refreshButton:" destination="8ST-tg-xAg" id="UF5-7c-BjM"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="webView" destination="oJe-0G-Dxo" id="aXg-k7-Xtm"/>

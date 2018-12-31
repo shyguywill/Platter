@@ -250,6 +250,16 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
     }
     
+    
+    @IBAction func refreshButton(_ sender: UIBarButtonItem) {
+        
+        //self.webView.reload()
+        
+        self.viewDidLoad()
+        self.viewWillAppear(true)
+        
+    }
+    
     //MARK: - Clear cookies and web data
     
     
