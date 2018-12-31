@@ -44,6 +44,8 @@ class SearchResultsController: UITableViewController {
                 
                 recipeBook = filteredRecipe
                 
+                //better place to call tableview reload?
+                
             }
             
         }
@@ -62,6 +64,7 @@ class SearchResultsController: UITableViewController {
         self.tableView.register(UINib(nibName: "CustomRecipes", bundle: nil), forCellReuseIdentifier: "CustomRecipesViewCell")
         
         SVProgressHUD.setBackgroundColor(UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 0.5))
+        SVProgressHUD.setMaximumDismissTimeInterval(30.0)
         SVProgressHUD.show()
 
     }

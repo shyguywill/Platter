@@ -32,11 +32,11 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contentBlock()
+        
         webView.navigationDelegate = self
         
         SVProgressHUD.show()
-        
-        contentBlock()
         
         switch identifier{
             
@@ -84,6 +84,12 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         SVProgressHUD.dismiss()
         
     }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        
+        SVProgressHUD.dismiss()
+    }
+    
     
     //MARK: - Set up floating save meals button
     
@@ -209,7 +215,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             self.present(fbAlert, animated: true, completion: nil)
         }
         
-        let secondOption = UIAlertAction(title: "Copy Link", style: .default) { (done) in
+        let secondOption = UIAlertAction(title: "Copy link", style: .default) { (done) in
             
             let fbAlert = UIAlertController(title: nil, message: "This function will be built shortly", preferredStyle: .alert)
             

@@ -127,7 +127,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         if firstTime.isFirstLaunch{
             
-            let alert = UIAlertController(title: "Let's get started", message: "Add ingredients and condiments to your Pantry with the '+' button, then select which to include in your search", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Let's get started", message: "Add ingredients and condiments to your Pantry with the '+' button, then select which to include in your search.", preferredStyle: .alert)
             
             let done = UIAlertAction(title: "Got it", style: .default) { (done) in
                 alert.dismiss(animated: true, completion: nil)
