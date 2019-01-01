@@ -83,6 +83,7 @@ class SearchResultsController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomRecipesViewCell", for: indexPath) as? CustomRecipesViewCell else{ fatalError("Unexpected cell type")}
         
         
+        
         if let recipeArray = recipeBook{
             
             let imageURL = recipeArray[indexPath.row].image_url
@@ -91,9 +92,13 @@ class SearchResultsController: UITableViewController {
             
             cell.mealImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(named: "logo"))
             
+            //Create ingredients missing label
+            
             let ingredientArray = recipeArray[indexPath.row].ingredient_arrays
             
-            cell.ingredientCompleteness.text = "\(ingredientArray.difference()) ingredients needed"
+            let ingredientsNeeded = MissingIngredientsLabel(numberMissing: ingredientArray.difference())
+            
+            cell.ingredientCompleteness.text = ingredientsNeeded.missingIngredientLabel
             
             cell.publisherName.text = "Publisher: \(recipeArray[indexPath.row].source)"
             

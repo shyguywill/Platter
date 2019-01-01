@@ -12,8 +12,8 @@ import SDWebImage
 
 
 class SavedMealsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-   
+    
+    
     @IBOutlet weak var savedMealTable: UITableView!
     
     var mealItem : Results<Meal>?
@@ -136,4 +136,38 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
 
 
 
+}
+
+extension SavedMealsViewController: UISearchBarDelegate{
+    
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        mealItem = mealItem?.filter("title CONTAINS[cd] %@",searchBar.text!)
+        
+        print ("Searching ...")
+        savedMealTable.reloadData()
+    }
+    
+  
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0{
+            
+            loadMeals()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
 }
