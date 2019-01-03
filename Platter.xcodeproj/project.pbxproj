@@ -133,6 +133,7 @@
 		751910F021ADF8D800CB9BE5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				75F6200021CD1A37002C8EB6 /* UITabBarController.swift */,
 				751947E721ADE43A0059F59A /* HomeScreenController.swift */,
 				75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */,
 				7553BD6D21B69C1F00DD9D85 /* ItemsTableViewController.swift */,
@@ -148,7 +149,6 @@
 			children = (
 				751947EE21ADE43B0059F59A /* LaunchScreen.storyboard */,
 				751947E921ADE43A0059F59A /* Main.storyboard */,
-				75F6200021CD1A37002C8EB6 /* UITabBarController.swift */,
 				7553BD7521B6B32100DD9D85 /* CustomCells */,
 			);
 			path = View;

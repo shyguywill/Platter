@@ -17,6 +17,8 @@ class CustomRecipesViewCell: UITableViewCell {
     
     @IBOutlet weak var ingredientCompleteness: UILabel!
     
+    @IBOutlet weak var calorieCount: UILabel!
+    
     @IBOutlet weak var publisherName: UILabel!
     
     

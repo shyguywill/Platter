@@ -59,12 +59,12 @@ class SearchResultsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 130
+        tableView.rowHeight = 150
         
         self.tableView.register(UINib(nibName: "CustomRecipes", bundle: nil), forCellReuseIdentifier: "CustomRecipesViewCell")
         
         SVProgressHUD.setBackgroundColor(UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 0.5))
-        SVProgressHUD.setMaximumDismissTimeInterval(30.0)
+        SVProgressHUD.setMaximumDismissTimeInterval(15.00)
         SVProgressHUD.show()
 
     }
@@ -100,7 +100,11 @@ class SearchResultsController: UITableViewController {
             
             cell.ingredientCompleteness.text = ingredientsNeeded.missingIngredientLabel
             
+            cell.ingredientCompleteness.textColor = ingredientsNeeded.textColour
+            
             cell.publisherName.text = "Publisher: \(recipeArray[indexPath.row].source)"
+            
+            cell.calorieCount.text = "Calories per serving: \(recipeArray[indexPath.row].calories)"
             
         }
         
@@ -209,6 +213,11 @@ class SearchResultsController: UITableViewController {
                 recipes.image_url = food ["image"].stringValue
                 recipes.source = food ["source"].stringValue
                 recipes.meal_url = food ["url"].stringValue
+                
+                let yield = food ["yield"].intValue
+                let totalCalories = food ["calories"].intValue
+                
+                recipes.calories = totalCalories/yield
                 
                 if let recipeLists = food ["ingredientLines"].array{
                     

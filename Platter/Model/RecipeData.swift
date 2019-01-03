@@ -16,11 +16,10 @@ struct Recipes {
     var label = String()
     var image_url = String()
     var meal_url = String()
-    
+    var calories = Int()
     
     var ingredient_arrays = [String]()
-    
-    var itemsMissing = Int()
+
    
     
     

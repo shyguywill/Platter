@@ -60,7 +60,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.textLabel?.text = delegateRecipe?.recipeList[indexPath.row]
     
-        cell.textLabel?.numberOfLines = 2
+        cell.textLabel?.numberOfLines = 3
         
     
         return cell
