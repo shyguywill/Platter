@@ -22,6 +22,8 @@
 		7553BD7821B6B35E00DD9D85 /* CustomItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */; };
 		7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7553BD7721B6B35E00DD9D85 /* CustomItems.xib */; };
 		75599CE821B951BE00696D87 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75599CE721B951BE00696D87 /* RecipeData.swift */; };
+		756CC6A421DF8CA300D4A6D5 /* ButtonSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */; };
+		756CC6A621DFA3D800D4A6D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756CC6A521DFA3D800D4A6D5 /* AVFoundation.framework */; };
 		757F610421DB91F100D6544B /* IngredientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F610321DB91F100D6544B /* IngredientLabel.swift */; };
 		75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */; };
 		75A49CA821C00DF1000D1C36 /* SavedMeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA721C00DF1000D1C36 /* SavedMeals.swift */; };
@@ -72,6 +74,8 @@
 		7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomItemsViewCell.swift; sourceTree = "<group>"; };
 		7553BD7721B6B35E00DD9D85 /* CustomItems.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomItems.xib; sourceTree = "<group>"; };
 		75599CE721B951BE00696D87 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ButtonSound.mp3; sourceTree = "<group>"; };
+		756CC6A521DFA3D800D4A6D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		757F610321DB91F100D6544B /* IngredientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientLabel.swift; sourceTree = "<group>"; };
 		75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMealsViewController.swift; sourceTree = "<group>"; };
 		75A49CA721C00DF1000D1C36 /* SavedMeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMeals.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756CC6A621DFA3D800D4A6D5 /* AVFoundation.framework in Frameworks */,
 				9124AB11CB37698E8BBD2817 /* Pods_Platter.framework in Frameworks */,
 				752023B521D3D39A00312257 /* StoreKit.framework in Frameworks */,
 			);
@@ -123,6 +128,7 @@
 		55E5267E437DCD4F15D942AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				756CC6A521DFA3D800D4A6D5 /* AVFoundation.framework */,
 				752023B421D3D39A00312257 /* StoreKit.framework */,
 				308EB3EA6A64B931FE14A2C7 /* Pods_Platter.framework */,
 				6D8FE8594AF6063E1923307E /* Pods_PlatterTests.framework */,
@@ -195,6 +201,7 @@
 			children = (
 				7519480521ADE4F00059F59A /* Secrets.swift */,
 				751947E521ADE43A0059F59A /* AppDelegate.swift */,
+				756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */,
 				751910F121ADF92C00CB9BE5 /* View */,
 				751910F021ADF8D800CB9BE5 /* Controller */,
 				751910F221ADF96100CB9BE5 /* Model */,
@@ -317,6 +324,7 @@
 				7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */,
 				751947F021ADE43B0059F59A /* LaunchScreen.storyboard in Resources */,
 				751947ED21ADE43B0059F59A /* Assets.xcassets in Resources */,
+				756CC6A421DF8CA300D4A6D5 /* ButtonSound.mp3 in Resources */,
 				751947EB21ADE43A0059F59A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

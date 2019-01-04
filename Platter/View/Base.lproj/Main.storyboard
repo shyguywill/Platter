@@ -47,7 +47,8 @@
                                         <color key="tintColor" red="0.38301386160000001" green="0.72253614659999998" blue="0.048727979579999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="newMealButton" image="go"/>
                                         <connections>
-                                            <segue destination="4Vf-mQ-CxG" kind="show" id="2kW-3M-L2o"/>
+                                            <action selector="newMeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SG0-B3-50h"/>
+                                            <segue destination="4Vf-mQ-CxG" kind="show" identifier="goToPantry" id="2kW-3M-L2o"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -423,6 +424,6 @@
         <image name="go" width="499.67999267578125" height="499.67999267578125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5OX-sm-Qy3"/>
+        <segue reference="PUx-Eb-fKa"/>
     </inferredMetricsTieBreakers>
 </document>
