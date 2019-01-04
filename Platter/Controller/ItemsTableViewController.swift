@@ -143,7 +143,21 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
     }
     
-  
+    @IBAction func platterBtn(_ sender: UIButton) {
+        
+        if Connectivity.isConnectedToInternet(){
+            
+            performSegue(withIdentifier: "platterMe", sender: self)
+        
+        }else{
+            
+            Connectivity.handleNotConnected(view: self)
+            
+        }
+        
+        
+    }
+    
 //MARK:- Add new items
     
     @IBAction func addItems(_ sender: UIBarButtonItem) {
@@ -151,6 +165,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         var textFeild = UITextField()
         
         let alert = UIAlertController(title: "Add a new item", message: "Add a new ingredient to your pantry", preferredStyle: .alert)
+        
+        alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
         
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
             
@@ -235,7 +251,6 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     //MARK: - Prepare for Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         // Call get recipe and pass in URL
         
         if let destinationVC = segue.destination as? SearchResultsController {

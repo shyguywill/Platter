@@ -48,7 +48,7 @@
                                         <state key="normal" title="newMealButton" image="go"/>
                                         <connections>
                                             <action selector="newMeal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SG0-B3-50h"/>
-                                            <segue destination="4Vf-mQ-CxG" kind="show" identifier="goToPantry" id="2kW-3M-L2o"/>
+                                            <segue destination="4Vf-mQ-CxG" kind="show" identifier="" id="2kW-3M-L2o"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -179,7 +179,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="b9z-5B-OgG" kind="show" id="YH1-H4-saj"/>
+                                    <action selector="platterBtn:" destination="4Vf-mQ-CxG" eventType="touchUpInside" id="Yix-ZS-H90"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -206,6 +206,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="fridgeTableView" destination="bkN-uy-KS9" id="7ej-7x-ZiP"/>
+                        <segue destination="b9z-5B-OgG" kind="show" identifier="platterMe" id="OcG-Z3-4EJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ts3-MH-fVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -292,7 +293,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="8ST-tg-xAg" kind="show" id="PUx-Eb-fKa"/>
+                                    <action selector="recipePageBtn:" destination="mZv-k7-iiH" eventType="touchUpInside" id="iaB-oB-c2A"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -319,6 +320,7 @@
                         <outlet property="continueToRecipe" destination="WlR-lo-L0B" id="SWZ-tZ-8mi"/>
                         <outlet property="ingredientList" destination="2p0-hb-VvE" id="E7x-cH-8wM"/>
                         <outlet property="mealDisplay" destination="Gji-Nu-hQQ" id="aeW-LO-NR7"/>
+                        <segue destination="8ST-tg-xAg" kind="show" identifier="openRecipePage" id="6Dv-Iu-a72"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dn-Hs-Krc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -429,6 +431,6 @@
         <image name="go" width="499.67999267578125" height="499.67999267578125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PUx-Eb-fKa"/>
+        <segue reference="5OX-sm-Qy3"/>
     </inferredMetricsTieBreakers>
 </document>

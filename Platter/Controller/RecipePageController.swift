@@ -90,6 +90,10 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         SVProgressHUD.dismiss()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
+    }
+    
     
     //MARK: - Set up floating save meals button
     

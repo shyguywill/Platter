@@ -71,9 +71,13 @@ class SearchResultsController: UITableViewController {
         self.tableView.register(UINib(nibName: "CustomRecipes", bundle: nil), forCellReuseIdentifier: "CustomRecipesViewCell")
         
         SVProgressHUD.setBackgroundColor(UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 0.5))
-        SVProgressHUD.setMaximumDismissTimeInterval(15.00)
+        SVProgressHUD.setMaximumDismissTimeInterval(15.0)
         SVProgressHUD.show()
 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SVProgressHUD.dismiss()
     }
 
     // MARK: - Table view data source
@@ -286,6 +290,8 @@ class SearchResultsController: UITableViewController {
     @IBAction func sortBtn(_ sender: UIBarButtonItem) {
         
         let sortAlert = UIAlertController(title: nil, message: "Sort recipes by:", preferredStyle: .actionSheet)
+        
+        sortAlert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
         
         
         let ingredientSort = UIAlertAction(title: "Ingredients needed (Default)", style: .default) { (action) in
