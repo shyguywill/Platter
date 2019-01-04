@@ -237,6 +237,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Meals" largeTitleDisplayMode="never" id="ZgB-9P-HSA">
                         <barButtonItem key="backBarButtonItem" title=" " id="zi1-cz-2cK"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="bsw-yS-B52">
+                            <connections>
+                                <action selector="sortBtn:" destination="b9z-5B-OgG" id="AEq-4W-G5z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="mZv-k7-iiH" kind="show" identifier="goToIngredientsPage" id="f1y-Vp-aef"/>

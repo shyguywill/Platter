@@ -16,6 +16,7 @@ import SVProgressHUD
 class SearchResultsController: UITableViewController {
     
     let api = F2F_API()
+    var sortParam : Int?
     var delegateURL : String? {
         
         didSet{
@@ -32,29 +33,35 @@ class SearchResultsController: UITableViewController {
         
     }
     
-    var recipeBook : [Recipes]? {
+    var recipeBook : [Recipes]? {   //MARK: - Sort and filter ingredients
         
         didSet{
             
-            if let refinedList = recipeBook{
-                
-                let sortedRecipe = refinedList.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
-                
-                let filteredRecipe = sortedRecipe.filter {$0.source != "Kitchen Daily" && $0.source != "Kraft Foods"}
-                
-                recipeBook = filteredRecipe
-                
-                //better place to call tableview reload?
-                
-            }
+            guard let refinedList = recipeBook else{return}
             
+            let filteredRecipe = refinedList.filter {$0.source != "Kitchen Daily" && $0.source != "Kraft Foods"}
+            
+            print (sortParam ?? "No param")
+            
+            switch sortParam {
+            case 1:
+                let sortedRecipe = filteredRecipe.sorted(by: {$0.ingredient_arrays.difference() < $1.ingredient_arrays.difference()})
+                recipeBook = sortedRecipe
+                
+            case 2:
+                let sortedRecipe = filteredRecipe.sorted(by: {$0.calories < $1.calories})
+                recipeBook = sortedRecipe
+            
+            default:
+                break
+            }
+
         }
         
     }
     
     
     var ingredientBook = Ingredients()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -237,7 +244,7 @@ class SearchResultsController: UITableViewController {
                 //print (label)
             
             
-            
+            sortParam = 1
             recipeBook = recipeHold
             tableView.reloadData()
             SVProgressHUD.dismiss()
@@ -269,6 +276,46 @@ class SearchResultsController: UITableViewController {
             destinationVC.delegateRecipe = ingredientBook
             
         }
+        
+    }
+    
+    //MARK: - Sorting functions
+    
+    
+    
+    @IBAction func sortBtn(_ sender: UIBarButtonItem) {
+        
+        let sortAlert = UIAlertController(title: nil, message: "Sort recipes by:", preferredStyle: .actionSheet)
+        
+        
+        let ingredientSort = UIAlertAction(title: "Ingredients needed (Default)", style: .default) { (action) in
+            self.sortParam = 1
+            
+            self.recipeBook = self.recipeBook?.reversed()
+            
+            self.tableView.reloadData()
+        }
+        
+        let calorieSort = UIAlertAction(title: "Calories", style: .default) { (action) in
+            
+            self.sortParam = 2
+            
+            self.recipeBook = self.recipeBook?.reversed()
+            
+            self.tableView.reloadData()
+            
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+            
+            sortAlert.dismiss(animated: true, completion: nil)
+        }
+        
+        sortAlert.addAction(ingredientSort)
+        sortAlert.addAction(calorieSort)
+        sortAlert.addAction(cancel)
+        
+        present(sortAlert, animated: true, completion: nil)
         
     }
     

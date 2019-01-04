@@ -67,6 +67,8 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
             
             cell.ingredientCompleteness.text = nil
             
+            cell.calorieCount.text = nil
+            
             cell.publisherName.text = "Publisher: \(meal[indexPath.row].publisher)"
             
         }

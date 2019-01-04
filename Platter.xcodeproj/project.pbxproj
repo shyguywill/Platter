@@ -23,7 +23,6 @@
 		7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7553BD7721B6B35E00DD9D85 /* CustomItems.xib */; };
 		75599CE821B951BE00696D87 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75599CE721B951BE00696D87 /* RecipeData.swift */; };
 		756CC6A421DF8CA300D4A6D5 /* ButtonSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */; };
-		756CC6A621DFA3D800D4A6D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 756CC6A521DFA3D800D4A6D5 /* AVFoundation.framework */; };
 		757F610421DB91F100D6544B /* IngredientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F610321DB91F100D6544B /* IngredientLabel.swift */; };
 		75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */; };
 		75A49CA821C00DF1000D1C36 /* SavedMeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA721C00DF1000D1C36 /* SavedMeals.swift */; };
@@ -97,7 +96,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				756CC6A621DFA3D800D4A6D5 /* AVFoundation.framework in Frameworks */,
 				9124AB11CB37698E8BBD2817 /* Pods_Platter.framework in Frameworks */,
 				752023B521D3D39A00312257 /* StoreKit.framework in Frameworks */,
 			);
