@@ -14,7 +14,7 @@ import UIKit
 class Connectivity {
     
     
-    class func isConnectedToInternet() -> Bool{
+    class var isConnectedToInternet : Bool{
         
         return NetworkReachabilityManager()!.isReachable
 

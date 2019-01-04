@@ -72,9 +72,12 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+     //MARK: - Segue
+    
+    
     @IBAction func recipePageBtn(_ sender: UIButton) {
         
-        if Connectivity.isConnectedToInternet(){
+        if Connectivity.isConnectedToInternet{
             
             performSegue(withIdentifier: "openRecipePage", sender: self)
         }else{
@@ -87,7 +90,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
 
     
-    //MARK: - Segue
+   
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -145,7 +145,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     
     @IBAction func platterBtn(_ sender: UIButton) {
         
-        if Connectivity.isConnectedToInternet(){
+        if Connectivity.isConnectedToInternet{
             
             performSegue(withIdentifier: "platterMe", sender: self)
         

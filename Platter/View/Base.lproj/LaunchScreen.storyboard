@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,51 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mB4-aY-N2H" userLabel="logo view">
-                                <rect key="frame" x="37" y="183" width="301" height="301"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platterLaunchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ROM-db-PZA" userLabel="Platter Logo">
-                                        <rect key="frame" x="37" y="37" width="227" height="227"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="ROM-db-PZA" secondAttribute="height" multiplier="1:1" id="rmp-CI-Ahf"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="ROM-db-PZA" firstAttribute="leading" secondItem="mB4-aY-N2H" secondAttribute="leading" constant="37" id="Ogg-21-mqu"/>
-                                    <constraint firstItem="ROM-db-PZA" firstAttribute="top" secondItem="mB4-aY-N2H" secondAttribute="top" constant="37" id="Yjg-Gt-pLW"/>
-                                    <constraint firstAttribute="bottom" secondItem="ROM-db-PZA" secondAttribute="bottom" constant="37" id="naH-uY-bt4"/>
-                                    <constraint firstAttribute="trailing" secondItem="ROM-db-PZA" secondAttribute="trailing" constant="37" id="pUd-I2-E8O"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtJ-IT-ApV" userLabel="Edam view">
-                                <rect key="frame" x="37" y="515" width="299" height="120"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Edamambadge" translatesAutoresizingMaskIntoConstraints="NO" id="epR-Os-4LJ" userLabel="Edamam ">
-                                        <rect key="frame" x="49.5" y="40" width="200" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="gwv-9l-Sbd"/>
-                                            <constraint firstAttribute="height" constant="40" id="pWa-mw-M8H"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="epR-Os-4LJ" firstAttribute="centerX" secondItem="rtJ-IT-ApV" secondAttribute="centerX" id="1Fx-dL-POo"/>
-                                    <constraint firstItem="epR-Os-4LJ" firstAttribute="centerY" secondItem="rtJ-IT-ApV" secondAttribute="centerY" id="viT-6r-CQG"/>
-                                </constraints>
-                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="WSF-KG-grT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rtJ-IT-ApV" secondAttribute="bottom" constant="32" id="6fw-c5-I8y"/>
-                            <constraint firstItem="rtJ-IT-ApV" firstAttribute="leading" secondItem="mB4-aY-N2H" secondAttribute="leading" id="HEP-wn-ca1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rtJ-IT-ApV" secondAttribute="trailing" constant="39" id="KkU-64-4Ri"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mB4-aY-N2H" secondAttribute="trailing" constant="37" id="OIC-bl-Kco"/>
-                            <constraint firstItem="mB4-aY-N2H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="dg6-cP-ksE"/>
-                            <constraint firstItem="rtJ-IT-ApV" firstAttribute="top" secondItem="mB4-aY-N2H" secondAttribute="bottom" constant="31" id="q66-RV-orj"/>
-                            <constraint firstItem="mB4-aY-N2H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="163" id="qAy-cJ-44j"/>
+                            <constraint firstItem="WSF-KG-grT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6nc-O1-Jaq"/>
+                            <constraint firstItem="WSF-KG-grT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7Au-ar-vXj"/>
+                            <constraint firstItem="WSF-KG-grT" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="MV0-hE-CNQ"/>
+                            <constraint firstItem="WSF-KG-grT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uBx-cu-aOV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -72,7 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Edamambadge" width="200" height="40"/>
-        <image name="platterLaunchLogo" width="499.78378295898438" height="499.78378295898438"/>
+        <image name="LaunchScreen" width="414" height="949.67999267578125"/>
     </resources>
 </document>

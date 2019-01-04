@@ -87,7 +87,7 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
             
         }
         
-        if Connectivity.isConnectedToInternet(){
+        if Connectivity.isConnectedToInternet{
             
             performSegue(withIdentifier: "displaySavedMeal", sender: self)
             
