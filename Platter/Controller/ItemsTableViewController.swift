@@ -123,7 +123,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     
     func firstLaunch() {
         
-        let firstTime = FirstLaunch(userDefaults: .standard, key: "com.FirstLaunch.WasLaunchedBefore")
+        let firstTime = FirstLaunch(userDefaults: .standard, key: Keys.ingredntPage)
         
         if firstTime.isFirstLaunch{
             

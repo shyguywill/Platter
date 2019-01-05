@@ -27,10 +27,15 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     var identifier : Int?
     
+    var viewIdentifier = 0
+    
+    var pageIdentifier = 0
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewIdentifier += 1
         
         contentBlock()
         
@@ -38,12 +43,16 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         SVProgressHUD.show()
         
+        print (identifier ?? "No identifier")
+        
         switch identifier{
             
         case 0:
-            
             //Load from ingredients page
-            floatySetUp()
+            
+            if viewIdentifier == 1{
+                floatySetUp()
+            }
         
             if let loadURL = mealDetails?.meal_url{
             
@@ -82,6 +91,16 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         
         SVProgressHUD.dismiss()
+        
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
+        pageIdentifier += 1
+        
+        if pageIdentifier == 2{
+            firstLaunchNav()
+        }
         
     }
     
@@ -151,51 +170,43 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
     }
     
+    func firstLaunchNav() {
+        
+        let firstTime = FirstLaunch(getWasLaunchedBefore: {return false}, setWasLaunchedBefore: {_ in})
+        
+        if firstTime.isFirstLaunch{
+            
+            let alert = UIAlertController(title: "Back to Recipe page", message: "Feel free to go wandering, when you do, just press the Return button (next to share) to get back to where you were.", preferredStyle: .alert)
+            
+            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+            
+            let action = UIAlertAction(title: "Got it", style: .cancel) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
+            
+        }
+        
+    }
+    
     
     //MARK: - Set up content blocking 
-    
-    let json = """
-[
-    {
-        "trigger": {
-            "if-domain": ".*"
-        },
-        "action": {
-            "type": "css-display-none",
-            "selector": ".overlay"
-        }
-    },
-    {
-        "trigger": {
-            "url-filter": "://googleads\\\\.g\\\\.doubleclick\\\\.net.*"
-        },
-        "action": {
-            "type": "block"
-        }
-    }
-]
-"""
-    
-    
-    
-    
+
     func contentBlock() {
         
-        WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockingRules",encodedContentRuleList: json)
-            { (contentRuleList, error) in
-                guard let contentRuleList = contentRuleList,
-                    error == nil else {
-                        return
+        if let jsonFilePath = Bundle.main.path(forResource: "adaway.json", ofType: nil), let jsonFileContent = try? String(contentsOfFile: jsonFilePath, encoding: String.Encoding.utf8) {
+            print ("got the ad file")
+            WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockingRules", encodedContentRuleList: jsonFileContent)  { (contentRuleList, error) in
+                    guard let contentRuleList = contentRuleList, error == nil else { return }
+                    let configuration = WKWebViewConfiguration()
+                    configuration.userContentController.add(contentRuleList)
+                    
+                    self.webView = WKWebView(frame: self.view.bounds, configuration: configuration)
                 }
-                
-                let configuration = WKWebViewConfiguration()
-                configuration.userContentController.add(contentRuleList)
-                
-                self.webView = WKWebView(frame: self.view.bounds,
-                                         configuration: configuration)
             }
-    
-                
         }
     
     //MARK: - Done button
@@ -207,11 +218,12 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         let firstOption = UIAlertAction(title: "Share on Facebook", style: .default) { (done) in
             
+            self.clean()
+            
             let fbAlert = UIAlertController(title: nil, message: "This function will be built shortly", preferredStyle: .alert)
             
             let cancel = UIAlertAction(title: "Done", style: .default, handler: { (button) in
-                self.navigationController?.popToRootViewController(animated: true)
-                self.clean()
+            
             })
             
             fbAlert.addAction(cancel)
@@ -221,11 +233,12 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         let secondOption = UIAlertAction(title: "Copy link", style: .default) { (done) in
             
+            self.clean()
+            
             let fbAlert = UIAlertController(title: nil, message: "This function will be built shortly", preferredStyle: .alert)
             
             let cancel = UIAlertAction(title: "Done", style: .default, handler: { (button) in
-                self.navigationController?.popToRootViewController(animated: true)
-                self.clean()
+             
             })
             
             fbAlert.addAction(cancel)
@@ -233,11 +246,6 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             self.present(fbAlert, animated: true, completion: nil)
         }
         
-        let done = UIAlertAction(title: "No thanks", style: .default) { (done) in
-            
-            self.navigationController?.popToRootViewController(animated: true)
-            self.clean()
-        }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
             
@@ -247,7 +255,6 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         alert.addAction(firstOption)
         alert.addAction(secondOption)
-        alert.addAction(done)
         alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)

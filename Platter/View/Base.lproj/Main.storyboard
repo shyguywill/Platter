@@ -355,12 +355,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" largeTitleDisplayMode="never" id="eQp-BB-Jbf">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="done" id="sFr-0Z-K2s">
+                            <barButtonItem title="Share" id="sFr-0Z-K2s">
                                 <connections>
                                     <action selector="doneButton:" destination="8ST-tg-xAg" id="8dP-GB-Ikh"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="bCe-1g-vaI">
+                            <barButtonItem title="Item" image="return" id="bCe-1g-vaI">
+                                <color key="tintColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="refreshButton:" destination="8ST-tg-xAg" id="UF5-7c-BjM"/>
                                 </connections>
@@ -429,8 +430,9 @@
         <image name="Home" width="30" height="30"/>
         <image name="Meals" width="29" height="23"/>
         <image name="go" width="499.67999267578125" height="499.67999267578125"/>
+        <image name="return" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5OX-sm-Qy3"/>
+        <segue reference="6Dv-Iu-a72"/>
     </inferredMetricsTieBreakers>
 </document>
