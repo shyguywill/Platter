@@ -31,8 +31,6 @@ class HomeScreenController: UIViewController {
         do{
             guard let soundURL = Bundle.main.url(forResource: "ButtonSound", withExtension: "mp3")else{ return}
             
-            print ("File was found at \(soundURL)")
-            
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
             
             try AVAudioSession.sharedInstance().setActive(true)

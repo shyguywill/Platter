@@ -38,8 +38,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             continueToRecipe.setTitle("Go to recipe on \(recipe.source)", for: .normal)
             continueToRecipe.titleLabel?.textAlignment = NSTextAlignment.center
             
-            
-            
         }
         
         
@@ -86,11 +84,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     
     }
-    
-    
-
-    
-   
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

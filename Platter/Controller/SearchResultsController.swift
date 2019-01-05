@@ -329,7 +329,7 @@ class SearchResultsController: UITableViewController {
 }
 
 
-//MARK: - Create function to compare ingredients
+//MARK: - Create missing ingredients property
 
 extension Array where Element == String{
     

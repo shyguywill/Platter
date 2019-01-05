@@ -170,13 +170,15 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
     }
     
+    //MARK: - Detect Navigation on first luanch
+    
     func firstLaunchNav() {
         
         let firstTime = FirstLaunch(getWasLaunchedBefore: {return false}, setWasLaunchedBefore: {_ in})
         
         if firstTime.isFirstLaunch{
             
-            let alert = UIAlertController(title: "Back to Recipe page", message: "Feel free to go wandering, when you do, just press the Return button (next to share) to get back to where you were.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Recipe page", message: "Feel free to go wandering, when you do, just press the Return button (next to share) to get back to your recipe.", preferredStyle: .alert)
             
             alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
             
@@ -197,9 +199,9 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
 
     func contentBlock() {
         
-        if let jsonFilePath = Bundle.main.path(forResource: "adaway.json", ofType: nil), let jsonFileContent = try? String(contentsOfFile: jsonFilePath, encoding: String.Encoding.utf8) {
+        if let jsonFilePath = Bundle.main.path(forResource: "adaway.json", ofType: nil){
             print ("got the ad file")
-            WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockingRules", encodedContentRuleList: jsonFileContent)  { (contentRuleList, error) in
+            WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockingRules", encodedContentRuleList: jsonFilePath)  { (contentRuleList, error) in
                     guard let contentRuleList = contentRuleList, error == nil else { return }
                     let configuration = WKWebViewConfiguration()
                     configuration.userContentController.add(contentRuleList)
@@ -209,7 +211,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             }
         }
     
-    //MARK: - Done button
+    //MARK: - Share button
     
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
@@ -260,6 +262,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    //MARK: - Return button
     
     
     @IBAction func refreshButton(_ sender: UIBarButtonItem) {
