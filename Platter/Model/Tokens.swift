@@ -16,3 +16,13 @@ class Token : Object{
     
     
 }
+
+
+class userStatus{
+    
+    enum status {
+        case Premium, Free
+    }
+    
+    
+}
