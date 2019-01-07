@@ -14,6 +14,8 @@ target 'Platter' do
     pod 'Kingfisher'
     pod 'Floaty'
     pod 'SVProgressHUD'
+    pod 'SideMenu'
+
     
     
 

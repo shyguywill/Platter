@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7501402321E35A1000AAFACC /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501402221E35A1000AAFACC /* Tokens.swift */; };
+		7501402721E3B4E500AAFACC /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501402621E3B4E500AAFACC /* SideMenuViewController.swift */; };
 		751947E621ADE43A0059F59A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751947E521ADE43A0059F59A /* AppDelegate.swift */; };
 		751947E821ADE43A0059F59A /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751947E721ADE43A0059F59A /* HomeScreenController.swift */; };
 		751947EB21ADE43A0059F59A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751947E921ADE43A0059F59A /* Main.storyboard */; };
@@ -35,7 +36,6 @@
 		75E09F0921B81D0900248DC3 /* CustomRecipes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E09F0721B81D0900248DC3 /* CustomRecipes.xib */; };
 		75EDF4AF21DFF17900CF8409 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDF4AE21DFF17900CF8409 /* Connectivity.swift */; };
 		75F51A5F21C93B7700C0F24A /* RealmFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F51A5E21C93B7700C0F24A /* RealmFunctions.swift */; };
-		75F6200121CD1A37002C8EB6 /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6200021CD1A37002C8EB6 /* UITabBarController.swift */; };
 		75F7DED721E1260200635187 /* FirstLaunchKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7DED621E1260200635187 /* FirstLaunchKeys.swift */; };
 		75F7DEDB21E142E300635187 /* adaway.json in Resources */ = {isa = PBXBuildFile; fileRef = 75F7DEDA21E142E300635187 /* adaway.json */; };
 		75FF9A2B21C84A6800894E07 /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FF9A2A21C84A6800894E07 /* SearchParameters.swift */; };
@@ -59,6 +59,7 @@
 		4A7274798980FC0A8CE8F8E9 /* Pods-Platter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Platter/Pods-Platter.debug.xcconfig"; sourceTree = "<group>"; };
 		6D8FE8594AF6063E1923307E /* Pods_PlatterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlatterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7501402221E35A1000AAFACC /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
+		7501402621E3B4E500AAFACC /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		751947E221ADE43A0059F59A /* Platter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		751947E521ADE43A0059F59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		751947E721ADE43A0059F59A /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		75E09F0721B81D0900248DC3 /* CustomRecipes.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRecipes.xib; sourceTree = "<group>"; };
 		75EDF4AE21DFF17900CF8409 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		75F51A5E21C93B7700C0F24A /* RealmFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFunctions.swift; sourceTree = "<group>"; };
-		75F6200021CD1A37002C8EB6 /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
 		75F7DED621E1260200635187 /* FirstLaunchKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchKeys.swift; sourceTree = "<group>"; };
 		75F7DEDA21E142E300635187 /* adaway.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adaway.json; sourceTree = "<group>"; };
 		75FF9A2A21C84A6800894E07 /* SearchParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
@@ -145,13 +145,13 @@
 		751910F021ADF8D800CB9BE5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				75F6200021CD1A37002C8EB6 /* UITabBarController.swift */,
 				751947E721ADE43A0059F59A /* HomeScreenController.swift */,
 				75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */,
 				7553BD6D21B69C1F00DD9D85 /* ItemsTableViewController.swift */,
 				75E09F0421B816EE00248DC3 /* SearchResultsController.swift */,
 				75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */,
 				75AAD37F21BC220E0006CA7C /* RecipePageController.swift */,
+				7501402621E3B4E500AAFACC /* SideMenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -388,6 +388,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -401,6 +402,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,11 +454,11 @@
 				7553BD7821B6B35E00DD9D85 /* CustomItemsViewCell.swift in Sources */,
 				75FF9A2B21C84A6800894E07 /* SearchParameters.swift in Sources */,
 				7553BD7421B6A7D100DD9D85 /* Pantry.swift in Sources */,
-				75F6200121CD1A37002C8EB6 /* UITabBarController.swift in Sources */,
 				7553BD6E21B69C1F00DD9D85 /* ItemsTableViewController.swift in Sources */,
 				7501402321E35A1000AAFACC /* Tokens.swift in Sources */,
 				752023B321D39F5000312257 /* FirstLaunch.swift in Sources */,
 				75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */,
+				7501402721E3B4E500AAFACC /* SideMenuViewController.swift in Sources */,
 				75E09F0521B816EE00248DC3 /* SearchResultsController.swift in Sources */,
 				751947E621ADE43A0059F59A /* AppDelegate.swift in Sources */,
 				75EDF4AF21DFF17900CF8409 /* Connectivity.swift in Sources */,
