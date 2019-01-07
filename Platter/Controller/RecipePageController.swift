@@ -178,7 +178,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     func firstLaunchNav() {
         
-        let firstTime = FirstLaunch(getWasLaunchedBefore: {return false}, setWasLaunchedBefore: {_ in})
+        let firstTime = FirstLaunch(userDefaults: .standard, key: Keys.recipePage)
         
         if firstTime.isFirstLaunch{
             

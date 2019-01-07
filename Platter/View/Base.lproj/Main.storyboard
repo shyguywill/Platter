@@ -156,15 +156,16 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="baD-4U-eaI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.71324147250000003" green="0.98431372549999996" blue="0.86212249939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="Fpp-h4-0w9">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="70" id="Fpp-h4-0w9">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fpp-h4-0w9" id="vfC-gc-ru3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.71372549019607845" green="0.98431372549019602" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
@@ -375,11 +376,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ingredients" largeTitleDisplayMode="never" id="s85-nR-M6L">
                         <barButtonItem key="backBarButtonItem" title="   " id="kKP-Lb-CYf"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="10" id="LLX-8I-f8f"/>
+                            <barButtonItem title="Item" image="PlatokenB" id="wyl-pW-zlz"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="continueToRecipe" destination="WlR-lo-L0B" id="SWZ-tZ-8mi"/>
                         <outlet property="ingredientList" destination="2p0-hb-VvE" id="E7x-cH-8wM"/>
                         <outlet property="mealDisplay" destination="Gji-Nu-hQQ" id="aeW-LO-NR7"/>
+                        <outlet property="tokenImg" destination="wyl-pW-zlz" id="N0I-oN-Ckg"/>
+                        <outlet property="tokenLabel" destination="LLX-8I-f8f" id="zwr-is-L8s"/>
                         <segue destination="8ST-tg-xAg" kind="show" identifier="openRecipePage" id="6Dv-Iu-a72"/>
                     </connections>
                 </viewController>
@@ -514,11 +521,12 @@
         <image name="Home" width="30" height="30"/>
         <image name="Meals" width="29" height="23"/>
         <image name="Platoken" width="40" height="40"/>
+        <image name="PlatokenB" width="40" height="40"/>
         <image name="go" width="499.67999267578125" height="499.67999267578125"/>
         <image name="menu" width="48" height="48"/>
         <image name="return" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5OX-sm-Qy3"/>
+        <segue reference="6Dv-Iu-a72"/>
     </inferredMetricsTieBreakers>
 </document>

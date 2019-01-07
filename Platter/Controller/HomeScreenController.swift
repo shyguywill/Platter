@@ -8,10 +8,12 @@
 
 import UIKit
 import AVFoundation
+import RealmSwift
 
 class HomeScreenController: UIViewController {
     
     var audioPlayer : AVAudioPlayer?
+ 
     
     @IBOutlet weak var newMeal: UIButton!
     @IBOutlet weak var tokenImage: UIBarButtonItem!
@@ -26,7 +28,23 @@ class HomeScreenController: UIViewController {
         self.navigationItem.titleView = imageView
         self.navigationItem.backBarButtonItem?.title = " "
         tokenImage.image = UIImage(named: "Platoken")?.withRenderingMode(.alwaysOriginal)
+    
+        
+        //tokenLbl.title = String(
+        
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
+            
+        tokenLbl.title = "\(Int(tokens))"
+            
+        
+        
+        
+        
     }
     
     @IBAction func newMeal(_ sender: UIButton) {

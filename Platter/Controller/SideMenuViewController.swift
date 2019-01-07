@@ -9,9 +9,12 @@
 import UIKit
 
 class SideMenuViewController: UITableViewController {
+    
+    let options = ["Meal preferences","Edit Pantry","Restore purchases"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 70
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
 
@@ -21,20 +24,17 @@ class SideMenuViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 2
+        
+        return options.count
+    
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = "Yes indeed"
+        cell.textLabel?.textColor = UIColor(red: 37/255, green: 40/255, blue: 126/255, alpha: 1.0)
+        cell.textLabel?.text = options[indexPath.row]
         
         return cell
     }

@@ -10,19 +10,28 @@ import Foundation
 import RealmSwift
 
 
-class Token : Object{
-    
-    @objc dynamic var coin = Int()
-    
-    
-}
 
 
-class userStatus{
+
+
+
+class UserStatus{
     
-    enum status {
-        case Premium, Free
+    
+    func isFreeUser() -> Bool{
+        
+        let userDefaults = UserDefaults.standard
+        
+        return userDefaults.bool(forKey: Keys.userStatus)
+        
     }
+
+ 
     
+    
+   
     
 }
+
+
+

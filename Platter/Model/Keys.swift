@@ -14,4 +14,10 @@ struct Keys {
     static let ingredntPage = "com.FirstLaunch.IngredientPage"
     
     static let recipePage = "com.FirstLaunch.RecipePage"
+    
+    static let firstAppDelegate = "com.FirstLaunch.AppDelegate"
+    
+    static let userStatus = "com.UserStatus.ForApp"
+    
+    static let tokenNumber = "com.TokenNumber.Monitor"
 }

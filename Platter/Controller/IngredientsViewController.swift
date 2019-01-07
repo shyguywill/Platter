@@ -17,6 +17,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var continueToRecipe: UIButton!
     @IBOutlet weak var mealDisplay: UIImageView!
     @IBOutlet weak var ingredientList: UITableView!
+    @IBOutlet weak var tokenImg: UIBarButtonItem!
+    @IBOutlet weak var tokenLabel: UIBarButtonItem!
     
     
     var delegateRecipe : Ingredients?
@@ -27,6 +29,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         ingredientList.delegate = self
         ingredientList.dataSource = self
+        tokenImg.image = UIImage(named: "PlatokenB")?.withRenderingMode(.alwaysOriginal)
         
         
         if let recipe = delegateRecipe{  //Load background image + set up button + nav title

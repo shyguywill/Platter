@@ -17,6 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+     
+        let firstTime = FirstLaunch(userDefaults: .standard, key: Keys.firstAppDelegate)
+        
+        if firstTime.isFirstLaunch{
+            
+            UserDefaults.standard.set(0, forKey: Keys.tokenNumber)
+ 
+            UserDefaults.standard.set(true, forKey: Keys.userStatus)
+        }
+        
+        let userStatus = UserStatus()
+        
+        if userStatus.isFreeUser(){
+            
+            var tokens = UserDefaults.standard.double(forKey: Keys.tokenNumber)
+            
+            tokens += 1
+            
+            UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
+            
+            print ("got a token")
+     
+        }
+ 
         //print (Realm.Configuration.defaultConfiguration.fileURL)
         // Override point for customization after application launch.
         return true
