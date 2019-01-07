@@ -35,6 +35,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewIdentifier += 1
+        
         contentBlock()
         
         webView.navigationDelegate = self
@@ -79,8 +81,6 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             break
         }
         
-        viewIdentifier += 1
-      
     }
     
     override func viewWillDisappear(_ animated: Bool) {

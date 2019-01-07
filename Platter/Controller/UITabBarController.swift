@@ -13,11 +13,6 @@ class UITabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logo = UIImage(named: "logo")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
-        self.navigationItem.backBarButtonItem?.title = " "
-       
     }
     
 }

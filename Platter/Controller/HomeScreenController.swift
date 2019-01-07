@@ -14,13 +14,19 @@ class HomeScreenController: UIViewController {
     var audioPlayer : AVAudioPlayer?
     
     @IBOutlet weak var newMeal: UIButton!
-
+    @IBOutlet weak var tokenImage: UIBarButtonItem!
+    @IBOutlet weak var tokenLbl: UIBarButtonItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Platoken"), style: .plain, target: self, action: nil)
-        
+        let logo = UIImage(named: "logo")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        self.navigationItem.backBarButtonItem?.title = " "
+        tokenImage.image = UIImage(named: "Platoken")?.withRenderingMode(.alwaysOriginal)
+
     }
     
     @IBAction func newMeal(_ sender: UIButton) {

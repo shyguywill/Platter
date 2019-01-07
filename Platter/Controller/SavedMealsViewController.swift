@@ -24,6 +24,11 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let logo = UIImage(named: "logo")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        self.navigationItem.backBarButtonItem?.title = " "
+        
         savedMealTable.delegate = self
         savedMealTable.dataSource = self
         
