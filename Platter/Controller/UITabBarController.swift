@@ -17,7 +17,6 @@ class UITabBar: UITabBarController {
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         self.navigationItem.backBarButtonItem?.title = " "
-
        
     }
     

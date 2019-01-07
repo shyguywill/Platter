@@ -35,15 +35,11 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewIdentifier += 1
-        
         contentBlock()
         
         webView.navigationDelegate = self
         
         SVProgressHUD.show()
-        
-        print (identifier ?? "No identifier")
         
         switch identifier{
             
@@ -82,7 +78,19 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             
             break
         }
+        
+        viewIdentifier += 1
       
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        if self.isMovingFromParent{
+            SVProgressHUD.dismiss()
+            clean()
+        }
+        
     }
     
     //MARK: - Dismiss progressHUD
@@ -106,10 +114,6 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         
-        SVProgressHUD.dismiss()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
         SVProgressHUD.dismiss()
     }
     
@@ -178,7 +182,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         if firstTime.isFirstLaunch{
             
-            let alert = UIAlertController(title: "Recipe page", message: "Feel free to go wandering, when you do, just press the Return button (next to share) to get back to your recipe.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Recipe page", message: "Feel free to go wandering, when you do, just press the Return button (next to share) to get back your recipe.", preferredStyle: .alert)
             
             alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
             
@@ -200,7 +204,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     func contentBlock() {
         
         if let jsonFilePath = Bundle.main.path(forResource: "adaway.json", ofType: nil){
-            print ("got the ad file")
+            
             WKContentRuleListStore.default().compileContentRuleList(forIdentifier: "ContentBlockingRules", encodedContentRuleList: jsonFilePath)  { (contentRuleList, error) in
                     guard let contentRuleList = contentRuleList, error == nil else { return }
                     let configuration = WKWebViewConfiguration()

@@ -147,17 +147,10 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     
     @IBAction func platterBtn(_ sender: UIButton) {
         
-        if Connectivity.isConnectedToInternet{
-            
-            performSegue(withIdentifier: "platterMe", sender: self)
+        guard Connectivity.isConnectedToInternet else{ return Connectivity.handleNotConnected(view: self)}
         
-        }else{
-            
-            Connectivity.handleNotConnected(view: self)
-            
-        }
-        
-        
+        performSegue(withIdentifier: "platterMe", sender: self)
+  
     }
     
 //MARK:- Add new items

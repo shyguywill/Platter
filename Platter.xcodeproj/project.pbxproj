@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7501402321E35A1000AAFACC /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501402221E35A1000AAFACC /* Tokens.swift */; };
 		751947E621ADE43A0059F59A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751947E521ADE43A0059F59A /* AppDelegate.swift */; };
 		751947E821ADE43A0059F59A /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751947E721ADE43A0059F59A /* HomeScreenController.swift */; };
 		751947EB21ADE43A0059F59A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 751947E921ADE43A0059F59A /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		308EB3EA6A64B931FE14A2C7 /* Pods_Platter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Platter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7274798980FC0A8CE8F8E9 /* Pods-Platter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Platter/Pods-Platter.debug.xcconfig"; sourceTree = "<group>"; };
 		6D8FE8594AF6063E1923307E /* Pods_PlatterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlatterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7501402221E35A1000AAFACC /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
 		751947E221ADE43A0059F59A /* Platter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		751947E521ADE43A0059F59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		751947E721ADE43A0059F59A /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				7553BD6F21B6A60B00DD9D85 /* Store.swift */,
 				7553BD7321B6A7D100DD9D85 /* Pantry.swift */,
+				7501402221E35A1000AAFACC /* Tokens.swift */,
 				75A49CA721C00DF1000D1C36 /* SavedMeals.swift */,
 				75599CE721B951BE00696D87 /* RecipeData.swift */,
 				75AAD37D21BC18830006CA7C /* IngredientData.swift */,
@@ -451,6 +454,7 @@
 				7553BD7421B6A7D100DD9D85 /* Pantry.swift in Sources */,
 				75F6200121CD1A37002C8EB6 /* UITabBarController.swift in Sources */,
 				7553BD6E21B69C1F00DD9D85 /* ItemsTableViewController.swift in Sources */,
+				7501402321E35A1000AAFACC /* Tokens.swift in Sources */,
 				752023B321D39F5000312257 /* FirstLaunch.swift in Sources */,
 				75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */,
 				75E09F0521B816EE00248DC3 /* SearchResultsController.swift in Sources */,

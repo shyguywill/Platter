@@ -84,19 +84,13 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         if let meal = mealItem{
             
             mealURL = meal[indexPath.row].meal_url
-            
-        }
-        
-        if Connectivity.isConnectedToInternet{
-            
-            performSegue(withIdentifier: "displaySavedMeal", sender: self)
-            
-        }else{
-            
-            Connectivity.handleNotConnected(view: self)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard Connectivity.isConnectedToInternet else{ return Connectivity.handleNotConnected(view: self)}
+        
+        performSegue(withIdentifier: "displaySavedMeal", sender: self)
         
     }
     

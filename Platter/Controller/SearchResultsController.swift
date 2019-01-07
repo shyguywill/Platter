@@ -39,7 +39,7 @@ class SearchResultsController: UITableViewController {
             
             guard let refinedList = recipeBook else{return}
             
-            let filteredRecipe = refinedList.filter {$0.source != "Kitchen Daily" && $0.source != "Kraft Foods"}
+            let filteredRecipe = refinedList.filter {$0.source != "Kitchen Daily" && $0.source != "Kraft Foods" && $0.source != "food.com"}
             
             print (sortParam ?? "No param")
             
@@ -77,7 +77,11 @@ class SearchResultsController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        SVProgressHUD.dismiss()
+        super.viewWillDisappear(true)
+        
+        if self.isMovingFromParent{
+            SVProgressHUD.dismiss()
+        }
     }
 
     // MARK: - Table view data source

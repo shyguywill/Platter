@@ -19,6 +19,8 @@ class HomeScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Platoken"), style: .plain, target: self, action: nil)
+        
     }
     
     @IBAction func newMeal(_ sender: UIButton) {

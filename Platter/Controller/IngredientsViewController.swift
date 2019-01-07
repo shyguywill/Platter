@@ -75,14 +75,9 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func recipePageBtn(_ sender: UIButton) {
         
-        if Connectivity.isConnectedToInternet{
-            
-            performSegue(withIdentifier: "openRecipePage", sender: self)
-        }else{
-            
-            Connectivity.handleNotConnected(view: self)
-        }
-    
+        guard Connectivity.isConnectedToInternet else {return Connectivity.handleNotConnected(view: self)}
+        
+        performSegue(withIdentifier: "openRecipePage", sender: self)
     }
     
     
