@@ -42,8 +42,8 @@ class HomeScreenController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if userStatus.isFreeUser(){
         
-            let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
-            tokenLbl.title = "\(Float(tokens))"
+            let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+            tokenLbl.title = "\(tokens)"
         }
     }
     

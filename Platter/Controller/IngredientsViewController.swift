@@ -58,8 +58,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         if userStatus.isFreeUser(){
             
-        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
-        tokenLabel.title = "\(Float(token))"
+        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+        tokenLabel.title = "\(token)"
             
         }
     }

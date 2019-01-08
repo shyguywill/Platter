@@ -34,9 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(launchDate, forKey: Keys.timeOfLaunch)
         }
         
-        //MARK: - manually set user as payed
+        //MARK: - manually set user status *** remove ***
         
-        UserDefaults.standard.set(false, forKey: Keys.userStatus)
+        //UserDefaults.standard.set(false, forKey: Keys.userStatus)
+        UserDefaults.standard.set(true, forKey: Keys.userStatus)
         
         
         //MARK: - Assign free user token after elapsed time
@@ -51,30 +52,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if timePassed >= 300{ //86400
                 
-
-                let currentDate = Date().addingTimeInterval(TimeInterval(-(timePassed - 300)))
+                
+                let currentDate = Date()
+                
+                print (currentDate)
                 
                 UserDefaults.standard.set(currentDate, forKey: Keys.timeOfLaunch)
                 
-//               var tokens = UserDefaults.standard.double(forKey: Keys.tokenNumber)
-//
-//               tokens += 1 //*******
-//
-//               UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
+                var tokens = UserDefaults.standard.integer(forKey: Keys.tokenNumber)
+
+                tokens += timePassed/300
+                
+                print (tokens)
+
+                UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
+                
+                print ("got a token")
             }
             
             print (timePassed)
             
 
             
-            
-            var tokens = UserDefaults.standard.double(forKey: Keys.tokenNumber)
-            
-            tokens += 1 
-            
-            UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
-            
-            print ("got a token")
+//
+//            var tokens = UserDefaults.standard.double(forKey: Keys.tokenNumber)
+//
+//            tokens += 1
+//
+//            UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
+//
+//            print ("got a token")
      
         }
  
