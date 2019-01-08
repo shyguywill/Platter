@@ -81,7 +81,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Token" image="Platoken" id="M1a-gx-9KA"/>
+                            <barButtonItem image="Platoken" id="M1a-gx-9KA"/>
                             <barButtonItem title="10" id="hAe-H0-fqw"/>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -149,7 +149,7 @@
             </objects>
             <point key="canvasLocation" x="3071.1999999999998" y="911.69415292353835"/>
         </scene>
-        <!--Menu-->
+        <!--Options-->
         <scene sceneID="aDN-an-kT5">
             <objects>
                 <tableViewController id="Fsy-ei-6bs" customClass="SideMenuViewController" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,7 +174,7 @@
                             <outlet property="delegate" destination="Fsy-ei-6bs" id="kNS-B2-8El"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Menu" id="Sv6-5r-NUF"/>
+                    <navigationItem key="navigationItem" title="Options" id="Sv6-5r-NUF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9e4-uK-8Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -378,7 +378,7 @@
                         <barButtonItem key="backBarButtonItem" title="   " id="kKP-Lb-CYf"/>
                         <rightBarButtonItems>
                             <barButtonItem title="10" id="LLX-8I-f8f"/>
-                            <barButtonItem title="Item" image="PlatokenB" id="wyl-pW-zlz"/>
+                            <barButtonItem image="PlatokenB" id="wyl-pW-zlz"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>

@@ -20,4 +20,6 @@ struct Keys {
     static let userStatus = "com.UserStatus.ForApp"
     
     static let tokenNumber = "com.TokenNumber.Monitor"
+    
+    static let timeOfLaunch = "com.Launch.Timer"
 }

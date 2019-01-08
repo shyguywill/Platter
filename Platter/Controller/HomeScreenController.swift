@@ -13,6 +13,7 @@ import RealmSwift
 class HomeScreenController: UIViewController {
     
     var audioPlayer : AVAudioPlayer?
+    let userStatus = UserStatus()
  
     
     @IBOutlet weak var newMeal: UIButton!
@@ -27,22 +28,26 @@ class HomeScreenController: UIViewController {
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         self.navigationItem.backBarButtonItem?.title = " "
-        tokenImage.image = UIImage(named: "Platoken")?.withRenderingMode(.alwaysOriginal)
+        if userStatus.isFreeUser(){
+            tokenImage.image = UIImage(named: "Platoken")?.withRenderingMode(.alwaysOriginal)
+        }else{
+            tokenLbl.title = nil
+            tokenImage.isEnabled = false
+            tokenImage.image = nil
+        }
+        
     
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if userStatus.isFreeUser(){
         
-        if let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Double{
-            
+            let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
             tokenLbl.title = "\(Float(tokens))"
-            
         }
-        
-        
-        //MARK: - Play sound
-        
     }
+    
+        //MARK: - Play sound
     
     @IBAction func newMeal(_ sender: UIButton) {
         

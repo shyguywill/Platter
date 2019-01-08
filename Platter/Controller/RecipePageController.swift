@@ -31,6 +31,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     var pageIdentifier = 0
     
+    let userStatus = UserStatus()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +52,11 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             
             if viewIdentifier == 1{
                 floatySetUp()
-                var _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
+                
+                if userStatus.isFreeUser(){
+                    var _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
+                }
+                
             }
         
             if let loadURL = mealDetails?.meal_url{

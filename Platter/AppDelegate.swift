@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-     
+        //MARK: - Fire during first launch to set user as free user, allocate 0 tokens and take note of date
+        
         let firstTime = FirstLaunch(userDefaults: .standard, key: Keys.firstAppDelegate)
         
         if firstTime.isFirstLaunch{
@@ -25,15 +26,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(0, forKey: Keys.tokenNumber)
  
             UserDefaults.standard.set(true, forKey: Keys.userStatus)
+            
+            let launchDate = Date()
+            
+            print (launchDate)
+            
+            UserDefaults.standard.set(launchDate, forKey: Keys.timeOfLaunch)
         }
+        
+        //MARK: - manually set user as payed
+        
+        UserDefaults.standard.set(false, forKey: Keys.userStatus)
+        
+        
+        //MARK: - Assign free user token after elapsed time
         
         let userStatus = UserStatus()
         
         if userStatus.isFreeUser(){
             
+            let savedDate = UserDefaults.standard.object(forKey: Keys.timeOfLaunch) as! Date
+            
+            let timePassed = Int(Date().timeIntervalSince(savedDate))
+            
+            if timePassed >= 300{ //86400
+                
+
+                let currentDate = Date().addingTimeInterval(TimeInterval(-(timePassed - 300)))
+                
+                UserDefaults.standard.set(currentDate, forKey: Keys.timeOfLaunch)
+                
+//               var tokens = UserDefaults.standard.double(forKey: Keys.tokenNumber)
+//
+//               tokens += 1 //*******
+//
+//               UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
+            }
+            
+            print (timePassed)
+            
+
+            
+            
             var tokens = UserDefaults.standard.double(forKey: Keys.tokenNumber)
             
-            tokens += 1
+            tokens += 1 
             
             UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
             

@@ -22,6 +22,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     var delegateRecipe : Ingredients?
+    let userStatus = UserStatus()
         
 
     override func viewDidLoad() {
@@ -29,9 +30,16 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         ingredientList.delegate = self
         ingredientList.dataSource = self
-        tokenImg.image = UIImage(named: "PlatokenB")?.withRenderingMode(.alwaysOriginal)
         
-        
+        if userStatus.isFreeUser(){
+            tokenImg.image = UIImage(named: "PlatokenB")?.withRenderingMode(.alwaysOriginal)
+
+        }else{
+            
+            tokenImg.image = nil
+            tokenLabel.title = nil
+        }
+
         if let recipe = delegateRecipe{  //Load background image + set up button + nav title
             
             let url = URL(string: recipe.image_url)
@@ -48,12 +56,12 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Double{
+        if userStatus.isFreeUser(){
             
-            tokenLabel.title = "\(Float(token))"
-
+        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
+        tokenLabel.title = "\(Float(token))"
+            
         }
-
     }
     
     //MARK: - TableView Datasource methods
@@ -90,6 +98,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         guard Connectivity.isConnectedToInternet else {return Connectivity.handleNotConnected(view: self)}
         
+        guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "openRecipePage", sender: self)}
+        
         let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
         
         if token > 0{
@@ -109,10 +119,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             print ("not enough tokens")
         }
-        
-        
-        
-        
+
     }
     
     

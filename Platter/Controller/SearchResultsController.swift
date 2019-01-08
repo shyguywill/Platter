@@ -167,6 +167,16 @@ class SearchResultsController: UITableViewController {
                 
             }else {
                 
+                SVProgressHUD.dismiss()
+                
+                let alert = UIAlertController(title: nil, message: "It seems something's gone wrong, please try again shortly" , preferredStyle: .alert)
+                let action = UIAlertAction(title: "Got it", style: .cancel, handler: { (cancel) in
+                    alert.dismiss(animated: true, completion: nil)
+                })
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                
+                
                 print ("ERROR: \(String(describing:response.result.error))")
                 
             }
