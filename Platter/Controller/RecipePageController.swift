@@ -50,6 +50,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             
             if viewIdentifier == 1{
                 floatySetUp()
+                var _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
             }
         
             if let loadURL = mealDetails?.meal_url{
@@ -92,6 +93,27 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         }
         
     }
+    
+    //MARK: - Token Timer
+    
+    @objc func useToken() {
+        
+        if var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Double{
+            
+            if token > 0{
+                
+                token -= 1
+                
+                UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                
+                print ("token used")
+            }
+                
+                
+            }
+        
+    }
+    
     
     //MARK: - Dismiss progressHUD
     

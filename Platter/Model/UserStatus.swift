@@ -10,11 +10,6 @@ import Foundation
 import RealmSwift
 
 
-
-
-
-
-
 class UserStatus{
     
     

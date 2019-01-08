@@ -29,21 +29,18 @@ class HomeScreenController: UIViewController {
         self.navigationItem.backBarButtonItem?.title = " "
         tokenImage.image = UIImage(named: "Platoken")?.withRenderingMode(.alwaysOriginal)
     
-        
-        //tokenLbl.title = String(
-        
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
+        if let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Double{
             
-        tokenLbl.title = "\(Int(tokens))"
+            tokenLbl.title = "\(Float(tokens))"
             
+        }
         
         
-        
+        //MARK: - Play sound
         
     }
     

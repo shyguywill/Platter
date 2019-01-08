@@ -46,6 +46,16 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Double{
+            
+            tokenLabel.title = "\(Float(token))"
+
+        }
+
+    }
+    
     //MARK: - TableView Datasource methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +90,29 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         guard Connectivity.isConnectedToInternet else {return Connectivity.handleNotConnected(view: self)}
         
-        performSegue(withIdentifier: "openRecipePage", sender: self)
+        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
+        
+        if token > 0{
+            
+            performSegue(withIdentifier: "openRecipePage", sender: self)
+            
+        }else{
+            
+            let alert = UIAlertController(title: "Oh no", message: "You don't seem to have enough Platcoins to check out this recipe", preferredStyle: .alert)
+            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+            
+            let action = UIAlertAction(title: "Got it", style: .cancel) { (cancel) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            
+            print ("not enough tokens")
+        }
+        
+        
+        
+        
     }
     
     
