@@ -11,7 +11,8 @@ import UIKit
 class SideMenuViewController: UITableViewController {
     
     let options = ["Dietry preference","Pantry","Platcoins"]
-    let optionsArray = [["None(Default)","High-Protein","Low-Carb","Gluten-free","Vegan","Vegetarian","Pescatarian"],["Edit Pantry"],["Restore Purchases"]]
+    let optionsArray = [["None(Default)","High-Protein","Low-Carb","Gluten-Free","Vegan","Vegetarian","Pescatarian"],["Edit Pantry"],["Restore Purchases"]]
+    
     var lastSelection : IndexPath!
     
     override func viewDidLoad() {
@@ -73,6 +74,8 @@ class SideMenuViewController: UITableViewController {
                 self.lastSelection = indexPath
                 
                 let path = indexPath.row
+                
+                print (path)
                 
                 UserDefaults.standard.set(path, forKey: Keys.mealOption)
                 

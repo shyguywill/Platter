@@ -17,6 +17,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     let api = Edm_API()
     var searchParameters : String?
     var finalURL : String?
+    var diet : String?
     
     
     @IBOutlet weak var fridgeTableView: UITableView!
@@ -233,7 +234,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         if let ingredientsToSend = searchParameters{
             
-            let newURL = api.baseURL + ingredientsToSend + "&app_id=" + api.appID + "&app_key=" + api.appKey + "&from=0&to=100"
+            let newURL = api.baseURL + ingredientsToSend + "&app_id=" + api.appID + "&app_key=" + api.appKey + "&from=0&to=100" + Search.diet
             
             finalURL = newURL.replacingOccurrences(of: " ", with: "%20")
             
