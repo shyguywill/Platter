@@ -22,4 +22,6 @@ struct Keys {
     static let tokenNumber = "com.TokenNumber.Monitor"
     
     static let timeOfLaunch = "com.Launch.Timer"
+    
+    static let mealOption = "com.Options.MealDetails"
 }

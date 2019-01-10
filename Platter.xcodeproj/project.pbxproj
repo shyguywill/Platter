@@ -25,8 +25,7 @@
 		7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7553BD7721B6B35E00DD9D85 /* CustomItems.xib */; };
 		75599CE821B951BE00696D87 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75599CE721B951BE00696D87 /* RecipeData.swift */; };
 		756CC6A421DF8CA300D4A6D5 /* ButtonSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */; };
-		757BB83021E661210037C1EC /* DietLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BB82F21E661210037C1EC /* DietLabels.swift */; };
-		757BB83221E661CA0037C1EC /* DietLabelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BB83121E661CA0037C1EC /* DietLabelsTableViewController.swift */; };
+		757BB83021E661210037C1EC /* Diet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757BB82F21E661210037C1EC /* Diet.swift */; };
 		757F610421DB91F100D6544B /* IngredientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F610321DB91F100D6544B /* IngredientLabel.swift */; };
 		75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */; };
 		75A49CA821C00DF1000D1C36 /* SavedMeals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA721C00DF1000D1C36 /* SavedMeals.swift */; };
@@ -83,8 +82,7 @@
 		75599CE721B951BE00696D87 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ButtonSound.mp3; sourceTree = "<group>"; };
 		756CC6A521DFA3D800D4A6D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		757BB82F21E661210037C1EC /* DietLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietLabels.swift; sourceTree = "<group>"; };
-		757BB83121E661CA0037C1EC /* DietLabelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietLabelsTableViewController.swift; sourceTree = "<group>"; };
+		757BB82F21E661210037C1EC /* Diet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diet.swift; sourceTree = "<group>"; };
 		757F610321DB91F100D6544B /* IngredientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientLabel.swift; sourceTree = "<group>"; };
 		75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMealsViewController.swift; sourceTree = "<group>"; };
 		75A49CA721C00DF1000D1C36 /* SavedMeals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMeals.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */,
 				75AAD37F21BC220E0006CA7C /* RecipePageController.swift */,
 				7501402621E3B4E500AAFACC /* SideMenuViewController.swift */,
-				757BB83121E661CA0037C1EC /* DietLabelsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,7 +173,7 @@
 			children = (
 				7553BD6F21B6A60B00DD9D85 /* Store.swift */,
 				7553BD7321B6A7D100DD9D85 /* Pantry.swift */,
-				757BB82F21E661210037C1EC /* DietLabels.swift */,
+				757BB82F21E661210037C1EC /* Diet.swift */,
 				7501402221E35A1000AAFACC /* UserStatus.swift */,
 				75A49CA721C00DF1000D1C36 /* SavedMeals.swift */,
 				75599CE721B951BE00696D87 /* RecipeData.swift */,
@@ -449,11 +446,10 @@
 				75AAD37A21BC0D5C0006CA7C /* IngredientsViewController.swift in Sources */,
 				75AAD38021BC220E0006CA7C /* RecipePageController.swift in Sources */,
 				7553BD7021B6A60C00DD9D85 /* Store.swift in Sources */,
-				757BB83021E661210037C1EC /* DietLabels.swift in Sources */,
+				757BB83021E661210037C1EC /* Diet.swift in Sources */,
 				751947E821ADE43A0059F59A /* HomeScreenController.swift in Sources */,
 				75AAD37E21BC18840006CA7C /* IngredientData.swift in Sources */,
 				75599CE821B951BE00696D87 /* RecipeData.swift in Sources */,
-				757BB83221E661CA0037C1EC /* DietLabelsTableViewController.swift in Sources */,
 				75F7DED721E1260200635187 /* Keys.swift in Sources */,
 				7519480621ADE4F00059F59A /* Secrets.swift in Sources */,
 				75A49CA821C00DF1000D1C36 /* SavedMeals.swift in Sources */,

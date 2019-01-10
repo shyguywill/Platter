@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let timePassed = Float(Date().timeIntervalSince(savedDate))
             
-            if timePassed >= 300{ //86400
+            if timePassed >= 300{ //43200
                 
                 
                 let currentDate = Date()

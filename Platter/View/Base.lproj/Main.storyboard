@@ -177,41 +177,10 @@
                     <navigationItem key="navigationItem" title="Options" id="Sv6-5r-NUF">
                         <barButtonItem key="backBarButtonItem" title=" " id="3vS-j6-CQk"/>
                     </navigationItem>
-                    <connections>
-                        <segue destination="r61-6z-Gqh" kind="show" identifier="goToDietLabels" id="3Gh-t4-RLC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9e4-uK-8Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4820" y="-699"/>
-        </scene>
-        <!--Dietry options-->
-        <scene sceneID="IdV-ZJ-WAS">
-            <objects>
-                <tableViewController title="Dietry options" hidesBottomBarWhenPushed="YES" id="r61-6z-Gqh" customClass="DietLabelsTableViewController" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RGa-8K-SAx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DietLabels" id="twv-SV-LKQ">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="twv-SV-LKQ" id="Yjt-Fo-5gY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="r61-6z-Gqh" id="7Up-sM-H9o"/>
-                            <outlet property="delegate" destination="r61-6z-Gqh" id="ZPo-9A-M4l"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yeb-0Z-bPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5630" y="-695"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="QgU-F3-crC">
