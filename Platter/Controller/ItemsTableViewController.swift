@@ -20,6 +20,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     
     
     @IBOutlet weak var fridgeTableView: UITableView!
+    @IBOutlet weak var plattrBtn: UIButton!
     
 
     override func viewDidLoad() {
@@ -215,7 +216,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
                 }
             
             }
-            
+            plattrBtn.isEnabled = !recipeApiItems.isEmpty //Disable button if no recipes are selected
             print (recipeApiItems.joined(separator: ","))
             searchParameters = recipeApiItems.joined(separator: ",")
             Search.searchParamters = recipeApiItems

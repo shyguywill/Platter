@@ -17,8 +17,6 @@ class SideMenuViewController: UITableViewController {
         tableView.rowHeight = 70
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
-
-  
     }
     
 
@@ -38,6 +36,24 @@ class SideMenuViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        
+        if indexPath.row == 0{
+            performSegue(withIdentifier: "goToDietLabels", sender: self)
+        }
+         
+        
+    }
+    
+    
+    
+    
 
  
 

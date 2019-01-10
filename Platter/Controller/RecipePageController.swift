@@ -53,7 +53,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             if viewIdentifier == 1{
                 floatySetUp()
                 
-                if userStatus.isFreeUser(){
+                if userStatus.isFreeUser(){ //*** Increase time to 30 ***
                     var _ = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
                 }
                 

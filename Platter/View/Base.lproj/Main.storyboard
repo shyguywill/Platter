@@ -152,7 +152,7 @@
         <!--Options-->
         <scene sceneID="aDN-an-kT5">
             <objects>
-                <tableViewController id="Fsy-ei-6bs" customClass="SideMenuViewController" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="Fsy-ei-6bs" customClass="SideMenuViewController" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="baD-4U-eaI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,11 +174,44 @@
                             <outlet property="delegate" destination="Fsy-ei-6bs" id="kNS-B2-8El"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Options" id="Sv6-5r-NUF"/>
+                    <navigationItem key="navigationItem" title="Options" id="Sv6-5r-NUF">
+                        <barButtonItem key="backBarButtonItem" title=" " id="3vS-j6-CQk"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="r61-6z-Gqh" kind="show" identifier="goToDietLabels" id="3Gh-t4-RLC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9e4-uK-8Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4820" y="-699"/>
+        </scene>
+        <!--Dietry options-->
+        <scene sceneID="IdV-ZJ-WAS">
+            <objects>
+                <tableViewController title="Dietry options" hidesBottomBarWhenPushed="YES" id="r61-6z-Gqh" customClass="DietLabelsTableViewController" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RGa-8K-SAx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DietLabels" id="twv-SV-LKQ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="twv-SV-LKQ" id="Yjt-Fo-5gY">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="r61-6z-Gqh" id="7Up-sM-H9o"/>
+                            <outlet property="delegate" destination="r61-6z-Gqh" id="ZPo-9A-M4l"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeb-0Z-bPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5630" y="-695"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="QgU-F3-crC">
@@ -187,6 +220,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arD-aW-6Wu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
@@ -267,6 +304,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="fridgeTableView" destination="bkN-uy-KS9" id="7ej-7x-ZiP"/>
+                        <outlet property="plattrBtn" destination="TML-77-r4R" id="i2U-Rl-nBc"/>
                         <segue destination="b9z-5B-OgG" kind="show" identifier="platterMe" id="OcG-Z3-4EJ"/>
                     </connections>
                 </viewController>
@@ -443,10 +481,10 @@
             </objects>
             <point key="canvasLocation" x="5732" y="760.56971514242889"/>
         </scene>
-        <!--Tab Bar-->
+        <!--Tab Bar Controller-->
         <scene sceneID="18i-J6-g0f">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BjC-Rp-Jvy" customClass="UITabBar" customModule="Platter" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BjC-Rp-Jvy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RVW-34-xkB">
                         <barButtonItem key="backBarButtonItem" title="    " id="tIK-pr-2BU"/>

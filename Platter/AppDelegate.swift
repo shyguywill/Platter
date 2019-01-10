@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if firstTime.isFirstLaunch{
             
-            UserDefaults.standard.set(0, forKey: Keys.tokenNumber)
+            UserDefaults.standard.set(1, forKey: Keys.tokenNumber)
  
             UserDefaults.standard.set(true, forKey: Keys.userStatus)
             
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - manually set user status *** remove ***
         
         //UserDefaults.standard.set(false, forKey: Keys.userStatus)
-        UserDefaults.standard.set(true, forKey: Keys.userStatus)
+        //UserDefaults.standard.set(true, forKey: Keys.userStatus)
         
         
         //MARK: - Assign free user token after elapsed time
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let savedDate = UserDefaults.standard.object(forKey: Keys.timeOfLaunch) as! Date
             
-            let timePassed = Int(Date().timeIntervalSince(savedDate))
+            let timePassed = Float(Date().timeIntervalSince(savedDate))
             
             if timePassed >= 300{ //86400
                 
@@ -59,9 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 UserDefaults.standard.set(currentDate, forKey: Keys.timeOfLaunch)
                 
-                var tokens = UserDefaults.standard.integer(forKey: Keys.tokenNumber)
+                var tokens = UserDefaults.standard.float(forKey: Keys.tokenNumber)
 
-                tokens += timePassed/300
+                tokens += 1 //round(timePassed/300)
                 
                 print (tokens)
 
@@ -71,17 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             print (timePassed)
-            
-
-            
-//
-//            var tokens = UserDefaults.standard.double(forKey: Keys.tokenNumber)
-//
-//            tokens += 1
-//
-//            UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
-//
-//            print ("got a token")
      
         }
  
