@@ -169,7 +169,7 @@ class SearchResultsController: UITableViewController {
                 
                 SVProgressHUD.dismiss()
                 
-                let alert = UIAlertController(title: nil, message: "It seems something's gone wrong, please try again shortly" , preferredStyle: .alert)
+                let alert = UIAlertController(title: nil, message: "It seems something's gone wrong, please try again shortly." , preferredStyle: .alert)
                 let action = UIAlertAction(title: "Got it", style: .cancel, handler: { (cancel) in
                     alert.dismiss(animated: true, completion: nil)
                 })
@@ -202,7 +202,7 @@ class SearchResultsController: UITableViewController {
             
             SVProgressHUD.dismiss()
             
-            let alert = UIAlertController(title: "Uh oh", message: "Please try a different combination of, or less ingredients", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Uh oh", message: "Please try a different combination of, or less, ingredients", preferredStyle: .alert)
             
             let cancel = UIAlertAction(title: "Got it", style: .default) { (cancel) in
                 

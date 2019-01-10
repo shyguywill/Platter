@@ -18,6 +18,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     var searchParameters : String?
     var finalURL : String?
     var diet : String?
+    var editPantry : Int?
     
     
     @IBOutlet weak var fridgeTableView: UITableView!
@@ -38,7 +39,17 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         loadIngredients()
         
         firstLaunch()
-
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if editPantry == 1{
+            
+            plattrBtn.isEnabled = false
+            plattrBtn.isHidden = true
+        }
+        
     }
 
     // MARK: - Table view data source

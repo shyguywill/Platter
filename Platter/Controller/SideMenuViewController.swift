@@ -13,7 +13,7 @@ class SideMenuViewController: UITableViewController {
     let options = ["Dietry preference","Pantry","Platcoins"]
     let optionsArray = [["None(Default)","High-Protein","Low-Carb","Gluten-Free","Vegan","Vegetarian","Pescatarian"],["Edit Pantry"],["Restore Purchases"]]
     
-    var lastSelection : IndexPath!
+    var lastSelection : IndexPath! //Enforces selection of only one cell
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,39 +61,48 @@ class SideMenuViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let section = tableView.indexPathForSelectedRow?.section{
+        guard let section = tableView.indexPathForSelectedRow?.section else{return}
             
-            if section == 0{
+        if section == 0{
                 
-                if self.lastSelection != nil {
-                    tableView.cellForRow(at: self.lastSelection)?.accessoryType = .none
-                }
-                
-                tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-
-                self.lastSelection = indexPath
-                
-                let path = indexPath.row
-                
-                print (path)
-                
-                UserDefaults.standard.set(path, forKey: Keys.mealOption)
-                
-                tableView.reloadData()
+            if self.lastSelection != nil {
+                tableView.cellForRow(at: self.lastSelection)?.accessoryType = .none
             }
-            
-            tableView.deselectRow(at: indexPath, animated: true)
-            
+                
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+
+            self.lastSelection = indexPath
+                
+            let path = indexPath.row
+                
+            print (path)
+                
+            UserDefaults.standard.set(path, forKey: Keys.mealOption)
+                
+            tableView.reloadData()
         }
         
-        
-        
-
-        //self.dismiss(animated: true, completion: nil)
+        if section == 1{
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            performSegue(withIdentifier: "editPantry", sender: self)
+        }
+            
+        tableView.deselectRow(at: indexPath, animated: true)
         
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? ItemsTableViewController{
+            
+            destinationVC.editPantry = 1
+        }
+    }
+    
+    //MARK: - Set cell accesory type 
     
     
     func loadSavedCell(cell: Int) -> UITableViewCell.AccessoryType{

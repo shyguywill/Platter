@@ -177,10 +177,13 @@
                     <navigationItem key="navigationItem" title="Options" id="Sv6-5r-NUF">
                         <barButtonItem key="backBarButtonItem" title=" " id="3vS-j6-CQk"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="4Vf-mQ-CxG" kind="show" identifier="editPantry" id="3mp-o8-yMc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9e4-uK-8Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4820" y="-699"/>
+            <point key="canvasLocation" x="4796" y="-699"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="QgU-F3-crC">
@@ -535,5 +538,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Dv-Iu-a72"/>
+        <segue reference="3mp-o8-yMc"/>
     </inferredMetricsTieBreakers>
 </document>

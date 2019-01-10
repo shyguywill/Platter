@@ -54,6 +54,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
+    //MARK: - Load token image and number
+    
     override func viewDidAppear(_ animated: Bool) {
         
         if userStatus.isFreeUser(){
@@ -91,9 +93,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-     //MARK: - Segue
-    
-    
+    //MARK: - Check if free user has enough coins to progress
+
     @IBAction func recipePageBtn(_ sender: UIButton) {
         
         guard Connectivity.isConnectedToInternet else {return Connectivity.handleNotConnected(view: self)}
@@ -108,19 +109,29 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
         }else{
             
-            let alert = UIAlertController(title: "Oh no", message: "You don't seem to have enough Platcoins to check out this recipe", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Oh no", message: "You don't seem to have enough Platcoins to check out this recipe.", preferredStyle: .alert)
+            
             alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
             
-            let action = UIAlertAction(title: "Got it", style: .cancel) { (cancel) in
+            let action = UIAlertAction(title: "Okay", style: .cancel) { (cancel) in
                 alert.dismiss(animated: true, completion: nil)
             }
+            
+            let getToken = UIAlertAction(title: "Get Platcoins!", style: .default) { (token) in
+                //*****Code to link to purchase****
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
             alert.addAction(action)
+            alert.addAction(getToken)
             present(alert, animated: true, completion: nil)
             
             print ("not enough tokens")
         }
 
     }
+    
+     //MARK: - Segue
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

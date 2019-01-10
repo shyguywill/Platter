@@ -39,40 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UserDefaults.standard.set(false, forKey: Keys.userStatus)
         //UserDefaults.standard.set(true, forKey: Keys.userStatus)
         
-        
-        //MARK: - Assign free user token after elapsed time
-        
-        let userStatus = UserStatus()
-        
-        if userStatus.isFreeUser(){
-            
-            let savedDate = UserDefaults.standard.object(forKey: Keys.timeOfLaunch) as! Date
-            
-            let timePassed = Float(Date().timeIntervalSince(savedDate))
-            
-            if timePassed >= 300{ //43200
-                
-                
-                let currentDate = Date()
-                
-                print (currentDate)
-                
-                UserDefaults.standard.set(currentDate, forKey: Keys.timeOfLaunch)
-                
-                var tokens = UserDefaults.standard.float(forKey: Keys.tokenNumber)
-
-                tokens += 1 //round(timePassed/300)
-                
-                print (tokens)
-
-                UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
-                
-                print ("got a token")
-            }
-            
-            print (timePassed)
-     
-        }
  
         //print (Realm.Configuration.defaultConfiguration.fileURL)
         // Override point for customization after application launch.
@@ -95,6 +61,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        //MARK: - Assign free user token after elapsed time
+        
+        let userStatus = UserStatus()
+        
+        if userStatus.isFreeUser(){
+            
+            let savedDate = UserDefaults.standard.object(forKey: Keys.timeOfLaunch) as! Date
+            
+            let timePassed = Float(Date().timeIntervalSince(savedDate))
+            
+            if timePassed >= 300{ //43200
+                
+                
+                let currentDate = Date()
+                
+                print (currentDate)
+                
+                UserDefaults.standard.set(currentDate, forKey: Keys.timeOfLaunch)
+                
+                var tokens = UserDefaults.standard.float(forKey: Keys.tokenNumber)
+                
+                tokens += 1 //round(timePassed/300)
+                
+                print (tokens)
+                
+                UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
+                
+                print ("got a token")
+            }
+            
+            print (timePassed)
+            
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
