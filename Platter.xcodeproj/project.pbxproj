@@ -24,6 +24,10 @@
 		7553BD7821B6B35E00DD9D85 /* CustomItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */; };
 		7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7553BD7721B6B35E00DD9D85 /* CustomItems.xib */; };
 		75599CE821B951BE00696D87 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75599CE721B951BE00696D87 /* RecipeData.swift */; };
+		7565D9C921E94FF40031BEBA /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7565D9C521E94FE10031BEBA /* FBSDKShareKit.framework */; };
+		7565D9CA21E94FF40031BEBA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7565D9C621E94FEA0031BEBA /* Bolts.framework */; };
+		7565D9CB21E94FF40031BEBA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7565D9C721E94FF20031BEBA /* FBSDKCoreKit.framework */; };
+		7565D9CC21E94FF40031BEBA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7565D9C821E94FF40031BEBA /* FBSDKLoginKit.framework */; };
 		756CC6A421DF8CA300D4A6D5 /* ButtonSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */; };
 		757F610421DB91F100D6544B /* IngredientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F610321DB91F100D6544B /* IngredientLabel.swift */; };
 		75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */; };
@@ -79,6 +83,11 @@
 		7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomItemsViewCell.swift; sourceTree = "<group>"; };
 		7553BD7721B6B35E00DD9D85 /* CustomItems.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomItems.xib; sourceTree = "<group>"; };
 		75599CE721B951BE00696D87 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		7565D9C521E94FE10031BEBA /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		7565D9C621E94FEA0031BEBA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7565D9C721E94FF20031BEBA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		7565D9C821E94FF40031BEBA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		7565D9CE21E958440031BEBA /* Platter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Platter-Bridging-Header.h"; sourceTree = "<group>"; };
 		756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ButtonSound.mp3; sourceTree = "<group>"; };
 		756CC6A521DFA3D800D4A6D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		757F610321DB91F100D6544B /* IngredientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientLabel.swift; sourceTree = "<group>"; };
@@ -104,8 +113,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7565D9CB21E94FF40031BEBA /* FBSDKCoreKit.framework in Frameworks */,
 				9124AB11CB37698E8BBD2817 /* Pods_Platter.framework in Frameworks */,
+				7565D9CC21E94FF40031BEBA /* FBSDKLoginKit.framework in Frameworks */,
 				752023B521D3D39A00312257 /* StoreKit.framework in Frameworks */,
+				7565D9C921E94FF40031BEBA /* FBSDKShareKit.framework in Frameworks */,
+				7565D9CA21E94FF40031BEBA /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +230,11 @@
 				751910F221ADF96100CB9BE5 /* Model */,
 				751947EC21ADE43B0059F59A /* Assets.xcassets */,
 				751947F121ADE43B0059F59A /* Info.plist */,
+				7565D9C621E94FEA0031BEBA /* Bolts.framework */,
+				7565D9C721E94FF20031BEBA /* FBSDKCoreKit.framework */,
+				7565D9C821E94FF40031BEBA /* FBSDKLoginKit.framework */,
+				7565D9C521E94FE10031BEBA /* FBSDKShareKit.framework */,
+				7565D9CE21E958440031BEBA /* Platter-Bridging-Header.h */,
 			);
 			path = Platter;
 			sourceTree = "<group>";
@@ -294,6 +312,7 @@
 				TargetAttributes = {
 					751947E121ADE43A0059F59A = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -624,9 +643,14 @@
 			baseConfigurationReference = 4A7274798980FC0A8CE8F8E9 /* Pods-Platter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MYKQMKKCS8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Platter",
+				);
 				INFOPLIST_FILE = Platter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -636,6 +660,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theplatterapp.Platter-foodrecipes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Platter/Platter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -646,9 +672,18 @@
 			baseConfigurationReference = DEE882287762C62BAD851BC2 /* Pods-Platter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MYKQMKKCS8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Platter",
+					"Bundle.main.path(forResource:",
+					"\"FBSDKCoreKit\",",
+					"ofType:",
+					"nil)",
+				);
 				INFOPLIST_FILE = Platter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -658,6 +693,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theplatterapp.Platter-foodrecipes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Platter/Platter-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

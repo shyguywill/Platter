@@ -12,6 +12,7 @@ import Floaty
 import RealmSwift
 import SVProgressHUD
 
+
 class RecipePageController: UIViewController, WKNavigationDelegate {
     
     @IBOutlet var webView: WKWebView!

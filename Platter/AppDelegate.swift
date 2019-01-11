@@ -55,18 +55,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: - Facebook method
     
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
-//
-//        // Add any custom logic here.
-//
-//        return handled
-//    }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+
+        // Add any custom logic here.
+
+        return handled
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         
         //MARK: - Fire during first launch to set user as free user, allocate 0 tokens and take note of date
