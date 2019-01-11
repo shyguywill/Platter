@@ -11,7 +11,7 @@ import UIKit
 class SideMenuViewController: UITableViewController {
     
     let options = ["Dietry preference","Pantry","Platcoins"]
-    let optionsArray = [["None(Default)","High-Protein","Low-Carb","Gluten-Free","Vegan","Vegetarian","Pescatarian"],["Edit Pantry"],["Restore Purchases"]]
+    let optionsArray = [["None(Default)","High-Protein","Low-Carb","Vegan","Vegetarian"],["Edit Pantry"],["Restore Purchases"]]
     
     var lastSelection : IndexPath! //Enforces selection of only one cell
     
@@ -123,10 +123,18 @@ class SideMenuViewController: UITableViewController {
         
     }
     
-    
-    
-    
 
- 
+}
+
+extension UIAlertController{
+    
+    func setColour() -> UIColor{
+        
+        let platterGreen = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+        
+        return platterGreen
+        
+    }
+    
 
 }

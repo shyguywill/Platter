@@ -30,13 +30,9 @@ struct Search{
         case 2:
             dietHold = "&diet=low-carb"
         case 3:
-            dietHold = "&health=gluten-free"
-        case 4:
             dietHold = "&health=vegan"
-        case 5:
+        case 4:
             dietHold = "&health=vegetarian"
-        case 6:
-            dietHold = "&health=pescatarian"
             
         default:
             break

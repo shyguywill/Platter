@@ -56,13 +56,16 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK: - Load token image and number
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         if userStatus.isFreeUser(){
             
-        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-        tokenLabel.title = "\(token)"
+            let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+            let formattedNumber = NumberFormatter()
+            formattedNumber.numberStyle = NumberFormatter.Style.decimal
             
+            tokenLabel.title = formattedNumber.string(from: NSNumber(value: tokens))
+
         }
     }
     

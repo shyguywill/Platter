@@ -142,11 +142,11 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
             
             let alert = UIAlertController(title: "Let's get started", message: "Add ingredients and condiments to your Pantry with the '+' button, then select which to include in your search.", preferredStyle: .alert)
             
+            alert.view.tintColor = alert.setColour()
+            
             let done = UIAlertAction(title: "Got it", style: .default) { (done) in
                 alert.dismiss(animated: true, completion: nil)
             }
-            
-            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
             
             alert.addAction(done)
             
@@ -174,7 +174,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         let alert = UIAlertController(title: "Add a new item", message: "Add a new ingredient to your pantry", preferredStyle: .alert)
         
-        alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+        alert.view.tintColor = alert.setColour()
         
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
             

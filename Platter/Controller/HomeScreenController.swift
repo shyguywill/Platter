@@ -39,11 +39,14 @@ class HomeScreenController: UIViewController {
     
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         if userStatus.isFreeUser(){
         
             let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-            tokenLbl.title = "\(tokens)"
+            let formattedNumber = NumberFormatter()
+            formattedNumber.numberStyle = NumberFormatter.Style.decimal
+            
+            tokenLbl.title = formattedNumber.string(from: NSNumber(value: tokens))
         }
     }
     
