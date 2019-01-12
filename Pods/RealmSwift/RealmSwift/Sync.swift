@@ -844,6 +844,10 @@ extension Results where Element == SyncPermission {
 
 // MARK: - Partial sync subscriptions
 
+// Partial sync subscriptions are only available in Swift 3.2 and newer.
+#if swift(>=3.2)
+
+
 /// The possible states of a sync subscription.
 public enum SyncSubscriptionState: Equatable {
     /// The subscription is being created, but has not yet been written to the synced Realm.
@@ -898,7 +902,7 @@ public enum SyncSubscriptionState: Equatable {
 /// Changes to the state of the subscription can be observed using `SyncSubscription.observe(_:options:_:)`.
 ///
 /// Subscriptions are created using `Results.subscribe()` or `Results.subscribe(named:)`.
-public class SyncSubscription<T: RealmCollectionValue>: RealmCollectionValue {
+public class SyncSubscription<Type: RealmCollectionValue> {
     private let rlmSubscription: RLMSyncSubscription
 
     /// The name of the subscription.
@@ -912,13 +916,6 @@ public class SyncSubscription<T: RealmCollectionValue>: RealmCollectionValue {
     internal init(_ rlmSubscription: RLMSyncSubscription) {
         self.rlmSubscription = rlmSubscription
     }
-
-    public static func == (lhs: SyncSubscription, rhs: SyncSubscription) -> Bool {
-        return lhs.rlmSubscription == rhs.rlmSubscription
-    }
-
-// Partial sync subscriptions are only observable in Swift 3.2 and newer.
-#if swift(>=3.2)
 
     /// Observe the subscription for state changes.
     ///
@@ -943,8 +940,6 @@ public class SyncSubscription<T: RealmCollectionValue>: RealmCollectionValue {
         }
         return KeyValueObservationNotificationToken(observation)
     }
-
-#endif // Swift >= 3.2
 
     /// Remove this subscription
     ///
@@ -979,12 +974,9 @@ extension Results {
     /// if any. Please note that the limit does not count or apply to objects
     /// which are added indirectly due to being linked to by the objects in the
     /// subscription. If the limit is larger than the number of objects which
-    /// match the query, all objects will be included.
-    ///
-    /// Creating a subscription is an asynchronous operation and the newly
-    /// created subscription will not be reported by Realm.subscriptions() until
-    /// it has transitioned from the `.creating` state to `.pending`,
-    /// `.created` or `.error`.
+    /// match the query, all objects will be included. Limiting a subscription
+    /// requires ROS 3.10.1 or newer, and will fail with an invalid predicate
+    /// error with older versions.
     ///
     /// - parameter subscriptionName: An optional name for the subscription.
     /// - parameter limit: The maximum number of objects to include in the subscription.
@@ -1000,7 +992,6 @@ extension Results {
     }
 }
 
-#if swift(>=3.2)
 internal class KeyValueObservationNotificationToken: NotificationToken {
     public var observation: NSKeyValueObservation?
 
@@ -1402,8 +1393,7 @@ extension Realm {
     operation is permitted but the server will still reject it if permission is
     revoked before the changes have been integrated on the server.
 
-    Non-synchronized and fully-synchronized Realms always have permission to
-    perform all operations.
+    Non-synchronized Realms always have permission to perform all operations.
 
      - returns: The privileges which the current user has for the current Realm.
      */
@@ -1423,8 +1413,7 @@ extension Realm {
     operation is permitted but the server will still reject it if permission is
     revoked before the changes have been integrated on the server.
 
-    Non-synchronized and fully-synchronized Realms always have permission to
-    perform all operations.
+    Non-synchronized Realms always have permission to perform all operations.
 
     The object must be a valid object managed by this Realm. Passing in an
     invalidated object, an unmanaged object, or an object managed by a
@@ -1449,8 +1438,7 @@ extension Realm {
     operation is permitted but the server will still reject it if permission is
     revoked before the changes have been integrated on the server.
 
-    Non-synchronized and fully-synchronized Realms always have permission to
-    perform all operations.
+    Non-synchronized Realms always have permission to perform all operations.
 
      - parameter cls: An Object subclass to get the privileges for.
      - returns: The privileges which the current user has for the given class.
@@ -1471,8 +1459,7 @@ extension Realm {
     operation is permitted but the server will still reject it if permission is
     revoked before the changes have been integrated on the server.
 
-    Non-synchronized and fully-synchronized Realms always have permission to
-    perform all operations.
+    Non-synchronized Realms always have permission to perform all operations.
 
      - parameter className: The name of an Object subclass to get the privileges for.
      - returns: The privileges which the current user has for the named class.
@@ -1486,7 +1473,7 @@ extension Realm {
 
      - parameter cls: An Object subclass to get the permissions for.
      - returns: The class-wide permissions for the given class.
-     - requires: This must only be called on a Realm using query-based sync.
+     - requires: This must only be called on a partially-synced Realm.
     */
     public func permissions<T: Object>(forType cls: T.Type) -> List<Permission> {
         return permissions(forClassNamed: cls._realmObjectName() ?? cls.className())
@@ -1498,7 +1485,7 @@ extension Realm {
      - parameter cls: The name of an Object subclass to get the permissions for.
      - returns: The class-wide permissions for the named class.
      - requires: className must name a class in this Realm's schema.
-     - requires: This must only be called on a Realm using query-based sync.
+     - requires: This must only be called on a partially-synced Realm.
     */
     public func permissions(forClassNamed className: String) -> List<Permission> {
         let classPermission = object(ofType: ClassPermission.self, forPrimaryKey: className)!
@@ -1508,41 +1495,10 @@ extension Realm {
     /**
     Returns the Realm-wide permissions.
 
-     - requires: This must only be called on a Realm using query-based sync.
+     - requires: This must only be called on a partially-synced Realm.
     */
     public var permissions: List<Permission> {
         return object(ofType: RealmPermission.self, forPrimaryKey: 0)!.permissions
-    }
-
-    /**
-    Returns this list of the query-based sync subscriptions made for this Realm.
-
-    This list includes all subscriptions which are currently in the states
-    `.pending`, `.created`, and `.error`. Newly created subscriptions which are
-    still in the `.creating` state are not included, and calling this
-    immediately after calling `Results.subscribe()` will typically not include
-    that subscription. Similarly, because unsubscription happens asynchronously,
-    this may continue to include subscriptions after
-    `SyncSubscription.unsubscribe()` is called on them.
-
-     - requires: This must only be called on a Realm using query-based sync.
-    */
-    public func subscriptions() -> Results<SyncSubscription<Object>> {
-        return Results(rlmRealm.subscriptions() as! RLMResults<AnyObject>)
-    }
-
-    /**
-    Returns the named query-based sync subscription, if it exists.
-
-    Subscriptions are created asynchronously, so calling this immediately after
-    calling Results.subscribe(named:)` will typically return `nil`. Only
-    subscriptions which are currently in the states `.pending`, `.created`,
-    and `.error` can be retrieved with this method.
-
-     - requires: This must only be called on a Realm using query-based sync.
-    */
-    public func subscription(named: String) -> SyncSubscription<Object>? {
-        return rlmRealm.subscription(withName: named).map(SyncSubscription.init)
     }
 }
 

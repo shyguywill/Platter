@@ -43,7 +43,7 @@ public struct RLMIterator<Element: RealmCollectionValue>: IteratorProtocol {
             }
             return unsafeBitCast(next, to: Optional<Element>.self)
         }
-        return dynamicBridgeCast(fromObjectiveC: next as Any)
+        return next as! Element?
     }
 }
 

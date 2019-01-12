@@ -34,6 +34,18 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     let userStatus = UserStatus()
     
+    var fbShareLabl : String{
+        
+        var title = "Share on Facebook"
+        
+        if userStatus.isFreeUser(){
+            
+            title = "Share on Facebook (+0.20💰)"
+        }
+        
+        return title
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -251,34 +263,43 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         let alert = UIAlertController(title: "❤️", message: "Did you love it? Why not share it?", preferredStyle: .actionSheet)
         
-        let firstOption = UIAlertAction(title: "Share on Facebook", style: .default) { (done) in
+        let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (done) in
             
+            if let sharedMeal = self.mealDetails{
+                
+                let content = FBSDKShareLinkContent()
+                content.contentURL = URL(string: sharedMeal.meal_url)
+                
+                let hashtag = FBSDKHashtag()
+                hashtag.stringRepresentation = "#Platter"
+                
+                content.hashtag = hashtag
+                
+                FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+
+            }
+            
+            if self.userStatus.isFreeUser(){
+                var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+                token += 0.2
+                UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+            }
             self.clean()
             
-            let fbAlert = UIAlertController(title: nil, message: "This function will be built shortly", preferredStyle: .alert)
-            
-            let cancel = UIAlertAction(title: "Done", style: .default, handler: { (button) in
-            
-            })
-            
-            fbAlert.addAction(cancel)
-            
-            self.present(fbAlert, animated: true, completion: nil)
         }
         
-        let secondOption = UIAlertAction(title: "Copy link", style: .default) { (done) in
+        let copyLink = UIAlertAction(title: "Copy link", style: .default) { (done) in
+            
+            if let sharedMeal = self.mealDetails{
+                
+                UIPasteboard.general.string = sharedMeal.meal_url
+                
+            }
+            
+            //Alert to confirm?
             
             self.clean()
             
-            let fbAlert = UIAlertController(title: nil, message: "This function will be built shortly", preferredStyle: .alert)
-            
-            let cancel = UIAlertAction(title: "Done", style: .default, handler: { (button) in
-             
-            })
-            
-            fbAlert.addAction(cancel)
-            
-            self.present(fbAlert, animated: true, completion: nil)
         }
         
         
@@ -288,8 +309,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         }
         
         
-        alert.addAction(firstOption)
-        alert.addAction(secondOption)
+        alert.addAction(facebook)
+        alert.addAction(copyLink)
         alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)

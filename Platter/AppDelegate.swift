@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let timePassed = Float(Date().timeIntervalSince(savedDate))
             
-            if timePassed >= 300{ //43200
+            if timePassed >= 30{ //43200
                 
                 
                 let currentDate = Date()
@@ -79,6 +79,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
             UserDefaults.standard.set(true, forKey: Keys.userStatus)
             
+            UserDefaults.standard.set(0, forKey: Keys.mealOption)
+            
             let launchDate = Date()
             
             print (launchDate)
@@ -93,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - manually set user status *** remove ***
         
         //UserDefaults.standard.set(false, forKey: Keys.userStatus)
-        //UserDefaults.standard.set(true, forKey: Keys.userStatus)
+        UserDefaults.standard.set(true, forKey: Keys.userStatus)
         
  
         //print (Realm.Configuration.defaultConfiguration.fileURL)

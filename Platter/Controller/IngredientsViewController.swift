@@ -106,7 +106,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
         
-        if token > 0{
+        if token >= 1{
             
             performSegue(withIdentifier: "openRecipePage", sender: self)
             

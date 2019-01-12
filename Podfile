@@ -7,14 +7,16 @@ target 'Platter' do
 
   # Pods for Platter
 
-    pod 'Alamofire', '~> 4.7'
-    pod 'SwiftyJSON', '~> 4.0'
-    pod 'RealmSwift'
-    pod 'SDWebImage', '~> 4.0'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'RealmSwift', '3.12'
+    pod 'SDWebImage'
     pod 'Kingfisher'
     pod 'Floaty'
     pod 'SVProgressHUD'
     pod 'SideMenu'
+    
+   
 
     
     
