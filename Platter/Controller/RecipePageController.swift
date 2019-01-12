@@ -21,16 +21,18 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     let realm = try! Realm()
     
-    var mealDetails : Ingredients?
-    var savedMealDetails : String?
+    var mealDetails : Ingredients? //Recipe details recieved from ingredient screen
+    var savedMealDetails : String? //Recipe URL received from saved meals tab
     
     let meal = Meal()
     
-    var identifier : Int?
+    var identifier : Int? //Identifies if details are coming from recipe page or saved meals tab
     
-    var viewIdentifier = 0
+    var viewIdentifier = 0 //Monitors how many times viewDidLoad for Floaty
     
-    var pageIdentifier = 0
+    var pageIdentifier = 0 // Monitors how many times URL did load for first time navigation alert
+    
+    var FBShareMonitor = 0 // Monitors how many times share button has been pressed
     
     let userStatus = UserStatus()
     
@@ -117,9 +119,9 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     @objc func useToken() {
         
-        if var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Double{
+        if var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Float{
             
-            if token > 0{
+            if token >= 1{
                 
                 token -= 1
                 
@@ -263,7 +265,9 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         let alert = UIAlertController(title: "❤️", message: "Did you love it? Why not share it?", preferredStyle: .actionSheet)
         
-        let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (done) in
+        let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (button) in
+            
+            guard self.FBShareMonitor == 0 else{return} //Free users can only share once
             
             if let sharedMeal = self.mealDetails{
                 
@@ -280,9 +284,11 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             }
             
             if self.userStatus.isFreeUser(){
+                self.FBShareMonitor = 1
                 var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
                 token += 0.2
                 UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                
             }
             self.clean()
             
