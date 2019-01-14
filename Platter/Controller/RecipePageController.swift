@@ -301,11 +301,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
                 UIPasteboard.general.string = sharedMeal.meal_url
                 
             }
-            
             //Alert to confirm?
-            
             self.clean()
-            
         }
         
         

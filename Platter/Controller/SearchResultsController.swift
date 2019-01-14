@@ -151,7 +151,7 @@ class SearchResultsController: UITableViewController {
     
     
     
-    //MARK: - Networking + closure to obtain recipes
+    //MARK: - Networking + alert when no recipes found
     
     
     func getRecipeData(url : String){

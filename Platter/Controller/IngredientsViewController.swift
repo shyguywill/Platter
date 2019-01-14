@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 import Kingfisher
-import SVProgressHUD
+
 
 class IngredientsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

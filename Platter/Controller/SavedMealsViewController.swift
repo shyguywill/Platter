@@ -143,14 +143,10 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         
     }
 
-
-
-
 }
 
+
 extension SavedMealsViewController: UISearchBarDelegate{
-    
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         mealItem = mealItem?.filter("title CONTAINS[cd] %@",searchBar.text!)
