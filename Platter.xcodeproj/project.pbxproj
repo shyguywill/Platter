@@ -32,6 +32,7 @@
 		75AAD37A21BC0D5C0006CA7C /* IngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */; };
 		75AAD37E21BC18840006CA7C /* IngredientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAD37D21BC18830006CA7C /* IngredientData.swift */; };
 		75AAD38021BC220E0006CA7C /* RecipePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AAD37F21BC220E0006CA7C /* RecipePageController.swift */; };
+		75C2FFB821EE0F2700440333 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2FFB721EE0F2700440333 /* StoreViewController.swift */; };
 		75E09F0521B816EE00248DC3 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0421B816EE00248DC3 /* SearchResultsController.swift */; };
 		75E09F0821B81D0900248DC3 /* CustomRecipesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */; };
 		75E09F0921B81D0900248DC3 /* CustomRecipes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E09F0721B81D0900248DC3 /* CustomRecipes.xib */; };
@@ -87,6 +88,7 @@
 		75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsViewController.swift; sourceTree = "<group>"; };
 		75AAD37D21BC18830006CA7C /* IngredientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientData.swift; sourceTree = "<group>"; };
 		75AAD37F21BC220E0006CA7C /* RecipePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePageController.swift; sourceTree = "<group>"; };
+		75C2FFB721EE0F2700440333 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		75E09F0421B816EE00248DC3 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRecipesViewCell.swift; sourceTree = "<group>"; };
 		75E09F0721B81D0900248DC3 /* CustomRecipes.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRecipes.xib; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				75AAD37921BC0D5C0006CA7C /* IngredientsViewController.swift */,
 				75AAD37F21BC220E0006CA7C /* RecipePageController.swift */,
 				7501402621E3B4E500AAFACC /* SideMenuViewController.swift */,
+				75C2FFB721EE0F2700440333 /* StoreViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				75AAD37E21BC18840006CA7C /* IngredientData.swift in Sources */,
 				75599CE821B951BE00696D87 /* RecipeData.swift in Sources */,
 				75F7DED721E1260200635187 /* Keys.swift in Sources */,
+				75C2FFB821EE0F2700440333 /* StoreViewController.swift in Sources */,
 				7519480621ADE4F00059F59A /* Secrets.swift in Sources */,
 				75A49CA821C00DF1000D1C36 /* SavedMeals.swift in Sources */,
 				757F610421DB91F100D6544B /* IngredientLabel.swift in Sources */,

@@ -57,6 +57,12 @@ class HomeScreenController: UIViewController {
         playSound()
     }
     
+    
+    @IBAction func openPurchases(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "goToPurchases", sender: self)
+    }
+    
     func playSound() {
         
         do{

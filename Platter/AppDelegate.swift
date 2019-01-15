@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let timePassed = Float(Date().timeIntervalSince(savedDate))
             
-            if timePassed >= 30{ //43200
+            if timePassed >= 30{ //****43200***
                 
                 
                 let currentDate = Date()
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 var tokens = UserDefaults.standard.float(forKey: Keys.tokenNumber)
                 
-                tokens += 1 //round(timePassed/300)
+                tokens += 1
                 
                 print (tokens)
                 
@@ -95,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: - manually set user status *** remove ***
         
         //UserDefaults.standard.set(false, forKey: Keys.userStatus)
-        UserDefaults.standard.set(true, forKey: Keys.userStatus)
+        //UserDefaults.standard.set(true, forKey: Keys.userStatus)
         
  
         //print (Realm.Configuration.defaultConfiguration.fileURL)
@@ -121,6 +121,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        
+        FBSDKAppEvents.activateApp()
         
         
         
