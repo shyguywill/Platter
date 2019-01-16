@@ -34,10 +34,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         if userStatus.isFreeUser(){
             tokenImg.image = UIImage(named: "PlatokenB")?.withRenderingMode(.alwaysOriginal)
 
-        }else{
-            
-            tokenImg.image = nil
-            tokenLabel.title = nil
         }
 
         if let recipe = delegateRecipe{  //Load background image + set up button + nav title
@@ -66,6 +62,11 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
             tokenLabel.title = formattedNumber.string(from: NSNumber(value: tokens))
 
+        }else{
+            
+            tokenImg.image = nil
+            tokenLabel.title = nil
+            
         }
     }
     

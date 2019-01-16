@@ -28,25 +28,24 @@ class HomeScreenController: UIViewController {
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         self.navigationItem.backBarButtonItem?.title = " "
+        
         if userStatus.isFreeUser(){
             tokenImage.image = UIImage(named: "Platoken")?.withRenderingMode(.alwaysOriginal)
-        }else{
-            tokenLbl.title = nil
-            tokenImage.isEnabled = false
-            tokenImage.image = nil
         }
-        
-    
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if userStatus.isFreeUser(){
-        
             let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
             let formattedNumber = NumberFormatter()
             formattedNumber.numberStyle = NumberFormatter.Style.decimal
             
             tokenLbl.title = formattedNumber.string(from: NSNumber(value: tokens))
+        }else{
+            tokenLbl.title = nil
+            tokenImage.isEnabled = false
+            tokenImage.image = nil
         }
     }
     

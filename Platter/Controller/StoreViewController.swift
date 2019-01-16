@@ -23,7 +23,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
     
     
     var purchaseIdentifier : Int?
-    var product : SKProduct?
+    var product : [SKProduct]?
     var productID : Set = ["com.theplatterapp.Platter.10Tokens","com.theplatterapp.Platter.30Tokens","com.theplatterapp.Platter.turnOffTokens"]
     
     
@@ -50,8 +50,10 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         let buttonPressed = sender.tag
         purchaseIdentifier = buttonPressed
         
-        let payment = SKPayment(product: product!)
+        let payment = SKPayment(product: product![(buttonPressed - 1)])
         SKPaymentQueue.default().add(payment)
+        
+        print (purchaseIdentifier ?? "no identifier")
         
     }
     
@@ -83,6 +85,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         
         }else{
             
+            self.product = products
             
             platBtn1.isEnabled = true
             platBtn2.isEnabled = true
@@ -113,6 +116,32 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
             case SKPaymentTransactionState.purchased:
                 SKPaymentQueue.default().finishTransaction(transaction)
                 pageTitle.text = "Thank you"
+                
+                switch self.purchaseIdentifier{
+                    
+                case 1:
+                    
+                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+                    token += 10
+                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                    
+                case 2:
+                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+                    token += 30
+                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                    
+                case 3:
+                    UserDefaults.standard.set(false, forKey: Keys.userStatus)
+                    
+                default:
+                    break
+                    
+                }
+                
+              
+                
+                
+                
                 
             case SKPaymentTransactionState.failed:
                 SKPaymentQueue.default().finishTransaction(transaction)

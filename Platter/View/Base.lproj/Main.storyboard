@@ -271,7 +271,7 @@
                                     <action selector="dismissScreen:" destination="zkM-w2-1dN" eventType="touchUpInside" id="4x7-CR-Kpc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Platcoins  2.99" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhW-UX-d8U">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Platcoins  3.99" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhW-UX-d8U">
                                 <rect key="frame" x="35" y="266.5" width="305" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mhW-UX-d8U" secondAttribute="height" multiplier="305:19" constant="-6.8421052631579187" id="Y6s-YM-CRU"/>
@@ -286,7 +286,7 @@
                                 <color key="textColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Platcoins  0.99" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-HH-Cc6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Platcoins  1.99" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-HH-Cc6">
                                 <rect key="frame" x="36" y="114" width="304" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PCX-HH-Cc6" secondAttribute="height" multiplier="16:1" constant="1" id="Tcd-Kq-B6R"/>
