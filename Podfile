@@ -15,6 +15,7 @@ target 'Platter' do
     pod 'Floaty'
     pod 'SVProgressHUD'
     pod 'SideMenu'
+    pod 'KeychainAccess'
     
    
 

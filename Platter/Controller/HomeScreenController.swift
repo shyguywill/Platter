@@ -9,11 +9,14 @@
 import UIKit
 import AVFoundation
 import RealmSwift
+import KeychainAccess
 
 class HomeScreenController: UIViewController {
     
     var audioPlayer : AVAudioPlayer?
     let userStatus = UserStatus()
+    let keychain = Keychain(service: "com.Platter.App")
+    
  
     
     @IBOutlet weak var newMeal: UIButton!
@@ -32,6 +35,8 @@ class HomeScreenController: UIViewController {
         if userStatus.isFreeUser(){
             tokenImage.image = UIImage(named: "Platoken")?.withRenderingMode(.alwaysOriginal)
         }
+        
+        firstLaunch()
 
     }
     
@@ -80,6 +85,73 @@ class HomeScreenController: UIViewController {
             print ("CANT play file because of error: \(error.localizedDescription.debugDescription)")
         }
     
+    }
+    
+    func firstLaunch() {
+        
+        let firstTime = FirstLaunch(getWasLaunchedBefore: {return false}, setWasLaunchedBefore: {_ in})
+        
+        if firstTime.isFirstLaunch{
+            
+            if userStatus.isFirstTimeUser(){
+                
+                let showAlert = UIAlertController(title: "Our way of saying thank you 😊", message: "30 Platcoin pack", preferredStyle: .alert)
+                showAlert.view.tintColor = showAlert.setColour()
+                
+                let redeem = UIAlertAction(title: "Redeem now!", style: .default) { (redeem) in
+                    
+                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+                    token += 30
+                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                    
+                    
+                    let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+                    let formattedNumber = NumberFormatter()
+                    formattedNumber.numberStyle = NumberFormatter.Style.decimal
+                    
+                    self.tokenLbl.title = formattedNumber.string(from: NSNumber(value: tokens))
+                    
+                    let secondAlert = UIAlertController(title: nil, message: "Platcoins are the key to discovering new recipes. Trade in one Platcoin to view a recipe. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends", preferredStyle: .alert)
+                    
+                    secondAlert.view.tintColor = secondAlert.setColour()
+                    
+                    let done = UIAlertAction(title: "Got it", style: .cancel, handler: { (done) in
+                        secondAlert.dismiss(animated: true, completion: nil)
+                    })
+                    secondAlert.addAction(done)
+                    self.present(secondAlert, animated: true
+                        , completion: nil)
+                   
+                }
+                
+                let imageView = UIImageView(frame: CGRect(x: 25, y: 90, width: 220, height: 185))
+                
+                imageView.image = UIImage(named: "freeplatcoins")
+                showAlert.view.addSubview(imageView)
+                
+                let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
+                let width = NSLayoutConstraint(item: showAlert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
+                
+                showAlert.view.center = self.view.center
+                
+                showAlert.view.addConstraint(height)
+                showAlert.view.addConstraint(width)
+                
+                showAlert.addAction(redeem)
+                self.present(showAlert, animated: true, completion: nil)
+                
+                
+                print ("Iamthenight-Iamjustice-IamBatman")
+                keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
+                
+            }
+            
+            
+            
+
+            
+        }
+        
     }
     
     

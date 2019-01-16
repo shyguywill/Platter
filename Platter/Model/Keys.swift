@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 struct Keys {
     
     static let ingredntPage = "com.FirstLaunch.IngredientPage"
@@ -24,4 +25,10 @@ struct Keys {
     static let timeOfLaunch = "com.Launch.Timer"
     
     static let mealOption = "com.Options.MealDetails"
+    
+    static let firstDownload = "com.FirstTime.Download"
+    
+    static let firstHomeScreen = "com.FirstLaunch.HomeScreen"
+    
+    
 }

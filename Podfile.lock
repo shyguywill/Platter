@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.8.0)
   - Floaty (4.1.0)
+  - KeychainAccess (3.1.2)
   - Kingfisher (4.10.1)
   - Realm (3.12.0):
     - Realm/Headers (= 3.12.0)
@@ -17,6 +18,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Floaty
+  - KeychainAccess
   - Kingfisher
   - RealmSwift (= 3.12)
   - SDWebImage
@@ -28,6 +30,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Floaty
+    - KeychainAccess
     - Kingfisher
     - Realm
     - RealmSwift
@@ -39,6 +42,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
   RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: d311fd8fbb25b02c5d2e2246e5574d5edd1bd20a
+PODFILE CHECKSUM: 491b7a733e0a74626da18af73d912e534ab1a598
 
 COCOAPODS: 1.5.3

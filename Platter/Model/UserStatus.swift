@@ -7,10 +7,12 @@
 //
 
 import Foundation
-import RealmSwift
+import KeychainAccess
 
 
 class UserStatus{
+    
+    let keychain = Keychain(service: "com.Platter.App")
     
     
     func isFreeUser() -> Bool{
@@ -20,6 +22,21 @@ class UserStatus{
         return userDefaults.bool(forKey: Keys.userStatus)
         
     }
+    
+    func isFirstTimeUser() -> Bool{
+        
+        var bool = true
+        
+        if keychain[Keys.firstDownload] != nil{
+            
+            bool = false
+        }
+        
+        
+       return bool
+    }
+    
+    
 
  
     
