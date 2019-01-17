@@ -105,7 +105,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "openRecipePage", sender: self)}
         
-        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Double
+        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
         
         if token >= 1{
             

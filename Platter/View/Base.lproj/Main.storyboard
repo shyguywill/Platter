@@ -319,7 +319,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="dismissScreen:" destination="zkM-w2-1dN" eventType="touchUpInside" id="OCD-Cs-9Sn"/>
                                     <action selector="restore:" destination="zkM-w2-1dN" eventType="touchUpInside" id="syy-UY-nm2"/>
                                 </connections>
                             </button>

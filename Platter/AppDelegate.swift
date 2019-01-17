@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let timePassed = Float(Date().timeIntervalSince(savedDate))
             
-            if timePassed >= 30{ //****43200***
+            if timePassed >= 43200{
                 
                 
                 let currentDate = Date()
@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         
-        //MARK: - Fire during first launch to set user as free user, allocate 0 tokens and take note of date
+        //MARK: - Fire during first launch to set user as free user, allocate 1 tokens and take note of date
         
         let firstTime = FirstLaunch(userDefaults: .standard, key: Keys.firstAppDelegate)
         

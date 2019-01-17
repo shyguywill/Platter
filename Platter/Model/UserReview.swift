@@ -19,7 +19,7 @@ class UserLaunchCount{
         
         print ("This is launch number \(launchCount)")
         
-        if launchCount >= minimumLaunchCount {
+        if launchCount >= minimumLaunchCount && launchCount < 40{
             return true
         } else {
             /** Increase launch count by ‘1’ after every launch.**/

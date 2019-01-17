@@ -56,6 +56,8 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
 
     @IBAction func restore(_ sender: UIButton) {
         
+        print ("restoring")
+        
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     

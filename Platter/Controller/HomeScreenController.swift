@@ -63,6 +63,8 @@ class HomeScreenController: UIViewController {
         playSound()
     }
     
+    //MARK: - Open store
+    
     
     @IBAction func openPurchases(_ sender: UIBarButtonItem) {
         
@@ -89,13 +91,15 @@ class HomeScreenController: UIViewController {
     
     }
     
+    //MARK: - First launch
+    
     func firstLaunch() {
         
-        let firstTime = FirstLaunch(getWasLaunchedBefore: {return false}, setWasLaunchedBefore: {_ in})
+        let firstTime = FirstLaunch(userDefaults: .standard, key: Keys.firstHomeScreen)
         
         if firstTime.isFirstLaunch{
             
-            if userStatus.isFirstTimeUser(){
+            if userStatus.isFirstTimeUser(){ //Check if user has downloaded app before
                 
                 let showAlert = UIAlertController(title: "Our way of saying thank you 😊", message: "30 Platcoin pack", preferredStyle: .alert)
                 showAlert.view.tintColor = showAlert.setColour()
@@ -144,7 +148,7 @@ class HomeScreenController: UIViewController {
                 
                 
                 print ("Iamthenight-Iamjustice-IamBatman")
-                keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
+                //****keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"****
                 
             }
             
@@ -161,7 +165,7 @@ class HomeScreenController: UIViewController {
         
         let launch = UserLaunchCount()
         
-        if launch.isReviewViewToBeDisplayed(minimumLaunchCount: 1){ //** set to 15
+        if launch.isReviewViewToBeDisplayed(minimumLaunchCount: 20){ 
             
             SKStoreReviewController.requestReview()
         
