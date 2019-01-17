@@ -122,8 +122,10 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
             let getToken = UIAlertAction(title: "Get Platcoins!", style: .default) { (token) in
-                //*****Code to link to purchase****
-                alert.dismiss(animated: true, completion: nil)
+                
+                self.performSegue(withIdentifier: "alertToPurchaseCoins", sender: self)
+                
+               
             }
             
             alert.addAction(action)

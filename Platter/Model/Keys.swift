@@ -30,5 +30,7 @@ struct Keys {
     
     static let firstHomeScreen = "com.FirstLaunch.HomeScreen"
     
+    static let numberOfLaunches = "com.UserisLaunching.app"
+    
     
 }

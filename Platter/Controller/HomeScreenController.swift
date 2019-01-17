@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import RealmSwift
 import KeychainAccess
+import StoreKit
 
 class HomeScreenController: UIViewController {
     
@@ -37,6 +38,7 @@ class HomeScreenController: UIViewController {
         }
         
         firstLaunch()
+        launchCounter()
 
     }
     
@@ -152,6 +154,20 @@ class HomeScreenController: UIViewController {
             
         }
         
+    }
+    
+    func launchCounter() {
+        
+        
+        let launch = UserLaunchCount()
+        
+        if launch.isReviewViewToBeDisplayed(minimumLaunchCount: 1){ //** set to 15
+            
+            SKStoreReviewController.requestReview()
+        
+        }
+        
+
     }
     
     

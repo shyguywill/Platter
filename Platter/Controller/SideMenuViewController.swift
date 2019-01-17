@@ -10,8 +10,8 @@ import UIKit
 
 class SideMenuViewController: UITableViewController {
     
-    let options = ["Dietary preference","Pantry","Platcoins"]
-    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian"],["Edit Pantry"],["Restore Purchases"]]
+    let options = ["Dietary preference","Pantry"]
+    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian"],["Edit Pantry"]]
     
     var lastSelection : IndexPath! //Enforces selection of only one cell
     

@@ -584,6 +584,7 @@
                         <outlet property="tokenImg" destination="wyl-pW-zlz" id="N0I-oN-Ckg"/>
                         <outlet property="tokenLabel" destination="LLX-8I-f8f" id="zwr-is-L8s"/>
                         <segue destination="8ST-tg-xAg" kind="show" identifier="openRecipePage" id="6Dv-Iu-a72"/>
+                        <segue destination="zkM-w2-1dN" kind="presentation" identifier="alertToPurchaseCoins" id="EKn-3d-sFl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dn-Hs-Krc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -727,5 +728,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="6Dv-Iu-a72"/>
         <segue reference="2kW-3M-L2o"/>
+        <segue reference="EKn-3d-sFl"/>
     </inferredMetricsTieBreakers>
 </document>

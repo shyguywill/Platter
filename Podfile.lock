@@ -3,11 +3,11 @@ PODS:
   - Floaty (4.1.0)
   - KeychainAccess (3.1.2)
   - Kingfisher (4.10.1)
-  - Realm (3.12.0):
-    - Realm/Headers (= 3.12.0)
-  - Realm/Headers (3.12.0)
-  - RealmSwift (3.12.0):
-    - Realm (= 3.12.0)
+  - Realm (3.13.0):
+    - Realm/Headers (= 3.13.0)
+  - Realm/Headers (3.13.0)
+  - RealmSwift (3.13.0):
+    - Realm (= 3.13.0)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
@@ -20,7 +20,7 @@ DEPENDENCIES:
   - Floaty
   - KeychainAccess
   - Kingfisher
-  - RealmSwift (= 3.12)
+  - RealmSwift (= 3.13.0)
   - SDWebImage
   - SideMenu
   - SVProgressHUD
@@ -44,13 +44,13 @@ SPEC CHECKSUMS:
   Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
-  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
+  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 491b7a733e0a74626da18af73d912e534ab1a598
+PODFILE CHECKSUM: fefa088d4173babc0a2664a5b1393b4c26670e1a
 
 COCOAPODS: 1.5.3
