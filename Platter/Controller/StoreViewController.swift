@@ -12,11 +12,7 @@ import StoreKit
 class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     
     @IBOutlet weak var pageTitle: UILabel!
-    
-    @IBOutlet weak var platBtn1Title: UILabel!
-    @IBOutlet weak var platBtn2Title: UILabel!
-    @IBOutlet weak var platBtn3Title: UILabel!
-    
+        
     @IBOutlet weak var platBtn1: UIButton!
     @IBOutlet weak var platBtn2: UIButton!
     @IBOutlet weak var platBtn3: UIButton!
@@ -58,6 +54,10 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
     }
     
 
+    @IBAction func restore(_ sender: UIButton) {
+        
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
     
     func getPurchaseInfo() {
         
@@ -138,10 +138,11 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
                     
                 }
                 
-              
+            case SKPaymentTransactionState.restored:
+                SKPaymentQueue.default().finishTransaction(transaction)
+                pageTitle.text = "Welcome back"
                 
-                
-                
+                UserDefaults.standard.set(false, forKey: Keys.userStatus)
                 
             case SKPaymentTransactionState.failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
