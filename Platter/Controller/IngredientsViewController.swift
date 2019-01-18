@@ -113,7 +113,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             
         }else{
             
-            let alert = UIAlertController(title: "Oh no", message: "You don't seem to have enough Platcoins to check out this recipe.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Oh no", message: "You don't seem to have enough Platcoins to check this recipe out.", preferredStyle: .alert)
             
             alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
             

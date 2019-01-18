@@ -306,12 +306,11 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-Pa-pNS">
                                 <rect key="frame" x="35" y="503" width="305" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lUI-Pa-pNS" secondAttribute="height" multiplier="61:10" id="bnK-K0-tvJ"/>
                                 </constraints>
-                                <state key="normal" title="Restore Platcoins">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Restore Purchase">
+                                    <color key="titleColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

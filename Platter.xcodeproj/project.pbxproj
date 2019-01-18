@@ -24,7 +24,6 @@
 		7553BD7821B6B35E00DD9D85 /* CustomItemsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */; };
 		7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7553BD7721B6B35E00DD9D85 /* CustomItems.xib */; };
 		75599CE821B951BE00696D87 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75599CE721B951BE00696D87 /* RecipeData.swift */; };
-		75620BC521EA115700499CE9 /* FBSDKFramework in Resources */ = {isa = PBXBuildFile; fileRef = 75620BC421EA115700499CE9 /* FBSDKFramework */; };
 		756CC6A421DF8CA300D4A6D5 /* ButtonSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */; };
 		757F610421DB91F100D6544B /* IngredientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757F610321DB91F100D6544B /* IngredientLabel.swift */; };
 		75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49CA521BFEAA0000D1C36 /* SavedMealsViewController.swift */; };
@@ -348,7 +347,6 @@
 				751947ED21ADE43B0059F59A /* Assets.xcassets in Resources */,
 				756CC6A421DF8CA300D4A6D5 /* ButtonSound.mp3 in Resources */,
 				75F7DEDB21E142E300635187 /* adaway.json in Resources */,
-				75620BC521EA115700499CE9 /* FBSDKFramework in Resources */,
 				751947EB21ADE43A0059F59A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

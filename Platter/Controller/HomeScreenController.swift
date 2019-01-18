@@ -148,7 +148,7 @@ class HomeScreenController: UIViewController {
                 
                 
                 print ("Iamthenight-Iamjustice-IamBatman")
-                //****keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"****
+                keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
                 
             }
             
@@ -165,7 +165,7 @@ class HomeScreenController: UIViewController {
         
         let launch = UserLaunchCount()
         
-        if launch.isReviewViewToBeDisplayed(minimumLaunchCount: 20){ 
+        if launch.isReviewViewToBeDisplayed(minimumLaunchCount: 9){
             
             SKStoreReviewController.requestReview()
         
