@@ -71,6 +71,9 @@ class HomeScreenController: UIViewController {
         performSegue(withIdentifier: "goToPurchases", sender: self)
     }
     
+    
+    
+    
     func playSound() {
         
         do{
@@ -152,13 +155,12 @@ class HomeScreenController: UIViewController {
                 
             }
             
-            
-            
-
-            
         }
         
     }
+    
+    
+    
     
     func launchCounter() {
         

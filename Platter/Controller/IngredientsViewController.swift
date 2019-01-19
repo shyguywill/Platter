@@ -103,38 +103,8 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         guard Connectivity.isConnectedToInternet else {return Connectivity.handleNotConnected(view: self)}
         
-        guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "openRecipePage", sender: self)}
+        performSegue(withIdentifier: "openRecipePage", sender: self)
         
-        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-        
-        if token >= 1{
-            
-            performSegue(withIdentifier: "openRecipePage", sender: self)
-            
-        }else{
-            
-            let alert = UIAlertController(title: "Oh no", message: "You don't seem to have enough Platcoins to check this recipe out.", preferredStyle: .alert)
-            
-            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
-            
-            let action = UIAlertAction(title: "Okay", style: .cancel) { (cancel) in
-                alert.dismiss(animated: true, completion: nil)
-            }
-            
-            let getToken = UIAlertAction(title: "Get Platcoins!", style: .default) { (token) in
-                
-                self.performSegue(withIdentifier: "alertToPurchaseCoins", sender: self)
-                
-               
-            }
-            
-            alert.addAction(action)
-            alert.addAction(getToken)
-            present(alert, animated: true, completion: nil)
-            
-            print ("not enough tokens")
-        }
-
     }
     
      //MARK: - Segue

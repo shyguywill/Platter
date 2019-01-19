@@ -17,6 +17,7 @@ class SearchResultsController: UITableViewController {
     
     let api = F2F_API()
     var sortParam : Int?
+    let userStatus = UserStatus()
     var delegateURL : String? {
         
         didSet{
@@ -145,7 +146,9 @@ class SearchResultsController: UITableViewController {
             
         }
         
-        performSegue(withIdentifier: "goToIngredientsPage", sender: self)
+        verifyPlatcoinsAvailable()
+        
+        tableView.deselectRow(at: indexPath, animated: true)
 
     }
     
@@ -260,9 +263,6 @@ class SearchResultsController: UITableViewController {
                 recipeHold.append(recipes)
                 
             }
-                
-                //print (label)
-            
             
             sortParam = 1
             recipeBook = recipeHold
@@ -296,6 +296,48 @@ class SearchResultsController: UITableViewController {
             destinationVC.delegateRecipe = ingredientBook
             
         }
+        
+    }
+    
+    //MARK: Check user has enough Platcoins before proceeding
+    
+    
+    func verifyPlatcoinsAvailable() {
+        
+        guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "goToIngredientsPage", sender: self)}
+        
+        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+        
+        if token >= 1{
+            
+            performSegue(withIdentifier: "goToIngredientsPage", sender: self)
+            
+        }else{
+            
+            let alert = UIAlertController(title: "Oh no 😞", message: "You can't check this recipe out because you have no Platcoins left", preferredStyle: .alert)
+            
+            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+            
+            let action = UIAlertAction(title: "Okay", style: .cancel) { (cancel) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            let getToken = UIAlertAction(title: "Get Platcoins!", style: .default) { (token) in
+                
+                self.performSegue(withIdentifier: "alertToPurchaseCoins", sender: self)
+                
+                
+            }
+            
+            alert.addAction(action)
+            alert.addAction(getToken)
+            present(alert, animated: true, completion: nil)
+            
+            print ("not enough tokens")
+        }
+        
+        
+        
         
     }
     
