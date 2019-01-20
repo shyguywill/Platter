@@ -58,6 +58,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         webView.navigationDelegate = self
         
+        SVProgressHUD.setBackgroundColor(UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 0.5))
         SVProgressHUD.show()
         
         switch identifier{

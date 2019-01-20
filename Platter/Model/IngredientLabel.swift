@@ -29,7 +29,7 @@ struct MissingIngredientsLabel {
             self.textColour = UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 1.0)
         default:
             self.missingIngredientLabel = "\(numberMissing) ingredients needed"
-            self.textColour = UIColor(red: (37/255.0), green: (40/255.0), blue: (126/255.0), alpha: 1.0)
+            self.textColour = UIColor.black 
         }
     }
 

@@ -144,7 +144,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Une-Zg-cbX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Gzv-IF-nkt"/>
+                    <navigationItem key="navigationItem" id="Gzv-IF-nkt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="46c-7b-QDd"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="savedMealTable" destination="IK2-3a-ObC" id="WiM-D1-I5g"/>
                         <segue destination="8ST-tg-xAg" kind="show" identifier="displaySavedMeal" id="5OX-sm-Qy3"/>
@@ -724,7 +726,7 @@
         <image name="return" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Dv-Iu-a72"/>
+        <segue reference="5OX-sm-Qy3"/>
         <segue reference="2kW-3M-L2o"/>
         <segue reference="pZk-65-Ohm"/>
     </inferredMetricsTieBreakers>
