@@ -501,7 +501,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="mZv-k7-iiH" kind="show" identifier="goToIngredientsPage" id="f1y-Vp-aef"/>
-                        <segue destination="zkM-w2-1dN" kind="presentation" identifier="alertToPurchaseCoins" id="pZk-65-Ohm"/>
+                        <segue destination="zkM-w2-1dN" kind="presentation" identifier="alertToPurchaseCoins" modalTransitionStyle="crossDissolve" id="pZk-65-Ohm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4A9-Lu-AG3" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -24,6 +24,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     var mealDetails : Ingredients? //Recipe details recieved from ingredient screen
     var savedMealDetails : String? //Recipe URL received from saved meals tab
     
+    var timer : Timer?
+    
     let meal = Meal()
     
     var identifier : Int? //Identifies if details are coming from recipe page or saved meals tab
@@ -38,14 +40,12 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     var fbShareLabl : String{
         
-        var title = "Share on Facebook"
-        
         if userStatus.isFreeUser(){
             
-            title = "Share on Facebook (+0.20💰)"
+            return "Share on Facebook (+0.20💰)"
         }
         
-        return title
+        return "Share on Facebook"
     }
     
 
@@ -69,7 +69,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
                 floatySetUp()
                 
                 if userStatus.isFreeUser(){ 
-                    var _ = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
+                    timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
                 }
                 
             }
@@ -109,8 +109,10 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         super.viewWillDisappear(true)
         
         if self.isMovingFromParent{
+            timer?.invalidate()
             SVProgressHUD.dismiss()
             clean()
+            
         }
         
     }

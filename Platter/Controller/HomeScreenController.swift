@@ -120,7 +120,7 @@ class HomeScreenController: UIViewController {
                     
                     self.tokenLbl.title = formattedNumber.string(from: NSNumber(value: tokens))
                     
-                    let secondAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering new recipes. Trade in one Platcoin to view a recipe. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends", preferredStyle: .alert)
+                    let secondAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering recipes. Trade in one Platcoin to view a recipe's instructions. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends", preferredStyle: .alert)
                     
                     secondAlert.view.tintColor = secondAlert.setColour()
                     
@@ -139,19 +139,15 @@ class HomeScreenController: UIViewController {
                 showAlert.view.addSubview(imageView)
                 
                 let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
-                let width = NSLayoutConstraint(item: showAlert.view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 250)
-                
-                showAlert.view.center = self.view.center
                 
                 showAlert.view.addConstraint(height)
-                showAlert.view.addConstraint(width)
                 
                 showAlert.addAction(redeem)
                 self.present(showAlert, animated: true, completion: nil)
                 
                 
                 print ("Iamthenight-Iamjustice-IamBatman")
-                keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
+                //keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"//
                 
             }
             
@@ -167,7 +163,7 @@ class HomeScreenController: UIViewController {
         
         let launch = UserLaunchCount()
         
-        if launch.isReviewViewToBeDisplayed(minimumLaunchCount: 9){
+        if launch.isReviewViewToBeDisplayed(minimumLaunchCount: 10){
             
             SKStoreReviewController.requestReview()
         

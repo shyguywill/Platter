@@ -314,7 +314,7 @@ class SearchResultsController: UITableViewController {
             
         }else{
             
-            let alert = UIAlertController(title: "Oh no 😞", message: "You can't check this recipe out because you have no Platcoins left", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Oh no 😞", message: "You've run out of Platcoins. Come back tomorrow to claim one Platcoin.", preferredStyle: .alert)
             
             alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
             
@@ -322,7 +322,7 @@ class SearchResultsController: UITableViewController {
                 alert.dismiss(animated: true, completion: nil)
             }
             
-            let getToken = UIAlertAction(title: "Get Platcoins!", style: .default) { (token) in
+            let getToken = UIAlertAction(title: "Get Platcoins now", style: .default) { (token) in
                 
                 self.performSegue(withIdentifier: "alertToPurchaseCoins", sender: self)
                 

@@ -27,6 +27,8 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pageTitle.text = "Loading..."
+        
         platBtn1.isEnabled = false
         platBtn2.isEnabled = false
         platBtn3.isEnabled = false
@@ -71,7 +73,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
             
             
         }else{
-            pageTitle.text = "Please enable in app Purchaces"
+            pageTitle.text = "Enable in app Purchaces"
         }
         
         
@@ -83,11 +85,13 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         
         if (products.count < 3) {
             
-            pageTitle.text = "One or more products not found"
+            pageTitle.text = "Products not found"
         
         }else{
             
             self.product = products
+            
+            pageTitle.text = "Unlock Platcoins"
             
             platBtn1.isEnabled = true
             platBtn2.isEnabled = true
