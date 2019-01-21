@@ -15,7 +15,6 @@ import SVProgressHUD
 
 class SearchResultsController: UITableViewController {
     
-    let api = F2F_API()
     var sortParam : Int?
     let userStatus = UserStatus()
     var delegateURL : String? {
@@ -154,7 +153,7 @@ class SearchResultsController: UITableViewController {
     
     
     
-    //MARK: - Networking + alert when no recipes found
+    //MARK: - Networking + Network error alert
     
     
     func getRecipeData(url : String){
@@ -172,10 +171,10 @@ class SearchResultsController: UITableViewController {
                 
                 SVProgressHUD.dismiss()
                 
-                let alert = UIAlertController(title: nil, message: "Sorry, something's gone wrong, please try again shortly." , preferredStyle: .alert)
+                let alert = UIAlertController(title: nil, message: "We're sorry, something's gone wrong, please try again shortly." , preferredStyle: .alert)
                 alert.view.tintColor = alert.setColour()
                 
-                let action = UIAlertAction(title: "Got it", style: .cancel, handler: { (cancel) in
+                let action = UIAlertAction(title: "Okay", style: .cancel, handler: { (cancel) in
                     _ = self.navigationController?.popViewController(animated: true)})
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)

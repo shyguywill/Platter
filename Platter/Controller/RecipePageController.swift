@@ -266,7 +266,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "❤️", message: "Did you love it? Why not share it?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Did you love it? Why not share it?", message: "❤️", preferredStyle: .actionSheet)
         
         let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (button) in
             

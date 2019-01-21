@@ -102,60 +102,67 @@ class HomeScreenController: UIViewController {
         
         if firstTime.isFirstLaunch{
             
-            if userStatus.isFirstTimeUser(){ //Check if user has downloaded app before
+            let firstAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering recipes. Trade in one Platcoin to view a recipe's instructions. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends.", preferredStyle: .alert)
+            
+            firstAlert.view.tintColor = firstAlert.setColour()
+            
+            let done = UIAlertAction(title: "Got it", style: .cancel, handler: { (alert) in
                 
-                let showAlert = UIAlertController(title: "Our way of saying thank you 😊", message: "30 Platcoin pack", preferredStyle: .alert)
-                showAlert.view.tintColor = showAlert.setColour()
-                
-                let redeem = UIAlertAction(title: "Redeem now!", style: .default) { (redeem) in
+                if self.userStatus.isFirstTimeUser(){ //Check if user has downloaded app before
                     
-                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-                    token += 30
-                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                    let showAlert = UIAlertController(title: "Our way of saying thank you 😊", message: "30 Platcoin pack", preferredStyle: .alert)
+                    showAlert.view.tintColor = showAlert.setColour()
+                    
+                    let redeem = UIAlertAction(title: "Redeem now", style: .default) { (redeem) in
+                        
+                        var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+                        token += 30
+                        UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                        
+                        
+                        let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+                        let formattedNumber = NumberFormatter()
+                        formattedNumber.numberStyle = NumberFormatter.Style.decimal
+                        
+                        self.tokenLbl.title = formattedNumber.string(from: NSNumber(value: tokens))
+                        
+                        showAlert.dismiss(animated: true, completion: nil)
+        
+                    }
+                    
+                    let imageView = UIImageView(frame: CGRect(x: 25, y: 90, width: 220, height: 185))
+                    
+                    imageView.image = UIImage(named: "freeplatcoins")
+                    showAlert.view.addSubview(imageView)
+                    
+                    let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
+                    
+                    showAlert.view.addConstraint(height)
+                    
+                    showAlert.addAction(redeem)
+                    self.present(showAlert, animated: true, completion: nil)
                     
                     
-                    let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-                    let formattedNumber = NumberFormatter()
-                    formattedNumber.numberStyle = NumberFormatter.Style.decimal
+                    print ("Iamthenight-Iamjustice-IamBatman")
+                    //keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"//
                     
-                    self.tokenLbl.title = formattedNumber.string(from: NSNumber(value: tokens))
+                }else{
                     
-                    let secondAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering recipes. Trade in one Platcoin to view a recipe's instructions. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends", preferredStyle: .alert)
+                    firstAlert.dismiss(animated: true, completion: nil)
                     
-                    secondAlert.view.tintColor = secondAlert.setColour()
-                    
-                    let done = UIAlertAction(title: "Got it", style: .cancel, handler: { (done) in
-                        secondAlert.dismiss(animated: true, completion: nil)
-                    })
-                    secondAlert.addAction(done)
-                    self.present(secondAlert, animated: true
-                        , completion: nil)
-                   
                 }
+            
                 
-                let imageView = UIImageView(frame: CGRect(x: 25, y: 90, width: 220, height: 185))
-                
-                imageView.image = UIImage(named: "freeplatcoins")
-                showAlert.view.addSubview(imageView)
-                
-                let height = NSLayoutConstraint(item: showAlert.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 320)
-                
-                showAlert.view.addConstraint(height)
-                
-                showAlert.addAction(redeem)
-                self.present(showAlert, animated: true, completion: nil)
-                
-                
-                print ("Iamthenight-Iamjustice-IamBatman")
-                //keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"//
-                
-            }
+            })
+            firstAlert.addAction(done)
+            
+            self.present(firstAlert, animated: true, completion: nil)
+            
+
             
         }
         
     }
-    
-    
     
     
     func launchCounter() {

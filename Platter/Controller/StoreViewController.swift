@@ -152,7 +152,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
                 
             case SKPaymentTransactionState.failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                pageTitle.text = "Unable to complete purchase"
+                pageTitle.text = "Purchase unfulfilled"
                 
                 
 

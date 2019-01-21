@@ -172,7 +172,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         var textFeild = UITextField()
         
-        let alert = UIAlertController(title: "Add a new item", message: "Add a new ingredient to your pantry", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add an item", message: "Add a new ingredient to your pantry", preferredStyle: .alert)
         
         alert.view.tintColor = alert.setColour()
         

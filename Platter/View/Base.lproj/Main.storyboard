@@ -273,7 +273,7 @@
                                     <action selector="dismissScreen:" destination="zkM-w2-1dN" eventType="touchUpInside" id="4x7-CR-Kpc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Platcoins:   3.99" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhW-UX-d8U">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get 30 Platcoins" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhW-UX-d8U">
                                 <rect key="frame" x="35" y="238" width="305" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mhW-UX-d8U" secondAttribute="height" multiplier="305:19" constant="-16.052631578947398" id="Y6s-YM-CRU"/>
@@ -288,7 +288,7 @@
                                 <color key="textColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Platcoins:   1.99" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-HH-Cc6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get 10 Platcoins" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-HH-Cc6">
                                 <rect key="frame" x="36" y="114" width="304" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PCX-HH-Cc6" secondAttribute="height" multiplier="16:1" id="Tcd-Kq-B6R"/>
@@ -297,7 +297,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimted Platcoins:   7.99" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQI-x8-zRK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Unlimted Platcoins" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQI-x8-zRK">
                                 <rect key="frame" x="35" y="359" width="305" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JQI-x8-zRK" secondAttribute="height" multiplier="305:19" id="3ud-41-Kyp"/>

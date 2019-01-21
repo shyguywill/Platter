@@ -107,21 +107,20 @@ class SideMenuViewController: UITableViewController {
     
     func loadSavedCell(cell: Int) -> UITableViewCell.AccessoryType{
         
-        var selected = UITableViewCell.AccessoryType.none
-        
         if let savedCell = UserDefaults.standard.object(forKey: Keys.mealOption) as? Int{
             
             if savedCell == cell{
                 
-                selected = UITableViewCell.AccessoryType.checkmark
+                return UITableViewCell.AccessoryType.checkmark
             }
             
         }
         
-        return selected
+        return UITableViewCell.AccessoryType.none
       
-        
     }
+    
+    
     
 
 }
