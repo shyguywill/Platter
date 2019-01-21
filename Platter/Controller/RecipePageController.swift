@@ -67,10 +67,13 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             //Load from ingredients page
             
             if viewIdentifier == 1{
-                floatySetUp()
                 
                 if userStatus.isFreeUser(){ 
                     timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
+                }else{
+                    
+                    floatySetUp()
+                    
                 }
                 
             }
@@ -135,6 +138,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
                 
                 
             }
+        
+        floatySetUp() //set up save after token has been used
         
     }
     
