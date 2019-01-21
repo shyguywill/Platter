@@ -19,28 +19,30 @@ struct Search{
         
         let selectedDietCell = UserDefaults.standard.object(forKey: Keys.mealOption) as! Int
         
-        var dietHold = ""
-        
         switch selectedDietCell{
             
         case 0:
-            dietHold = ""
+            return ""
         case 1:
-            dietHold = "&diet=high-protein"
+            return "&diet=high-protein"
         case 2:
-            dietHold = "&diet=low-carb"
+            return "&diet=low-carb"
         case 3:
-            dietHold = "&health=vegan"
+            return "&health=vegan"
         case 4:
-            dietHold = "&health=vegetarian"
+            return "&health=vegetarian"
+        case 5:
+            return "&health=gluten-free"
+        case 6:
+            return "&health=pescatarian"
+            
             
         default:
             break
             
         }
         
-        return dietHold
-        
+        return ""
         
     }
     

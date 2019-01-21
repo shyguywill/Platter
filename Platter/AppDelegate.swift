@@ -91,13 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //MARK: Assign tokens
         
         assignFreeUserTokens()
-        
-        //MARK: - manually set user status *** remove ***
-        
-        //UserDefaults.standard.set(false, forKey: Keys.userStatus)
-        //UserDefaults.standard.set(true, forKey: Keys.userStatus)
-        
- 
+    
         //print (Realm.Configuration.defaultConfiguration.fileURL)
         // Override point for customization after application launch.
         return true

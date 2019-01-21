@@ -177,15 +177,18 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         alert.view.tintColor = alert.setColour()
         
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
-            
-            let fridgeIngredient = Pantry()
-            
-            fridgeIngredient.name = textFeild.text!
-            
-            Platter.save(saveItem: fridgeIngredient)
-            
-            self.loadIngredients()
-            
+        
+            if textFeild.text?.count != 0 {
+                
+                let fridgeIngredient = Pantry()
+                
+                fridgeIngredient.name = textFeild.text!
+                
+                Platter.save(saveItem: fridgeIngredient)
+                
+                self.loadIngredients()
+                
+            }
         }
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
