@@ -36,8 +36,6 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         
         savedMealTable.rowHeight = 130
         
-        loadMeals()
-        
         // Do any additional setup after loading the view.
     }
     

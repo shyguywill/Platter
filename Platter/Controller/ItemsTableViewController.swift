@@ -139,7 +139,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
     }
     
-    //MARK: - First launch method
+    //MARK: - First-launch method
     
     func firstLaunch() {
         
@@ -181,7 +181,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
                 
         }else{
                 
-            let alert = UIAlertController(title: "Oh no 😞", message: "You've run out of Platcoins. Come back tomorrow to claim one Platcoin.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Oh no 😞", message: "You don't have enough Platcoins to proceed. Come back tomorrow to claim more Platcoins.", preferredStyle: .alert)
                 
             alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
                 

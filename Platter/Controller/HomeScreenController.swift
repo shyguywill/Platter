@@ -43,6 +43,16 @@ class HomeScreenController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTokens),name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        updateTokens()
+        
+    }
+    
+    
+    @objc func updateTokens() {
+        
         if userStatus.isFreeUser(){
             let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
             let formattedNumber = NumberFormatter()
@@ -54,6 +64,7 @@ class HomeScreenController: UIViewController {
             tokenImage.isEnabled = false
             tokenImage.image = nil
         }
+        
     }
     
         //MARK: - Play sound
@@ -102,7 +113,7 @@ class HomeScreenController: UIViewController {
         
         if firstTime.isFirstLaunch{
             
-            let firstAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering recipes. Trade in one Platcoin to see what you can make. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends.", preferredStyle: .alert)
+            let firstAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering recipes. Trade in one Platcoin to see what you can make. You get half a Platcoin per day just for opening Platter! To earn even more, you can share recipes with your friends.", preferredStyle: .alert)
             
             firstAlert.view.tintColor = firstAlert.setColour()
             
@@ -110,13 +121,13 @@ class HomeScreenController: UIViewController {
                 
                 if self.userStatus.isFirstTimeUser(){ //Check if user has downloaded app before
                     
-                    let showAlert = UIAlertController(title: "Our way of saying thank you 😊", message: "30 Platcoin pack", preferredStyle: .alert)
+                    let showAlert = UIAlertController(title: "Our way of saying thank you 😊", message: "10 Platcoin pack", preferredStyle: .alert)
                     showAlert.view.tintColor = showAlert.setColour()
                     
                     let redeem = UIAlertAction(title: "Redeem now", style: .default) { (redeem) in
                         
                         var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-                        token += 30
+                        token += 10
                         UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
                         
                         
@@ -144,7 +155,7 @@ class HomeScreenController: UIViewController {
                     
                     
                     print ("Iamthenight-Iamjustice-IamBatman")
-                    //self.keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
+                    self.keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
                     
                 }else{
                     

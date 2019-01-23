@@ -36,13 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 UserDefaults.standard.set(currentDate, forKey: Keys.timeOfLaunch)
                 
-                var tokens = UserDefaults.standard.float(forKey: Keys.tokenNumber)
-                
-                tokens += 1
+                let tokens = UserDefaults.standard.float(forKey: Keys.tokenNumber)
                 
                 print (tokens)
                 
-                UserDefaults.standard.set(tokens, forKey: Keys.tokenNumber)
+                UserDefaults.standard.set((tokens + 0.5), forKey: Keys.tokenNumber)
                 
                 print ("got a token")
             }
@@ -75,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if firstTime.isFirstLaunch{
             
-            UserDefaults.standard.set(1, forKey: Keys.tokenNumber)
+            UserDefaults.standard.set(0.5, forKey: Keys.tokenNumber)
  
             UserDefaults.standard.set(true, forKey: Keys.userStatus)
             
