@@ -176,6 +176,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
             
         if token >= 1{
+            
+            UserDefaults.standard.set(false, forKey: Keys.shared)
                 
             performSegue(withIdentifier: "platterMe", sender: self)
                 

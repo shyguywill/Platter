@@ -32,8 +32,6 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     var pageIdentifier = 0 // Monitors how many times URL did load for first time navigation alert
     
-    var FBShareMonitor = 0 // Monitors how many times share button has been pressed
-    
     let userStatus = UserStatus()
     
     var fbShareLabl : String{
@@ -244,7 +242,6 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (button) in
             
-            guard self.FBShareMonitor == 0 else{return} //Free users can only share once
             
             if let sharedMeal = self.mealDetails{
                 
@@ -261,10 +258,15 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             }
             
             if self.userStatus.isFreeUser(){
-                self.FBShareMonitor = 1
-                var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-                token += 0.2
-                UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+                
+                let userHasShared = UserDefaults.standard.bool(forKey: Keys.shared)
+                
+                guard !userHasShared else {return}
+                
+                UserDefaults.standard.set(true, forKey: Keys.shared)
+                let token = UserDefaults.standard.float(forKey: Keys.tokenNumber)
+                UserDefaults.standard.set((token + 0.2), forKey: Keys.tokenNumber)
+                
                 
             }
             self.clean()
