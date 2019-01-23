@@ -145,10 +145,8 @@ class SearchResultsController: UITableViewController {
             
         }
         
-        verifyPlatcoinsAvailable()
+        performSegue(withIdentifier: "goToIngredientsPage", sender: self)
         
-        tableView.deselectRow(at: indexPath, animated: true)
-
     }
     
     
@@ -267,6 +265,23 @@ class SearchResultsController: UITableViewController {
             recipeBook = recipeHold
             tableView.reloadData()
             SVProgressHUD.dismiss()
+            
+            
+            //MARK: - Take  1 token for free users
+            
+            if userStatus.isFreeUser(){
+                
+                let token = UserDefaults.standard.float(forKey: Keys.tokenNumber)
+                
+                if token >= 1{
+                    UserDefaults.standard.set((token - 1), forKey: Keys.tokenNumber)
+                }
+                
+            }
+            
+           
+            
+            
 
 
         }else{
@@ -298,48 +313,7 @@ class SearchResultsController: UITableViewController {
         
     }
     
-    //MARK: Check user has enough Platcoins before proceeding
-    
-    
-    func verifyPlatcoinsAvailable() {
-        
-        guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "goToIngredientsPage", sender: self)}
-        
-        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-        
-        if token >= 1{
-            
-            performSegue(withIdentifier: "goToIngredientsPage", sender: self)
-            
-        }else{
-            
-            let alert = UIAlertController(title: "Oh no 😞", message: "You've run out of Platcoins. Come back tomorrow to claim one Platcoin.", preferredStyle: .alert)
-            
-            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
-            
-            let action = UIAlertAction(title: "Okay", style: .cancel) { (cancel) in
-                alert.dismiss(animated: true, completion: nil)
-            }
-            
-            let getToken = UIAlertAction(title: "Get Platcoins now", style: .default) { (token) in
-                
-                self.performSegue(withIdentifier: "alertToPurchaseCoins", sender: self)
-                
-                
-            }
-            
-            alert.addAction(action)
-            alert.addAction(getToken)
-            present(alert, animated: true, completion: nil)
-            
-            print ("not enough tokens")
-        }
-        
-        
-        
-        
-    }
-    
+
     //MARK: - Sorting functions
     
     

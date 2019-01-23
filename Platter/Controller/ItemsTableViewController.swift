@@ -19,6 +19,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     var finalURL : String?
     var diet : String?
     var editPantry : Int?
+    let userStatus = UserStatus()
     
     
     @IBOutlet weak var fridgeTableView: UITableView!
@@ -39,10 +40,16 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         loadIngredients()
         
         firstLaunch()
-    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        //remove image for paying users
+        
+        if !userStatus.isFreeUser(){
+            plattrBtn.setImage(nil, for: .normal)
+        }
         
         if editPantry == 1{
             
@@ -162,7 +169,41 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         guard Connectivity.isConnectedToInternet else{ return Connectivity.handleNotConnected(view: self)}
         
-        performSegue(withIdentifier: "platterMe", sender: self)
+       
+            
+        guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "platterMe", sender: self)}
+            
+        let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+            
+        if token >= 1{
+                
+            performSegue(withIdentifier: "platterMe", sender: self)
+                
+        }else{
+                
+            let alert = UIAlertController(title: "Oh no 😞", message: "You've run out of Platcoins. Come back tomorrow to claim one Platcoin.", preferredStyle: .alert)
+                
+            alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+                
+            let action = UIAlertAction(title: "Okay", style: .cancel) { (cancel) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+                
+            let getToken = UIAlertAction(title: "Get Platcoins now", style: .default) { (token) in
+                    
+                self.performSegue(withIdentifier: "alertToPurchaseCoins", sender: self)
+                    
+                    
+            }
+                
+            alert.addAction(action)
+            alert.addAction(getToken)
+            present(alert, animated: true, completion: nil)
+                
+            print ("not enough tokens")
+        }
+        
+        
   
     }
     

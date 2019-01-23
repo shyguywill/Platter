@@ -17,8 +17,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var continueToRecipe: UIButton!
     @IBOutlet weak var mealDisplay: UIImageView!
     @IBOutlet weak var ingredientList: UITableView!
-    @IBOutlet weak var tokenImg: UIBarButtonItem!
-    @IBOutlet weak var tokenLabel: UIBarButtonItem!
     
     
     var delegateRecipe : Ingredients?
@@ -31,10 +29,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         ingredientList.delegate = self
         ingredientList.dataSource = self
         
-        if userStatus.isFreeUser(){
-            tokenImg.image = UIImage(named: "PlatokenB")?.withRenderingMode(.alwaysOriginal)
-
-        }
 
         if let recipe = delegateRecipe{  //Load background image + set up button + nav title
             
@@ -50,25 +44,6 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    //MARK: - Load token image and number
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        if userStatus.isFreeUser(){
-            
-            let tokens = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-            let formattedNumber = NumberFormatter()
-            formattedNumber.numberStyle = NumberFormatter.Style.decimal
-            
-            tokenLabel.title = formattedNumber.string(from: NSNumber(value: tokens))
-
-        }else{
-            
-            tokenImg.image = nil
-            tokenLabel.title = nil
-            
-        }
-    }
     
     //MARK: - TableView Datasource methods
     

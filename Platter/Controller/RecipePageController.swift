@@ -23,9 +23,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     var mealDetails : Ingredients? //Recipe details recieved from ingredient screen
     var savedMealDetails : String? //Recipe URL received from saved meals tab
-    
-    var timer : Timer?
-    
+
     let meal = Meal()
     
     var identifier : Int? //Identifies if details are coming from recipe page or saved meals tab
@@ -68,13 +66,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             
             if viewIdentifier == 1{
                 
-                if userStatus.isFreeUser(){ 
-                    timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(useToken), userInfo: nil, repeats: false)
-                }else{
-                    
-                    floatySetUp()
-                    
-                }
+                floatySetUp()
                 
             }
         
@@ -113,7 +105,6 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         super.viewWillDisappear(true)
         
         if self.isMovingFromParent{
-            timer?.invalidate()
             SVProgressHUD.dismiss()
             clean()
             
@@ -121,29 +112,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
     }
     
-    //MARK: - Token Timer
-    
-    @objc func useToken() {
-        
-        if var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as? Float{
-            
-            if token >= 1{
-                
-                token -= 1
-                
-                UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
-                
-                print ("token used")
-            }
-                
-                
-            }
-        
-        floatySetUp() //set up save after token has been used
-        
-    }
-    
-    
+
     //MARK: - Dismiss progressHUD
     
     

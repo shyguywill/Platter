@@ -102,7 +102,7 @@ class HomeScreenController: UIViewController {
         
         if firstTime.isFirstLaunch{
             
-            let firstAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering recipes. Trade in one Platcoin to view a recipe's instructions. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends.", preferredStyle: .alert)
+            let firstAlert = UIAlertController(title: "How it all works", message: "Platcoins are the key to discovering recipes. Trade in one Platcoin to see what you can make. You always get one Platcoin every day that you use Platter. To earn even more, you can share recipes with your friends.", preferredStyle: .alert)
             
             firstAlert.view.tintColor = firstAlert.setColour()
             
@@ -144,7 +144,7 @@ class HomeScreenController: UIViewController {
                     
                     
                     print ("Iamthenight-Iamjustice-IamBatman")
-                    //keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"//
+                    //self.keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
                     
                 }else{
                     

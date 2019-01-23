@@ -427,7 +427,7 @@
                                     <constraint firstAttribute="height" constant="58" id="lHJ-q5-lbR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <state key="normal" title="Platter me"/>
+                                <state key="normal" title="Platter me" image="onecoin"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -464,6 +464,7 @@
                         <outlet property="fridgeTableView" destination="bkN-uy-KS9" id="7ej-7x-ZiP"/>
                         <outlet property="plattrBtn" destination="TML-77-r4R" id="i2U-Rl-nBc"/>
                         <segue destination="b9z-5B-OgG" kind="show" identifier="platterMe" id="OcG-Z3-4EJ"/>
+                        <segue destination="zkM-w2-1dN" kind="presentation" identifier="alertToPurchaseCoins" modalTransitionStyle="crossDissolve" id="Jvg-66-uOR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ts3-MH-fVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -503,7 +504,6 @@
                     </navigationItem>
                     <connections>
                         <segue destination="mZv-k7-iiH" kind="show" identifier="goToIngredientsPage" id="f1y-Vp-aef"/>
-                        <segue destination="zkM-w2-1dN" kind="presentation" identifier="alertToPurchaseCoins" modalTransitionStyle="crossDissolve" id="pZk-65-Ohm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4A9-Lu-AG3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -573,17 +573,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ingredients" largeTitleDisplayMode="never" id="s85-nR-M6L">
                         <barButtonItem key="backBarButtonItem" title="   " id="kKP-Lb-CYf"/>
-                        <rightBarButtonItems>
-                            <barButtonItem title="10" id="LLX-8I-f8f"/>
-                            <barButtonItem image="PlatokenB" id="wyl-pW-zlz"/>
-                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="continueToRecipe" destination="WlR-lo-L0B" id="SWZ-tZ-8mi"/>
                         <outlet property="ingredientList" destination="2p0-hb-VvE" id="E7x-cH-8wM"/>
                         <outlet property="mealDisplay" destination="Gji-Nu-hQQ" id="aeW-LO-NR7"/>
-                        <outlet property="tokenImg" destination="wyl-pW-zlz" id="N0I-oN-Ckg"/>
-                        <outlet property="tokenLabel" destination="LLX-8I-f8f" id="zwr-is-L8s"/>
                         <segue destination="8ST-tg-xAg" kind="show" identifier="openRecipePage" id="6Dv-Iu-a72"/>
                     </connections>
                 </viewController>
@@ -723,11 +717,12 @@
         <image name="PlatokenB" width="40" height="40"/>
         <image name="go" width="499.67999267578125" height="499.67999267578125"/>
         <image name="menu" width="48" height="48"/>
+        <image name="onecoin" width="40" height="40"/>
         <image name="return" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5OX-sm-Qy3"/>
+        <segue reference="6Dv-Iu-a72"/>
         <segue reference="2kW-3M-L2o"/>
-        <segue reference="pZk-65-Ohm"/>
+        <segue reference="Jvg-66-uOR"/>
     </inferredMetricsTieBreakers>
 </document>
