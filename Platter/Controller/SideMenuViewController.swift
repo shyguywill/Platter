@@ -107,16 +107,32 @@ class SideMenuViewController: UITableViewController, MFMailComposeViewController
                 self.present(mc, animated: true, completion: nil)
                 
             case 1:
-                if let url = URL(string: "https://www.fiverr.com/s2/f8f3ae4c0e") {
-                    UIApplication.shared.open(url, options: [:])
+                
+                let alert = UIAlertController(title: "Platter For You", message: "We love to be a part of all things innovative and fresh, as such, our developer is eager to lend a hand to anyone with brave and new ideas, check him out on Fiverr now", preferredStyle: .alert)
+                alert.view.tintColor = alert.setColour()
+                
+                let action = UIAlertAction(title: "Go to Fiverr", style: .default) { (link) in
+                    
+                    if let url = URL(string: "https://www.fiverr.com/s2/f8f3ae4c0e") {
+                        UIApplication.shared.open(url, options: [:])
+                    }
+                    
                 }
+                let cancel = UIAlertAction(title: "No thanks", style: .cancel) { (dismiss) in
+                    alert.dismiss(animated: true, completion: nil)
+                }
+                
+                alert.addAction(action)
+                alert.addAction(cancel)
+                
+                present(alert, animated: true, completion: nil)
                 
             default:
                 break
   
             }
             
-            self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
  
         }
             
