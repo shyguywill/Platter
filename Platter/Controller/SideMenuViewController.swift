@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MessageUI
 
-class SideMenuViewController: UITableViewController {
+class SideMenuViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
-    let options = ["Dietary preference","Pantry"]
-    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Edit Pantry"]]
+    let options = ["Dietary preference","Other options"]
+    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact Us","Build me an App"]]
     
     var lastSelection : IndexPath! //Enforces selection of only one cell
     
@@ -53,6 +54,10 @@ class SideMenuViewController: UITableViewController {
         
         if indexPath.section == 0{
             cell.accessoryType = loadSavedCell(cell: indexPath.row)
+            
+        }else{
+
+            cell.accessoryType = UITableViewCell.AccessoryType.none
         }
         
 
@@ -84,9 +89,35 @@ class SideMenuViewController: UITableViewController {
         
         if section == 1{
             
-            self.dismiss(animated: true, completion: nil)
+            guard let row = tableView.indexPathForSelectedRow?.row else{return}
             
-            performSegue(withIdentifier: "editPantry", sender: self)
+            
+            switch row{
+                
+            case 0:
+                let emailTitle = "Feedback"
+                let messageBody = "Feature request or bug report?"
+                let toRecipents = ["platter.product@gmail.com"]
+                let mc: MFMailComposeViewController = MFMailComposeViewController()
+                mc.mailComposeDelegate = self
+                mc.setSubject(emailTitle)
+                mc.setMessageBody(messageBody, isHTML: false)
+                mc.setToRecipients(toRecipents)
+                
+                self.present(mc, animated: true, completion: nil)
+                
+            case 1:
+                if let url = URL(string: "https://www.fiverr.com/s2/f8f3ae4c0e") {
+                    UIApplication.shared.open(url, options: [:])
+                }
+                
+            default:
+                break
+  
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+ 
         }
             
         tableView.deselectRow(at: indexPath, animated: true)
@@ -95,11 +126,10 @@ class SideMenuViewController: UITableViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? ItemsTableViewController{
-            
-            destinationVC.editPantry = 1
-        }
+    //MARK: - Exit mail app
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
     
     //MARK: - Set cell accesory type 

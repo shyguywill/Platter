@@ -18,8 +18,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
     var searchParameters : String?
     var finalURL : String?
     var diet : String?
-    var editPantry : Int?
     let userStatus = UserStatus()
+    var emptyArray : Bool?
     
     
     @IBOutlet weak var fridgeTableView: UITableView!
@@ -50,13 +50,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         if !userStatus.isFreeUser(){
             plattrBtn.setImage(nil, for: .normal)
         }
-        
-        if editPantry == 1{
-            
-            plattrBtn.isEnabled = false
-            plattrBtn.isHidden = true
-        }
-        
+
     }
 
     // MARK: - Table view data source
@@ -169,8 +163,26 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         guard Connectivity.isConnectedToInternet else{ return Connectivity.handleNotConnected(view: self)}
         
-       
+        guard let arrayContent = emptyArray else {return}
+        
+        guard !arrayContent else {
             
+            let alert = UIAlertController(title: "Select ingredients", message: "Please select an ingredient to continue", preferredStyle: .alert)
+            
+            alert.view.tintColor = alert.setColour()
+            
+            let okay = UIAlertAction(title: "Got it", style: .cancel) { (cancel) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(okay)
+            
+            present(alert, animated: true, completion: nil)
+            
+            return
+
+        }
+        
         guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "platterMe", sender: self)}
             
         let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
@@ -274,7 +286,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
                 }
             
             }
-            plattrBtn.isEnabled = !recipeApiItems.isEmpty //Disable button if no recipes are selected
+            emptyArray = recipeApiItems.isEmpty //Disable button if no recipes are selected
             print (recipeApiItems.joined(separator: ","))
             searchParameters = recipeApiItems.joined(separator: ",")
             Search.searchParamters = recipeApiItems
