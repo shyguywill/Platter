@@ -197,8 +197,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHQ-2n-A3O">
-                                <rect key="frame" x="35" y="228" width="305" height="96"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHQ-2n-A3O">
+                                <rect key="frame" x="226" y="266" width="114" height="58"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fHQ-2n-A3O" secondAttribute="height" multiplier="305:96" id="B6H-ET-PPh"/>
@@ -215,8 +215,8 @@
                                     <action selector="purchase:" destination="zkM-w2-1dN" eventType="touchUpInside" id="Fh5-vI-Wrk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-q4-O33">
-                                <rect key="frame" x="35" y="351" width="305" height="97"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWA-q4-O33">
+                                <rect key="frame" x="226" y="386" width="114" height="62"/>
                                 <color key="backgroundColor" red="0.38301386160000001" green="0.72253614659999998" blue="0.048727979579999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rWA-q4-O33" secondAttribute="height" multiplier="305:97" id="pba-Fz-lN1"/>
@@ -234,8 +234,8 @@
                                     <action selector="purchase:" destination="zkM-w2-1dN" eventType="touchUpInside" id="gxf-1d-vVS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-Jk-JLi">
-                                <rect key="frame" x="35" y="107" width="305" height="96"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORa-Jk-JLi">
+                                <rect key="frame" x="226" y="141" width="114" height="62"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ORa-Jk-JLi" secondAttribute="height" multiplier="305:96" id="0Tq-Kp-g09"/>
@@ -320,6 +320,21 @@
                                     <action selector="restore:" destination="zkM-w2-1dN" eventType="touchUpInside" id="syy-UY-nm2"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzV-hE-gTv">
+                                <rect key="frame" x="43" y="82" width="302" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ev3-LR-CmL">
+                                <rect key="frame" x="43" y="353" width="302" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Uf-25-Ld6">
+                                <rect key="frame" x="43" y="217" width="302" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.71372549019999998" green="0.98431372549999996" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -718,7 +733,7 @@
         <image name="return" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Dv-Iu-a72"/>
+        <segue reference="5OX-sm-Qy3"/>
         <segue reference="Jvg-66-uOR"/>
     </inferredMetricsTieBreakers>
 </document>
