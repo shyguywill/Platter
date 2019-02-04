@@ -11,7 +11,7 @@ import MessageUI
 
 class SideMenuViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
-    let options = ["Dietary preference","Other options"]
+    let options = ["Dietary Preference","Other Options"]
     let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact Us","Build me an App"]]
     
     var lastSelection : IndexPath! //Enforces selection of only one cell
@@ -108,7 +108,7 @@ class SideMenuViewController: UITableViewController, MFMailComposeViewController
                 
             case 1:
                 
-                let alert = UIAlertController(title: "Platter For You", message: "We love to be a part of all things innovative and fresh, as such, our developer is eager to lend a hand to anyone with brave and new ideas, check him out on Fiverr now", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Platter For You", message: "We love to be a part of all things innovative and fresh, as such, our developer is eager to lend a hand to anyone with brave and new ideas, check him out on Fiverr now.", preferredStyle: .alert)
                 alert.view.tintColor = alert.setColour()
                 
                 let action = UIAlertAction(title: "Go to Fiverr", style: .default) { (link) in
