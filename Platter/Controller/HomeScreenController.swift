@@ -155,7 +155,7 @@ class HomeScreenController: UIViewController {
                     
                     
                     print ("Iamthenight-Iamjustice-IamBatman")
-                    self.keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
+                    //self.keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
                     
                 }else{
                     

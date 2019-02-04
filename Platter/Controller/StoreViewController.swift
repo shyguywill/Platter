@@ -12,15 +12,17 @@ import StoreKit
 class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     
     @IBOutlet weak var pageTitle: UILabel!
-        
-    @IBOutlet weak var platBtn1: UIButton!
-    @IBOutlet weak var platBtn2: UIButton!
-    @IBOutlet weak var platBtn3: UIButton!
+    @IBOutlet weak var purchaseTableView: UITableView!
     
     
     var purchaseIdentifier : Int?
     var product : [SKProduct]?
-    var productID : Set = ["com.theplatterapp.Platter.10Tokens","com.theplatterapp.Platter.30Tokens","com.theplatterapp.Platter.turnOffTokens"]
+    let productID : Set = ["com.theplatterapp.Platter.10Tokens","com.theplatterapp.Platter.30Tokens","com.theplatterapp.Platter.turnOffTokens"]
+    let productList = ["Get 10 Platcoins","Get 30 Platcoins","Get Unlimited Platcoins"]
+    let pictureList = ["PlatokenB","30Tokens","InfinitePlat"]
+    let priceList = ["1.99","3.99","7.99"]
+    
+    
     
     
     
@@ -29,9 +31,21 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         
         pageTitle.text = "Loading..."
         
-        platBtn1.isEnabled = false
-        platBtn2.isEnabled = false
-        platBtn3.isEnabled = false
+        purchaseTableView.rowHeight = 100
+        
+        purchaseTableView.delegate = self
+        purchaseTableView.dataSource = self
+        purchaseTableView.register(UINib(nibName: "CustomStore", bundle: nil), forCellReuseIdentifier: "CustomStoreViewCell")
+        
+        purchaseTableView.tableFooterView = UIView()
+        purchaseTableView.allowsSelection = false
+        
+        
+        
+        
+        //platBtn1.isEnabled = false
+        //platBtn2.isEnabled = false
+        //platBtn3.isEnabled = false
         
         SKPaymentQueue.default().add(self)
         getPurchaseInfo()
@@ -93,9 +107,11 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
             
             pageTitle.text = "Unlock Platcoins"
             
-            platBtn1.isEnabled = true
-            platBtn2.isEnabled = true
-            platBtn3.isEnabled = true
+            
+            
+            //platBtn1.isEnabled = true
+            //platBtn2.isEnabled = true
+            //platBtn3.isEnabled = true
             
          
             }
@@ -183,4 +199,69 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
     
 
 
+}
+
+extension StoreViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return productList.count
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomStoreViewCell", for: indexPath) as? StoreItemsViewCell else {fatalError("Could not establish cell")}
+        
+        cell.coinImage.image = UIImage(named: pictureList[indexPath.section])
+        cell.packageDescription.text = productList[indexPath.section]
+        cell.buyBtn.setTitle(priceList[indexPath.section], for: .normal)
+        
+        if indexPath.section == 0{
+            
+            cell.backgroundColor = UIColor(red: 37/255, green: 40/255, blue: 126/255, alpha: 1.0)
+            cell.packageDescription.textColor = UIColor.white
+        }else if indexPath.section == 1{
+            
+            cell.backgroundColor = UIColor.blue
+            
+        }else{
+            
+            cell.backgroundColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
+            cell.buyBtn.layer.borderWidth = 0.1
+            
+        }
+        
+        cell.buyBtn.layer.cornerRadius = 8
+        cell.buyBtn.clipsToBounds = true
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+
+        
+        
+        return cell
+        
+        
+        
+    }
+    
+    
+
+    
 }
