@@ -183,6 +183,12 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
 
         }
         
+        
+        let usage = UserDefaults.standard.integer(forKey: Keys.platterUsed) //***Keep track of app usage***
+        UserDefaults.standard.set((usage + 1), forKey: Keys.platterUsed)
+        
+        
+        
         guard userStatus.isFreeUser() else {return performSegue(withIdentifier: "platterMe", sender: self)}
             
         let token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float

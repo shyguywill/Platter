@@ -33,5 +33,7 @@ struct Keys {
     static let numberOfLaunches = "com.UserisLaunching.app"
     
     static let shared = "com.UserHas.Shared"
+    
+    static let platterUsed = "com.UserHas.Plattered"
 
 }
