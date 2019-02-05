@@ -69,7 +69,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
             
             
         }else{
-            pageTitle.text = "Enable in app Purchaces"
+            pageTitle.text = "Enable In App Purchaces"
         }
         
         
@@ -81,7 +81,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         
         if (products.count < 3) {
             
-            pageTitle.text = "Products not found"
+            pageTitle.text = "Products Not Found"
         
         }else{
             
@@ -113,7 +113,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
                 
             case SKPaymentTransactionState.purchased:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                pageTitle.text = "Thank you"
+                pageTitle.text = "Thank You"
                 
                 switch StoreViewController.purchaseIdentifier{
                     
@@ -138,13 +138,13 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
                 
             case SKPaymentTransactionState.restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                pageTitle.text = "Welcome back"
+                pageTitle.text = "Welcome Back"
                 
                 UserDefaults.standard.set(false, forKey: Keys.userStatus)
                 
             case SKPaymentTransactionState.failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
-                pageTitle.text = "Purchase unfulfilled"
+                pageTitle.text = "Purchase Unfulfilled"
                 
                 
 
