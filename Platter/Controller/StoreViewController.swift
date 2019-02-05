@@ -15,12 +15,11 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
     @IBOutlet weak var purchaseTableView: UITableView!
     
     
-    var purchaseIdentifier : Int?
-    var product : [SKProduct]?
+    static var purchaseIdentifier : Int?
+    static var product : [SKProduct]?
     let productID : Set = ["com.theplatterapp.Platter.10Tokens","com.theplatterapp.Platter.30Tokens","com.theplatterapp.Platter.turnOffTokens"]
     let productList = ["Get 10 Platcoins","Get 30 Platcoins","Get Unlimited Platcoins"]
     let pictureList = ["PlatokenB","30Tokens","InfinitePlat"]
-    let priceList = ["1.99","3.99","7.99"]
     
     
     
@@ -32,6 +31,7 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         pageTitle.text = "Loading..."
         
         purchaseTableView.rowHeight = 100
+        purchaseTableView.separatorStyle = .none
         
         purchaseTableView.delegate = self
         purchaseTableView.dataSource = self
@@ -40,12 +40,6 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         purchaseTableView.tableFooterView = UIView()
         purchaseTableView.allowsSelection = false
         
-        
-        
-        
-        //platBtn1.isEnabled = false
-        //platBtn2.isEnabled = false
-        //platBtn3.isEnabled = false
         
         SKPaymentQueue.default().add(self)
         getPurchaseInfo()
@@ -56,18 +50,6 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
     }
     
     
-    
-    @IBAction func purchase(_ sender: UIButton) {
-        
-        let buttonPressed = sender.tag
-        purchaseIdentifier = buttonPressed
-        
-        let payment = SKPayment(product: product![(buttonPressed - 1)])
-        SKPaymentQueue.default().add(payment)
-        
-        print (purchaseIdentifier ?? "no identifier")
-        
-    }
     
 
     @IBAction func restore(_ sender: UIButton) {
@@ -103,17 +85,11 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
         
         }else{
             
-            self.product = products
+            StoreViewController.product = products
             
             pageTitle.text = "Unlock Platcoins"
-            
-            
-            
-            //platBtn1.isEnabled = true
-            //platBtn2.isEnabled = true
-            //platBtn3.isEnabled = true
-            
-         
+            purchaseTableView.reloadData()
+
             }
         
         let invalids = response.invalidProductIdentifiers
@@ -139,20 +115,20 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
                 SKPaymentQueue.default().finishTransaction(transaction)
                 pageTitle.text = "Thank you"
                 
-                switch self.purchaseIdentifier{
+                switch StoreViewController.purchaseIdentifier{
                     
-                case 1:
+                case 0:
                     
                     var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
                     token += 10
                     UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
                     
-                case 2:
+                case 1:
                     var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
                     token += 30
                     UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
                     
-                case 3:
+                case 2:
                     UserDefaults.standard.set(false, forKey: Keys.userStatus)
                     
                 default:
@@ -214,7 +190,7 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        return 15
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -231,7 +207,18 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.coinImage.image = UIImage(named: pictureList[indexPath.section])
         cell.packageDescription.text = productList[indexPath.section]
-        cell.buyBtn.setTitle(priceList[indexPath.section], for: .normal)
+        cell.buyBtn.tag = indexPath.section
+        cell.buyBtn.isEnabled = false
+        
+        print ("Loading table")
+        
+        if let btnTitle = StoreViewController.product{
+            cell.buyBtn.setTitle("\(btnTitle[indexPath.section].price)", for: .normal)
+            cell.buyBtn.isEnabled = true
+        }
+        
+            
+        
         
         if indexPath.section == 0{
             
@@ -240,6 +227,7 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource{
         }else if indexPath.section == 1{
             
             cell.backgroundColor = UIColor.blue
+            cell.packageDescription.textColor = UIColor.white
             
         }else{
             
@@ -257,11 +245,9 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
         
-        
-        
     }
     
-    
-
-    
 }
+
+
+

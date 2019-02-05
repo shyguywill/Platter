@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import StoreKit
 
-class StoreItemsViewCell: UITableViewCell {
+class StoreItemsViewCell: UITableViewCell{
     
     @IBOutlet weak var coinImage: UIImageView!
     
@@ -27,4 +28,20 @@ class StoreItemsViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func purchaseItem(_ sender: UIButton) {
+        
+        print(sender.tag)
+
+        StoreViewController.purchaseIdentifier = sender.tag
+        
+        let payment = SKPayment(product: StoreViewController.product![sender.tag])
+        SKPaymentQueue.default().add(payment)
+        
+        
+    }
+    
+    
 }
+
+
+

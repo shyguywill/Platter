@@ -31,12 +31,17 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="vMK-aX-Vgq"/>
                         </constraints>
-                        <state key="normal" title="7.99"/>
+                        <state key="normal" title="Buy">
+                            <color key="titleColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="purchaseItem:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DYA-oA-gIk"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Unlimited Plactcoins" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKk-hJ-pbZ">
                         <rect key="frame" x="76" y="11" width="160" height="77.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
