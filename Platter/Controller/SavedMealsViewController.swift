@@ -36,6 +36,9 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         
         savedMealTable.rowHeight = 130
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap) //Tap to resign from search
+        
         // Do any additional setup after loading the view.
     }
     
@@ -139,6 +142,12 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
             
         }
         
+    }
+    
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
 }

@@ -39,7 +39,7 @@
                                     <constraint firstItem="yUR-Rd-4YE" firstAttribute="centerX" secondItem="XGV-h1-48X" secondAttribute="centerX" id="mKH-cX-nyt"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDr-Wt-x5e" userLabel="buttonView">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDr-Wt-x5e" userLabel="buttonView" customClass="SpringView" customModule="Spring">
                                 <rect key="frame" x="16" y="270" width="343" height="291"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fan-Lg-qhx">
@@ -60,6 +60,22 @@
                                     <constraint firstItem="Fan-Lg-qhx" firstAttribute="centerX" secondItem="kDr-Wt-x5e" secondAttribute="centerX" id="E4s-Ac-ExF"/>
                                     <constraint firstAttribute="width" secondItem="kDr-Wt-x5e" secondAttribute="height" multiplier="343:291" id="tt7-gg-V7z"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="repeatCount">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="2.7000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,6 +107,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonView" destination="kDr-Wt-x5e" id="bP7-Dd-YsA"/>
                         <outlet property="newMeal" destination="Fan-Lg-qhx" id="Ce9-EW-eRE"/>
                         <outlet property="tokenImage" destination="M1a-gx-9KA" id="qSM-FR-hlv"/>
                         <outlet property="tokenLbl" destination="hAe-H0-fqw" id="2gP-we-Y86"/>
@@ -634,6 +651,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5OX-sm-Qy3"/>
-        <segue reference="Jvg-66-uOR"/>
+        <segue reference="ase-6N-hVE"/>
     </inferredMetricsTieBreakers>
 </document>

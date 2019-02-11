@@ -16,6 +16,7 @@ target 'Platter' do
     pod 'SVProgressHUD'
     pod 'SideMenu'
     pod 'KeychainAccess'
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
     
    
 

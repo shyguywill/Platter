@@ -11,6 +11,7 @@ import AVFoundation
 import RealmSwift
 import KeychainAccess
 import StoreKit
+import Spring
 
 class HomeScreenController: UIViewController {
     
@@ -23,6 +24,7 @@ class HomeScreenController: UIViewController {
     @IBOutlet weak var newMeal: UIButton!
     @IBOutlet weak var tokenImage: UIBarButtonItem!
     @IBOutlet weak var tokenLbl: UIBarButtonItem!
+    @IBOutlet weak var buttonView: SpringView!
     
     
     override func viewDidLoad() {
@@ -48,6 +50,11 @@ class HomeScreenController: UIViewController {
         
         updateTokens()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+       startAnimation()
     }
     
     
@@ -155,7 +162,7 @@ class HomeScreenController: UIViewController {
                     
                     
                     print ("Iamthenight-Iamjustice-IamBatman")
-                    //self.keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
+                    self.keychain[Keys.firstDownload] = "Iamthenight-Iamjustice-IamBatman"
                     
                 }else{
                     
@@ -188,6 +195,18 @@ class HomeScreenController: UIViewController {
         }
         
 
+    }
+    
+    func startAnimation() {
+        
+        buttonView.force = 1.0
+        buttonView.delay = 0.4
+        buttonView.duration = 2.7
+        buttonView.repeatCount = 10
+        buttonView.animation = "pop"
+        
+        buttonView.animate()
+        
     }
     
     

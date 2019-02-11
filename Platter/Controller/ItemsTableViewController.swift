@@ -167,7 +167,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         guard !arrayContent else {
             
-            let alert = UIAlertController(title: "Select ingredients", message: "Please select an ingredient to continue", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Select ingredients", message: "Please select an ingredient to continue.", preferredStyle: .alert)
             
             alert.view.tintColor = alert.setColour()
             
@@ -186,6 +186,8 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         let usage = UserDefaults.standard.integer(forKey: Keys.platterUsed) //***Keep track of app usage***
         UserDefaults.standard.set((usage + 1), forKey: Keys.platterUsed)
+        
+        print (usage)
         
         
         
@@ -233,7 +235,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
         
         var textFeild = UITextField()
         
-        let alert = UIAlertController(title: "Add an item", message: "Add a new ingredient to your pantry", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add an item", message: "Add a new ingredient to your pantry.", preferredStyle: .alert)
         
         alert.view.tintColor = alert.setColour()
         

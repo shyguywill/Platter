@@ -12,6 +12,7 @@ PODS:
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
   - SideMenu (5.0.1)
+  - Spring (1.0.6)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.2.0)
 
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - RealmSwift (= 3.13.0)
   - SDWebImage
   - SideMenu
+  - Spring (from `https://github.com/MengTo/Spring.git`)
   - SVProgressHUD
   - SwiftyJSON
 
@@ -39,6 +41,15 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftyJSON
 
+EXTERNAL SOURCES:
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
+    :git: https://github.com/MengTo/Spring.git
+
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
@@ -48,9 +59,10 @@ SPEC CHECKSUMS:
   RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: fefa088d4173babc0a2664a5b1393b4c26670e1a
+PODFILE CHECKSUM: 8ca93c787b28562171aa12d71e09b3484538822a
 
 COCOAPODS: 1.5.3
