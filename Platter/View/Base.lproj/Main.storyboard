@@ -128,7 +128,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IK2-3a-ObC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="fb7-cF-Rwv">
+                                <searchBar key="tableHeaderView" contentMode="redraw" text="" id="fb7-cF-Rwv">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -651,6 +651,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5OX-sm-Qy3"/>
-        <segue reference="ase-6N-hVE"/>
+        <segue reference="Jvg-66-uOR"/>
     </inferredMetricsTieBreakers>
 </document>

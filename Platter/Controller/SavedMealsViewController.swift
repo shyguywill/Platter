@@ -36,8 +36,6 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
         
         savedMealTable.rowHeight = 130
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap) //Tap to resign from search
         
         // Do any additional setup after loading the view.
     }
@@ -145,15 +143,35 @@ class SavedMealsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
 
 }
 
 
 extension SavedMealsViewController: UISearchBarDelegate{
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+         searchBar.showsCancelButton = true
+        
+        return true
+    }
+    
+    
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+  
+        // Hide the cancel button
+        searchBar.showsCancelButton = false
+        
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
+        
+        
+    }
+    
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         mealItem = mealItem?.filter("title CONTAINS[cd] %@",searchBar.text!)
@@ -165,6 +183,8 @@ extension SavedMealsViewController: UISearchBarDelegate{
   
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        searchBar.showsCancelButton = false
         
         if searchBar.text?.count == 0{
             
