@@ -197,7 +197,7 @@ class ItemsTableViewController: UIViewController, UITableViewDelegate,UITableVie
             
         if token >= 1{
             
-            UserDefaults.standard.set(false, forKey: Keys.shared)
+            //UserDefaults.standard.set(false, forKey: Keys.shared)
                 
             performSegue(withIdentifier: "platterMe", sender: self)
                 

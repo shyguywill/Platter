@@ -240,38 +240,38 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         let alert = UIAlertController(title: "Did you love it? Then share it!", message: "❤️", preferredStyle: .actionSheet)
         
-        let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (button) in
-            
-            
-            if let sharedMeal = self.mealDetails{
-                
-                let content = FBSDKShareLinkContent()
-                content.contentURL = URL(string: sharedMeal.meal_url)
-                
-                let hashtag = FBSDKHashtag()
-                hashtag.stringRepresentation = "#Platter"
-                
-                content.hashtag = hashtag
-                
-                FBSDKShareDialog.show(from: self, with: content, delegate: nil)
-
-            }
-            
-            if self.userStatus.isFreeUser(){
-                
-                let userHasShared = UserDefaults.standard.bool(forKey: Keys.shared)
-                
-                guard !userHasShared else {return}
-                
-                UserDefaults.standard.set(true, forKey: Keys.shared)
-                let token = UserDefaults.standard.float(forKey: Keys.tokenNumber)
-                UserDefaults.standard.set((token + 0.2), forKey: Keys.tokenNumber)
-                
-                
-            }
-            self.clean()
-            
-        }
+//        let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (button) in
+//
+//
+//            if let sharedMeal = self.mealDetails{
+//
+//                let content = FBSDKShareLinkContent()
+//                content.contentURL = URL(string: sharedMeal.meal_url)
+//
+//                let hashtag = FBSDKHashtag()
+//                hashtag.stringRepresentation = "#Platter"
+//
+//                content.hashtag = hashtag
+//
+//                FBSDKShareDialog.show(from: self, with: content, delegate: nil)
+//
+//            }
+//
+//            if self.userStatus.isFreeUser(){
+//
+//                let userHasShared = UserDefaults.standard.bool(forKey: Keys.shared)
+//
+//                guard !userHasShared else {return}
+//
+//                UserDefaults.standard.set(true, forKey: Keys.shared)
+//                let token = UserDefaults.standard.float(forKey: Keys.tokenNumber)
+//                UserDefaults.standard.set((token + 0.2), forKey: Keys.tokenNumber)
+//
+//
+//            }
+//            self.clean()
+//
+//        }
         
         let copyLink = UIAlertAction(title: "Copy link", style: .default) { (done) in
             
@@ -291,7 +291,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         }
         
         
-        alert.addAction(facebook)
+        //alert.addAction(facebook)
         alert.addAction(copyLink)
         alert.addAction(cancel)
         

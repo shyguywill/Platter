@@ -41,6 +41,7 @@ class HomeScreenController: UIViewController {
         
         firstLaunch()
         launchCounter()
+        playSound()
 
     }
     
@@ -78,7 +79,7 @@ class HomeScreenController: UIViewController {
     
     @IBAction func newMeal(_ sender: UIButton) {
         
-        playSound()
+       audioPlayer?.play()
     }
     
     //MARK: - Open store
@@ -97,13 +98,13 @@ class HomeScreenController: UIViewController {
         do{
             guard let soundURL = Bundle.main.url(forResource: "ButtonSound", withExtension: "mp3")else{ return}
             
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode.default)
-            
-            try AVAudioSession.sharedInstance().setActive(true)
-            
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             
-            audioPlayer?.play()
+            audioPlayer?.prepareToPlay()
+            
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
+            
+            try AVAudioSession.sharedInstance().setActive(true)
             
         }catch let error{
             
