@@ -35,5 +35,5 @@ struct Keys {
     static let shared = "com.UserHas.Shared"
     
     static let platterUsed = "com.UserHas.Plattered"
-
+    
 }
