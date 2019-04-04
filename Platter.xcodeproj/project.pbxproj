@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7501402321E35A1000AAFACC /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501402221E35A1000AAFACC /* UserStatus.swift */; };
 		7501402721E3B4E500AAFACC /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501402621E3B4E500AAFACC /* SideMenuViewController.swift */; };
 		751947E621ADE43A0059F59A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751947E521ADE43A0059F59A /* AppDelegate.swift */; };
 		751947E821ADE43A0059F59A /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751947E721ADE43A0059F59A /* HomeScreenController.swift */; };
@@ -38,6 +37,7 @@
 		75E09F0521B816EE00248DC3 /* SearchResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0421B816EE00248DC3 /* SearchResultsController.swift */; };
 		75E09F0821B81D0900248DC3 /* CustomRecipesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */; };
 		75E09F0921B81D0900248DC3 /* CustomRecipes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E09F0721B81D0900248DC3 /* CustomRecipes.xib */; };
+		75E59E2F22510016002DE02B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75E59E2E22510015002DE02B /* GoogleService-Info.plist */; };
 		75ED85AA224EB49A00F35BFE /* AuthPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED85A9224EB49A00F35BFE /* AuthPageViewController.swift */; };
 		75EDF4AF21DFF17900CF8409 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDF4AE21DFF17900CF8409 /* Connectivity.swift */; };
 		75F51A5F21C93B7700C0F24A /* RealmFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F51A5E21C93B7700C0F24A /* RealmFunctions.swift */; };
@@ -60,7 +60,6 @@
 
 /* Begin PBXFileReference section */
 		63639D5AA00D45184F1747A3 /* Pods-Platter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Platter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Platter/Pods-Platter.release.xcconfig"; sourceTree = "<group>"; };
-		7501402221E35A1000AAFACC /* UserStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
 		7501402621E3B4E500AAFACC /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		751947E221ADE43A0059F59A /* Platter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		751947E521ADE43A0059F59A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,8 +80,6 @@
 		7553BD7621B6B35E00DD9D85 /* CustomItemsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomItemsViewCell.swift; sourceTree = "<group>"; };
 		7553BD7721B6B35E00DD9D85 /* CustomItems.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomItems.xib; sourceTree = "<group>"; };
 		75599CE721B951BE00696D87 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
-		75620BC421EA115700499CE9 /* FBSDKFramework */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FBSDKFramework; sourceTree = "<group>"; };
-		7565D9CE21E958440031BEBA /* Platter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Platter-Bridging-Header.h"; sourceTree = "<group>"; };
 		756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ButtonSound.mp3; sourceTree = "<group>"; };
 		756CC6A521DFA3D800D4A6D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		757F610321DB91F100D6544B /* IngredientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientLabel.swift; sourceTree = "<group>"; };
@@ -98,6 +95,7 @@
 		75E09F0421B816EE00248DC3 /* SearchResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsController.swift; sourceTree = "<group>"; };
 		75E09F0621B81D0900248DC3 /* CustomRecipesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRecipesViewCell.swift; sourceTree = "<group>"; };
 		75E09F0721B81D0900248DC3 /* CustomRecipes.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomRecipes.xib; sourceTree = "<group>"; };
+		75E59E2E22510015002DE02B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75ED85A9224EB49A00F35BFE /* AuthPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageViewController.swift; sourceTree = "<group>"; };
 		75EDF4AE21DFF17900CF8409 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		75F51A5E21C93B7700C0F24A /* RealmFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFunctions.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		751910F221ADF96100CB9BE5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7501402221E35A1000AAFACC /* UserStatus.swift */,
 				7553BD6F21B6A60B00DD9D85 /* Store.swift */,
 				7553BD7321B6A7D100DD9D85 /* Pantry.swift */,
 				75A49CA721C00DF1000D1C36 /* SavedMeals.swift */,
@@ -232,8 +229,7 @@
 				751910F221ADF96100CB9BE5 /* Model */,
 				751947EC21ADE43B0059F59A /* Assets.xcassets */,
 				751947F121ADE43B0059F59A /* Info.plist */,
-				7565D9CE21E958440031BEBA /* Platter-Bridging-Header.h */,
-				75620BC421EA115700499CE9 /* FBSDKFramework */,
+				75E59E2E22510015002DE02B /* GoogleService-Info.plist */,
 			);
 			path = Platter;
 			sourceTree = "<group>";
@@ -355,6 +351,7 @@
 			files = (
 				75E09F0921B81D0900248DC3 /* CustomRecipes.xib in Resources */,
 				7593BEAA2208D53600E44C1F /* CustomStore.xib in Resources */,
+				75E59E2F22510016002DE02B /* GoogleService-Info.plist in Resources */,
 				7553BD7921B6B35E00DD9D85 /* CustomItems.xib in Resources */,
 				751947F021ADE43B0059F59A /* LaunchScreen.storyboard in Resources */,
 				751947ED21ADE43B0059F59A /* Assets.xcassets in Resources */,
@@ -407,7 +404,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Platter/Pods-Platter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -416,6 +414,7 @@
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -423,7 +422,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -432,6 +432,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -485,7 +486,6 @@
 				75FF9A2B21C84A6800894E07 /* SearchParameters.swift in Sources */,
 				7553BD7421B6A7D100DD9D85 /* Pantry.swift in Sources */,
 				7553BD6E21B69C1F00DD9D85 /* ItemsTableViewController.swift in Sources */,
-				7501402321E35A1000AAFACC /* UserStatus.swift in Sources */,
 				752023B321D39F5000312257 /* FirstLaunch.swift in Sources */,
 				75A49CA621BFEAA0000D1C36 /* SavedMealsViewController.swift in Sources */,
 				7501402721E3B4E500AAFACC /* SideMenuViewController.swift in Sources */,
@@ -663,7 +663,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Platter",
-					"$(PROJECT_DIR)/Platter/FBSDKFramework",
 				);
 				INFOPLIST_FILE = Platter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -674,7 +673,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theplatterapp.Platter-foodrecipes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Platter/Platter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -693,7 +691,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Platter",
-					"$(PROJECT_DIR)/Platter/FBSDKFramework",
 				);
 				INFOPLIST_FILE = Platter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -704,7 +701,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theplatterapp.Platter-foodrecipes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Platter/Platter-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

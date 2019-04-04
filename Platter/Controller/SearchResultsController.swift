@@ -16,7 +16,7 @@ import SVProgressHUD
 class SearchResultsController: UITableViewController {
     
     var sortParam : Int?
-    let userStatus = UserStatus()
+   
     var delegateURL : String? {
         
         didSet{
@@ -267,17 +267,7 @@ class SearchResultsController: UITableViewController {
             SVProgressHUD.dismiss()
             
             
-            //MARK: - Take  1 token for free users
-            
-            if userStatus.isFreeUser(){
-                
-                let token = UserDefaults.standard.float(forKey: Keys.tokenNumber)
-                
-                if token >= 1{
-                    UserDefaults.standard.set((token - 1), forKey: Keys.tokenNumber)
-                }
-                
-            }
+
             
            
             

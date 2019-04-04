@@ -12,7 +12,7 @@ import MessageUI
 class SideMenuViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     let options = ["Dietary Preference","Other Options"]
-    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact Us","Build me an app"]]
+    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact Us","Rate us"]]
     
     var lastSelection : IndexPath! //Enforces selection of only one cell
     
@@ -108,24 +108,19 @@ class SideMenuViewController: UITableViewController, MFMailComposeViewController
                 
             case 1:
                 
-                let alert = UIAlertController(title: "Platter For You", message: "We love to be a part of all things innovative and fresh, as such, our developer is eager to lend a hand to anyone with brave and new ideas, check him out on Fiverr now.", preferredStyle: .alert)
-                alert.view.tintColor = alert.setColour()
+                let appID = 1447882723
+                //let urlStr = "itms-apps://itunes.apple.com/app/id\(appID)" // (Option 1) Open App Page
+                let urlStr = "itms-apps://itunes.apple.com/app/viewContentsUserReviews?id=\(appID)" // (Option 2) Open App Review Tab
                 
-                let action = UIAlertAction(title: "Go to Fiverr", style: .default) { (link) in
-                    
-                    if let url = URL(string: "https://www.fiverr.com/s2/f8f3ae4c0e") {
-                        UIApplication.shared.open(url, options: [:])
+                
+                if let url = URL(string: urlStr), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(url)
                     }
-                    
-                }
-                let cancel = UIAlertAction(title: "No thanks", style: .cancel) { (dismiss) in
-                    alert.dismiss(animated: true, completion: nil)
                 }
                 
-                alert.addAction(action)
-                alert.addAction(cancel)
-                
-                present(alert, animated: true, completion: nil)
                 
             default:
                 break
@@ -135,6 +130,7 @@ class SideMenuViewController: UITableViewController, MFMailComposeViewController
             //self.dismiss(animated: true, completion: nil)
  
         }
+
             
         tableView.deselectRow(at: indexPath, animated: true)
         

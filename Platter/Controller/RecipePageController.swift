@@ -32,17 +32,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
     var pageIdentifier = 0 // Monitors how many times URL did load for first time navigation alert
     
-    let userStatus = UserStatus()
     
-    var fbShareLabl : String{
-        
-        if userStatus.isFreeUser(){
-            
-            return "Share on Facebook (+0.20💰)"
-        }
-        
-        return "Share on Facebook"
-    }
     
 
     override func viewDidLoad() {
@@ -142,7 +132,8 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         floaty.buttonColor = UIColor(red: (50/255.0), green: (251/255.0), blue: (164/255.0), alpha: 1.0)
         
-        floaty.addItem("Save Meal", icon: UIImage(named: "unliked")) { (likeButton) in
+        
+        floaty.addItem("Save Meal",icon: UIImage(named: "unliked")) { (likeButton) in
             
         
             if let details = self.mealDetails{
@@ -188,6 +179,20 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
     
         }
         
+        floaty.addItem("Copy Link", icon: UIImage(named: "copy")) { (link) in
+            if let sharedMeal = self.mealDetails{
+                
+                UIPasteboard.general.string = sharedMeal.meal_url
+                
+                print (sharedMeal.meal_url)
+                
+            }
+        }
+        
+        
+        
+        
+        
         self.view.addSubview(floaty)
         
     }
@@ -200,7 +205,7 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
         
         if firstTime.isFirstLaunch{
             
-            let alert = UIAlertController(title: "Recipe page", message: "Feel free to go wandering, when you do, just press the Return button (next to share) to get back your recipe.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Recipe page", message: "Feel free to go wandering, when you do, just press the Return button to get back your recipe.", preferredStyle: .alert)
             
             alert.view.tintColor = UIColor(red: 50/255, green: 251/255, blue: 164/255, alpha: 1.0)
             
@@ -233,71 +238,9 @@ class RecipePageController: UIViewController, WKNavigationDelegate {
             }
         }
     
-    //MARK: - Share button
+  
     
     
-    @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        
-        let alert = UIAlertController(title: "Did you love it? Then share it!", message: "❤️", preferredStyle: .actionSheet)
-        
-//        let facebook = UIAlertAction(title: fbShareLabl, style: .default) { (button) in
-//
-//
-//            if let sharedMeal = self.mealDetails{
-//
-//                let content = FBSDKShareLinkContent()
-//                content.contentURL = URL(string: sharedMeal.meal_url)
-//
-//                let hashtag = FBSDKHashtag()
-//                hashtag.stringRepresentation = "#Platter"
-//
-//                content.hashtag = hashtag
-//
-//                FBSDKShareDialog.show(from: self, with: content, delegate: nil)
-//
-//            }
-//
-//            if self.userStatus.isFreeUser(){
-//
-//                let userHasShared = UserDefaults.standard.bool(forKey: Keys.shared)
-//
-//                guard !userHasShared else {return}
-//
-//                UserDefaults.standard.set(true, forKey: Keys.shared)
-//                let token = UserDefaults.standard.float(forKey: Keys.tokenNumber)
-//                UserDefaults.standard.set((token + 0.2), forKey: Keys.tokenNumber)
-//
-//
-//            }
-//            self.clean()
-//
-//        }
-        
-        let copyLink = UIAlertAction(title: "Copy link", style: .default) { (done) in
-            
-            if let sharedMeal = self.mealDetails{
-                
-                UIPasteboard.general.string = sharedMeal.meal_url
-                
-            }
-            //Alert to confirm?
-            self.clean()
-        }
-        
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
-            
-            alert.dismiss(animated: true, completion: nil)
-        }
-        
-        
-        //alert.addAction(facebook)
-        alert.addAction(copyLink)
-        alert.addAction(cancel)
-        
-        present(alert, animated: true, completion: nil)
-        
-    }
     
     //MARK: - Return button
     

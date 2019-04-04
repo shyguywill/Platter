@@ -107,54 +107,54 @@ class StoreViewController: UIViewController, SKPaymentTransactionObserver, SKPro
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         
-        for transaction in transactions{
-            
-            switch transaction.transactionState{
-                
-            case SKPaymentTransactionState.purchased:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                pageTitle.text = "Thank You"
-                
-                switch StoreViewController.purchaseIdentifier{
-                    
-                case 0:
-                    
-                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-                    token += 10
-                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
-                    
-                case 1:
-                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
-                    token += 30
-                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
-                    
-                case 2:
-                    UserDefaults.standard.set(false, forKey: Keys.userStatus)
-                    
-                default:
-                    break
-                    
-                }
-                
-            case SKPaymentTransactionState.restored:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                pageTitle.text = "Welcome Back"
-                
-                UserDefaults.standard.set(false, forKey: Keys.userStatus)
-                
-            case SKPaymentTransactionState.failed:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                pageTitle.text = "Purchase Unfulfilled"
-                
-                
-
-            default:
-                break
-                
-                
-            }
-            
-        }
+//        for transaction in transactions{
+//            
+//            switch transaction.transactionState{
+//                
+//            case SKPaymentTransactionState.purchased:
+//                SKPaymentQueue.default().finishTransaction(transaction)
+//                pageTitle.text = "Thank You"
+//                
+//                switch StoreViewController.purchaseIdentifier{
+//                    
+//                case 0:
+//                    
+//                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+//                    token += 10
+//                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+//                    
+//                case 1:
+//                    var token = UserDefaults.standard.object(forKey: Keys.tokenNumber) as! Float
+//                    token += 30
+//                    UserDefaults.standard.set(token, forKey: Keys.tokenNumber)
+//                    
+//                case 2:
+//                    UserDefaults.standard.set(false, forKey: Keys.userStatus)
+//                    
+//                default:
+//                    break
+//                    
+//                }
+//                
+//            case SKPaymentTransactionState.restored:
+//                SKPaymentQueue.default().finishTransaction(transaction)
+//                pageTitle.text = "Welcome Back"
+//                
+//                UserDefaults.standard.set(false, forKey: Keys.userStatus)
+//                
+//            case SKPaymentTransactionState.failed:
+//                SKPaymentQueue.default().finishTransaction(transaction)
+//                pageTitle.text = "Purchase Unfulfilled"
+//                
+//                
+//
+//            default:
+//                break
+//                
+//                
+//            }
+//            
+//        }
         
         
     }

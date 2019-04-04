@@ -20,7 +20,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     var delegateRecipe : Ingredients?
-    let userStatus = UserStatus()
+    
         
 
     override func viewDidLoad() {

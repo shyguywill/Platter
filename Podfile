@@ -15,8 +15,9 @@ target 'Platter' do
     pod 'Floaty'
     pod 'SVProgressHUD'
     pod 'SideMenu'
-    pod 'KeychainAccess'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
     
    
 

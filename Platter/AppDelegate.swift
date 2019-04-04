@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 @UIApplicationMain
@@ -14,57 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    //MARK: - Assign free user token after elapsed time
     
-    func assignFreeUserTokens(){
-        
-        
-        let userStatus = UserStatus()
-        
-        if userStatus.isFreeUser(){
-            
-            let savedDate = UserDefaults.standard.object(forKey: Keys.timeOfLaunch) as! Date
-            
-            let timePassed = Float(Date().timeIntervalSince(savedDate))
-            
-            if timePassed >= 43200{
-                
-                
-                let currentDate = Date()
-                
-                print (currentDate)
-                
-                UserDefaults.standard.set(currentDate, forKey: Keys.timeOfLaunch)
-                
-                let tokens = UserDefaults.standard.float(forKey: Keys.tokenNumber)
-                
-                print (tokens)
-                
-                UserDefaults.standard.set((tokens + 0.5), forKey: Keys.tokenNumber)
-                
-                print ("got a token")
-            }
-            
-            print (timePassed)
-            
-        }
-        
-    }
-    
-    //MARK: - Facebook method
-    
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
-//
-//        // Add any custom logic here.
-//
-//        return handled
-//    }
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        FirebaseApp.configure()
 
         
         //MARK: - Fire during first launch to set user as free user, allocate 1 tokens and take note of date
@@ -73,22 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if firstTime.isFirstLaunch{
             
-            UserDefaults.standard.set(1, forKey: Keys.tokenNumber)
- 
-            UserDefaults.standard.set(true, forKey: Keys.userStatus)
-            
             UserDefaults.standard.set(0, forKey: Keys.mealOption)
-            
-            let launchDate = Date()
-            
-            print (launchDate)
-            
-            UserDefaults.standard.set(launchDate, forKey: Keys.timeOfLaunch)
+           
         }
         
-        //MARK: Assign tokens
-        
-        assignFreeUserTokens()
     
         //print (Realm.Configuration.defaultConfiguration.fileURL)
         // Override point for customization after application launch.
@@ -109,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
         //MARK: Assign tokens
-        assignFreeUserTokens()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
