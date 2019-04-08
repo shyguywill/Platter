@@ -74,6 +74,7 @@
 		7519480521ADE4F00059F59A /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		752023B221D39F5000312257 /* FirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunch.swift; sourceTree = "<group>"; };
 		752023B421D3D39A00312257 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7533E84A225775BB009712F7 /* Platter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Platter.entitlements; sourceTree = "<group>"; };
 		7553BD6D21B69C1F00DD9D85 /* ItemsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTableViewController.swift; sourceTree = "<group>"; };
 		7553BD6F21B6A60B00DD9D85 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		7553BD7321B6A7D100DD9D85 /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
@@ -221,6 +222,7 @@
 		751947E421ADE43A0059F59A /* Platter */ = {
 			isa = PBXGroup;
 			children = (
+				7533E84A225775BB009712F7 /* Platter.entitlements */,
 				7519480521ADE4F00059F59A /* Secrets.swift */,
 				751947E521ADE43A0059F59A /* AppDelegate.swift */,
 				756CC6A321DF8CA200D4A6D5 /* ButtonSound.mp3 */,
@@ -315,6 +317,9 @@
 								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -657,6 +662,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Platter/Platter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MYKQMKKCS8;
@@ -685,6 +691,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Platter/Platter.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MYKQMKKCS8;

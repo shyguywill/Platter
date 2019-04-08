@@ -74,13 +74,13 @@ class AuthPageViewController: UIViewController {
         
         guard emailTxtFld.text?.count != 0 else {
             errorLbl.isHidden = false
-            errorLbl.text = "Enter Email"
+            errorLbl.text = "Enter email"
             return
         }
         
         guard passwrdTxtFld.text?.count != 0 else {
             errorLbl.isHidden = false
-            errorLbl.text = "Enter Password"
+            errorLbl.text = "Enter password"
             return
         }
         
