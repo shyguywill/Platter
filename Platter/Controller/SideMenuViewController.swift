@@ -12,7 +12,7 @@ import MessageUI
 class SideMenuViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     let options = ["Dietary Preference","Other Options"]
-    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact Us","Rate us"]]
+    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact Us","Rate Us"]]
     
     var lastSelection : IndexPath! //Enforces selection of only one cell
     
@@ -99,18 +99,24 @@ class SideMenuViewController: UITableViewController, MFMailComposeViewController
                 let messageBody = "Feature request or bug report?"
                 let toRecipents = ["platter.product@gmail.com"]
                 let mc: MFMailComposeViewController = MFMailComposeViewController()
-                mc.mailComposeDelegate = self
-                mc.setSubject(emailTitle)
-                mc.setMessageBody(messageBody, isHTML: false)
-                mc.setToRecipients(toRecipents)
                 
-                self.present(mc, animated: true, completion: nil)
+                
+                
+                if MFMailComposeViewController.canSendMail(){ //Check if user still has native mail app
+                    
+                    mc.mailComposeDelegate = self
+                    mc.setSubject(emailTitle)
+                    mc.setMessageBody(messageBody, isHTML: false)
+                    mc.setToRecipients(toRecipents)
+                    
+                    self.present(mc, animated: true, completion: nil)
+                }
                 
             case 1:
                 
                 let appID = 1447882723
-                //let urlStr = "itms-apps://itunes.apple.com/app/id\(appID)" // (Option 1) Open App Page
-                let urlStr = "itms-apps://itunes.apple.com/app/viewContentsUserReviews?id=\(appID)" // (Option 2) Open App Review Tab
+                
+                let urlStr = "itms-apps://itunes.apple.com/app/viewContentsUserReviews?id=\(appID)"
                 
                 
                 if let url = URL(string: urlStr), UIApplication.shared.canOpenURL(url) {

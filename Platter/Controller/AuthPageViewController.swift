@@ -25,7 +25,7 @@ class AuthPageViewController: UIViewController {
     @IBOutlet weak var termsAndCondtns: UIButton!
     @IBOutlet weak var acceptTermsSwtch: UISwitch!
     @IBOutlet weak var signUpBtn: UIButton!
-    @IBOutlet weak var signedUpView: UIView!
+   
     
 
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class AuthPageViewController: UIViewController {
         
         errorLbl.isHidden = true
         acceptTermsSwtch.isOn = false
-        signedUpView.isHidden = true
+        
         
         if hasSignedUp{
             
@@ -138,7 +138,7 @@ class AuthPageViewController: UIViewController {
     
     func userSignedUp(){
         
-        infoLbl.isHidden = true
+        infoLbl.text = "Thank you for signing up!"
         emailTxtFld.isHidden = true
         passwrdTxtFld.isHidden = true
         confirmTxtFld.isHidden = true
@@ -146,7 +146,7 @@ class AuthPageViewController: UIViewController {
         acceptTermsSwtch.isHidden = true
         signUpBtn.isHidden = true
         
-        signedUpView.isHidden = false
+        
         
         
         

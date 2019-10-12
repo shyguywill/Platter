@@ -38,12 +38,7 @@ class HomeScreenController: UIViewController {
             logInBtn.setTitle("Coming Soon", for: .normal)
         }
         
-        
-        
-     
         launchCounter()
-        playSound()
-
     }
     
 
@@ -54,13 +49,12 @@ class HomeScreenController: UIViewController {
     }
     
     
- 
     
         //MARK: - Play sound
     
     @IBAction func newMeal(_ sender: UIButton) {
-        
-       audioPlayer?.play()
+        playSound()
+        audioPlayer?.play()
     }
     
     
@@ -71,7 +65,6 @@ class HomeScreenController: UIViewController {
             
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             
-            audioPlayer?.prepareToPlay()
             
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers, .allowAirPlay])
             
@@ -84,6 +77,10 @@ class HomeScreenController: UIViewController {
     
     }
     
+    
+    @IBAction func openCookBook(_ sender: UIButton) {
+        performSegue(withIdentifier: "openCookBook", sender: self)
+    }
     
     
     func launchCounter() {

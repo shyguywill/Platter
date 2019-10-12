@@ -36,7 +36,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             mealDisplay.kf.setImage(with: url)
             
             self.navigationItem.title = "\(recipe.label)"
-            continueToRecipe.setTitle("Go to recipe on \(recipe.source)", for: .normal)
+            continueToRecipe.setTitle("Open recipe on \(recipe.source)", for: .normal)
             continueToRecipe.titleLabel?.textAlignment = NSTextAlignment.center
             
         }
@@ -60,7 +60,9 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.textLabel?.text = delegateRecipe?.recipeList[indexPath.row]
     
-        cell.textLabel?.numberOfLines = 3
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        //cell.textLabel?.font = UIFont(name:"Helvetica Neue", size:14)
         
     
         return cell
