@@ -20,6 +20,7 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     var delegateRecipe : Ingredients?
+    var checked = [Bool]()
     
         
 
@@ -59,16 +60,32 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell", for: indexPath)
         
         cell.textLabel?.text = delegateRecipe?.recipeList[indexPath.row]
-    
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = .byWordWrapping
-        //cell.textLabel?.font = UIFont(name:"Helvetica Neue", size:14)
+        
+        checked.append(false)
+        
+        if !checked[indexPath.row] {
+            cell.accessoryType = .none
+        } else if checked[indexPath.row] {
+            cell.accessoryType = .checkmark
+        }
         
     
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .checkmark {
+                cell.accessoryType = .none
+                checked[indexPath.row] = false
+            } else {
+                cell.accessoryType = .checkmark
+                checked[indexPath.row] = true
+            }
+        }
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
