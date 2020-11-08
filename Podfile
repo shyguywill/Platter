@@ -9,7 +9,7 @@ target 'Platter' do
 
     pod 'Alamofire'
     pod 'SwiftyJSON'
-    pod 'RealmSwift', '3.13.0'
+    pod 'RealmSwift', '~> 4.4.1'
     pod 'SDWebImage'
     pod 'Kingfisher'
     pod 'Floaty'

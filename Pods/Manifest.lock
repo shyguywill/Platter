@@ -61,11 +61,11 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - Realm (3.13.0):
-    - Realm/Headers (= 3.13.0)
-  - Realm/Headers (3.13.0)
-  - RealmSwift (3.13.0):
-    - Realm (= 3.13.0)
+  - Realm (4.4.1):
+    - Realm/Headers (= 4.4.1)
+  - Realm/Headers (4.4.1)
+  - RealmSwift (4.4.1):
+    - Realm (= 4.4.1)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
@@ -80,7 +80,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Floaty
   - Kingfisher
-  - RealmSwift (= 3.13.0)
+  - RealmSwift (~> 4.4.1)
   - SDWebImage
   - SideMenu
   - Spring (from `https://github.com/MengTo/Spring.git`)
@@ -88,7 +88,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Firebase
     - FirebaseAnalytics
@@ -102,12 +102,13 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Kingfisher
     - nanopb
-    - Realm
-    - RealmSwift
     - SDWebImage
     - SideMenu
     - SVProgressHUD
     - SwiftyJSON
+  trunk:
+    - Realm
+    - RealmSwift
 
 EXTERNAL SOURCES:
   Spring:
@@ -132,14 +133,14 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  Realm: 5edd2ee65406aef591a4f9895de5a3440e51b3d8
-  RealmSwift: be5ebc7930e37cd3376b41cec7f21984528aaa16
+  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
+  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: a9d280714a96b69583d406c37c00864ce241dc96
+PODFILE CHECKSUM: 8cab7e6ae6938dfa014d3ac744e18ca268ddd699
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.3

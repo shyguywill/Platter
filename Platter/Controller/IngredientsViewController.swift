@@ -36,9 +36,9 @@ class IngredientsViewController: UIViewController, UITableViewDelegate, UITableV
             mealDisplay.kf.setImage(with: url)
             
             self.navigationItem.title = "\(recipe.label)"
-            continueToRecipe.setTitle("Open recipe on \(recipe.source)", for: .normal)
-            continueToRecipe.titleLabel?.textAlignment = NSTextAlignment.center
-            
+            continueToRecipe.contentEdgeInsets = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
+//            continueToRecipe.setTitle("Open recipe on \(recipe.source)", for: .normal)
+//            continueToRecipe.titleLabel?.textAlignment = NSTextAlignment.center
         }
         
         
