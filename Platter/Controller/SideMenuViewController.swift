@@ -12,7 +12,7 @@ import MessageUI
 class SideMenuViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     let options = ["Dietary Preference","Other Options"]
-    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact Us","Rate Us"]]
+    let optionsArray = [["None","High-Protein","Low-Carb","Vegan","Vegetarian","Gluten-Free","Pescatarian"],["Contact us","Rate us"]]
     
     var lastSelection : IndexPath! //Enforces selection of only one cell
     

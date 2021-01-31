@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BjC-Rp-Jvy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BjC-Rp-Jvy">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,7 +75,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-p2-BRH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-p2-BRH">
                                 <rect key="frame" x="94" y="65" width="132" height="32"/>
                                 <color key="backgroundColor" red="0.1960784314" green="0.98431372549999996" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
@@ -93,6 +93,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AMp-p2-BRH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="21" id="NhN-jC-Fjd"/>
@@ -105,7 +106,6 @@
                             <constraint firstItem="kDr-Wt-x5e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="saI-o2-MKt"/>
                             <constraint firstItem="XGV-h1-48X" firstAttribute="centerX" secondItem="kDr-Wt-x5e" secondAttribute="centerX" id="xQx-N5-I5i"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="NfO-PW-qOY">
                         <barButtonItem key="backBarButtonItem" title=" " id="aam-k7-hMT"/>
@@ -161,6 +161,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Une-Zg-cbX"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IK2-3a-ObC" firstAttribute="leading" secondItem="Y5z-Ke-Ekf" secondAttribute="leading" id="BK1-zD-v4R"/>
@@ -168,7 +169,6 @@
                             <constraint firstItem="IK2-3a-ObC" firstAttribute="bottom" secondItem="Une-Zg-cbX" secondAttribute="bottom" id="pH4-4c-nkl"/>
                             <constraint firstItem="IK2-3a-ObC" firstAttribute="top" secondItem="Une-Zg-cbX" secondAttribute="top" id="rYC-BY-hDP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Une-Zg-cbX"/>
                     </view>
                     <navigationItem key="navigationItem" id="Gzv-IF-nkt">
                         <barButtonItem key="backBarButtonItem" title=" " id="46c-7b-QDd"/>
@@ -241,7 +241,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="85" id="buv-BO-ksg"/>
                                                 </constraints>
-                                                <string key="text">Platter's CookBook will allow you to share your own wonderful recipes with other Platter users! Sign up to be notified when CookBook becomes avaliable. </string>
+                                                <string key="text">Platter's CookBook will allow you to share your own wonderful recipes with other Platter users! Sign up to be notified when CookBook becomes available. </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -276,7 +276,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="nA7-6N-sUE">
                                                         <rect key="frame" x="0.0" y="179" width="265" height="31"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufU-LN-iNE">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufU-LN-iNE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="202" height="31"/>
                                                                 <state key="normal" title="Accept Terms and Conditions"/>
                                                                 <connections>
@@ -288,7 +288,7 @@
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-8s-UrC">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Idb-8s-UrC">
                                                         <rect key="frame" x="0.0" y="225" width="265" height="30"/>
                                                         <color key="backgroundColor" red="0.1960784314" green="0.98431372549999996" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -329,6 +329,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="P7V-5P-gs3"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="N3Q-Qx-4EH" firstAttribute="trailing" secondItem="P7V-5P-gs3" secondAttribute="trailing" id="10Z-5E-tEC"/>
@@ -337,7 +338,6 @@
                             <constraint firstItem="N3Q-Qx-4EH" firstAttribute="leading" secondItem="P7V-5P-gs3" secondAttribute="leading" id="fb3-g7-0po"/>
                             <constraint firstItem="g5y-e8-TRa" firstAttribute="width" secondItem="J3q-Ei-Ngb" secondAttribute="width" id="tY9-Bs-7E4"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="P7V-5P-gs3"/>
                     </view>
                     <size key="freeformSize" width="375" height="700"/>
                     <connections>
@@ -363,7 +363,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyv-jZ-QDr">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qyv-jZ-QDr">
                                 <rect key="frame" x="35" y="461" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.15686274510000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -381,7 +381,7 @@
                                     <action selector="dismissScreen:" destination="zkM-w2-1dN" eventType="touchUpInside" id="4x7-CR-Kpc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-Pa-pNS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUI-Pa-pNS">
                                 <rect key="frame" x="99.5" y="403" width="121" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="apF-BH-2UT"/>
@@ -426,6 +426,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="h2H-8C-0ZW"/>
                         <color key="backgroundColor" red="0.71372549019999998" green="0.98431372549999996" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lUI-Pa-pNS" firstAttribute="centerX" secondItem="qyv-jZ-QDr" secondAttribute="centerX" id="2qx-EA-kT5"/>
@@ -441,7 +442,6 @@
                             <constraint firstItem="872-au-bU3" firstAttribute="centerX" secondItem="lUI-Pa-pNS" secondAttribute="centerX" id="kBs-Xz-cdj"/>
                             <constraint firstItem="qyv-jZ-QDr" firstAttribute="leading" secondItem="h2H-8C-0ZW" secondAttribute="leading" constant="35" id="yE1-j2-tH3"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="h2H-8C-0ZW"/>
                     </view>
                     <connections>
                         <outlet property="pageTitle" destination="872-au-bU3" id="dxV-gw-Dxw"/>
@@ -455,7 +455,7 @@
         <!--Side Menu Navigation Controller-->
         <scene sceneID="QgU-F3-crC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnTap="YES" id="XAj-6i-QVs" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="XAj-6i-QVs" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arD-aW-6Wu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -520,6 +520,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="I21-g6-78p"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bkN-uy-KS9" firstAttribute="leading" secondItem="WKv-p3-TKy" secondAttribute="leading" id="S6e-Xl-fxK"/>
@@ -530,7 +531,6 @@
                             <constraint firstItem="TML-77-r4R" firstAttribute="leading" secondItem="I21-g6-78p" secondAttribute="leading" constant="75" id="pTq-Rd-f6n"/>
                             <constraint firstItem="bkN-uy-KS9" firstAttribute="top" secondItem="WKv-p3-TKy" secondAttribute="topMargin" constant="-8" id="rzX-oU-7kQ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="I21-g6-78p"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pantry" id="UVI-JA-gO3">
                         <barButtonItem key="backBarButtonItem" title=" " id="zaI-7p-klA"/>
@@ -611,7 +611,7 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="83V-uY-IcE">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-6f-aoC">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-6f-aoC">
                                                         <rect key="frame" x="59.5" y="65" width="201" height="50"/>
                                                         <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -681,6 +681,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Bo-2L-NZb"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="geR-D4-VlG" firstAttribute="width" secondItem="lSG-bT-dpM" secondAttribute="width" id="MnP-1s-eNR"/>
@@ -692,7 +693,6 @@
                             <constraint firstItem="Wba-3v-8p7" firstAttribute="top" secondItem="6Bo-2L-NZb" secondAttribute="top" id="wxo-4i-CJg"/>
                             <constraint firstItem="Wba-3v-8p7" firstAttribute="width" secondItem="lSG-bT-dpM" secondAttribute="width" id="xdv-7C-QbE"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Bo-2L-NZb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ingredients" largeTitleDisplayMode="never" id="s85-nR-M6L">
                         <barButtonItem key="backBarButtonItem" title="   " id="kKP-Lb-CYf"/>
@@ -725,6 +725,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="77g-uA-aMx"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oJe-0G-Dxo" firstAttribute="top" secondItem="77g-uA-aMx" secondAttribute="top" id="QZS-jJ-Hyh"/>
@@ -732,7 +733,6 @@
                             <constraint firstAttribute="trailing" secondItem="oJe-0G-Dxo" secondAttribute="trailing" id="lDx-xB-QNe"/>
                             <constraint firstItem="oJe-0G-Dxo" firstAttribute="leading" secondItem="dgb-sm-BZX" secondAttribute="leading" id="vK9-Ul-Mhb"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="77g-uA-aMx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" largeTitleDisplayMode="never" id="eQp-BB-Jbf">
                         <barButtonItem key="rightBarButtonItem" title="Return" image="return" id="bCe-1g-vaI">
